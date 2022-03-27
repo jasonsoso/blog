@@ -15,13 +15,13 @@
     <atom:link href="http://blog.jasonsoso.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>欢迎来到我的技术流水账~</description>
-    <pubDate>Mon, 21 Mar 2022 05:40:44 GMT</pubDate>
+    <pubDate>Mon, 21 Mar 2022 06:53:35 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
       <title>Hello World</title>
-      <link>http://blog.jasonsoso.com/2022/03/18/hello-world/</link>
-      <guid>http://blog.jasonsoso.com/2022/03/18/hello-world/</guid>
+      <link>http://blog.jasonsoso.com/2022/03/hello-world/</link>
+      <guid>http://blog.jasonsoso.com/2022/03/hello-world/</guid>
       <pubDate>Fri, 18 Mar 2022 06:46:25 GMT</pubDate>
       
       <description>&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
@@ -37,14 +37,14 @@
       <category domain="http://blog.jasonsoso.com/tags/hello-wold/">hello wold</category>
       
       
-      <comments>http://blog.jasonsoso.com/2022/03/18/hello-world/#disqus_thread</comments>
+      <comments>http://blog.jasonsoso.com/2022/03/hello-world/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>单点登录(SSO)概要设计</title>
-      <link>http://blog.jasonsoso.com/2016/04/15/sso/</link>
-      <guid>http://blog.jasonsoso.com/2016/04/15/sso/</guid>
+      <link>http://blog.jasonsoso.com/2016/04/sso/</link>
+      <guid>http://blog.jasonsoso.com/2016/04/sso/</guid>
       <pubDate>Thu, 14 Apr 2016 16:00:00 GMT</pubDate>
       
       <description>&lt;h3 id=&quot;第一章-单点登录sso&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#第一章-单点登录sso&quot;&gt;&lt;/a&gt; 第一章	： 单点登录(SSO)&lt;/h3&gt;
@@ -67,19 +67,19 @@
       <category domain="http://blog.jasonsoso.com/tags/SSO/">SSO</category>
       
       
-      <comments>http://blog.jasonsoso.com/2016/04/15/sso/#disqus_thread</comments>
+      <comments>http://blog.jasonsoso.com/2016/04/sso/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>搜索引擎ElasticSearch</title>
-      <link>http://blog.jasonsoso.com/2015/12/16/elasticsearch/</link>
-      <guid>http://blog.jasonsoso.com/2015/12/16/elasticsearch/</guid>
+      <link>http://blog.jasonsoso.com/2015/12/elasticsearch/</link>
+      <guid>http://blog.jasonsoso.com/2015/12/elasticsearch/</guid>
       <pubDate>Tue, 15 Dec 2015 16:00:00 GMT</pubDate>
       
       <description>&lt;h3 id=&quot;第一章-搜索引擎&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#第一章-搜索引擎&quot;&gt;&lt;/a&gt; 第一章 搜索引擎&lt;/h3&gt;
 &lt;h4 id=&quot;搜索引擎简单结构&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#搜索引擎简单结构&quot;&gt;&lt;/a&gt; 搜索引擎简单结构&lt;/h4&gt;
-&lt;p&gt;&lt;img data-src=&quot;http://cdn.jasonsoso.com/2015/index.png&quot; alt=&quot;搜索引擎简单结构&quot;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&quot;http://cdn.jasonsoso.com/2015/index.png&quot; alt=&quot;搜索引擎简单结构&quot;&gt;&lt;/p&gt;</description>
       
       
       
@@ -92,14 +92,14 @@
       <category domain="http://blog.jasonsoso.com/tags/ElasticSearch/">ElasticSearch</category>
       
       
-      <comments>http://blog.jasonsoso.com/2015/12/16/elasticsearch/#disqus_thread</comments>
+      <comments>http://blog.jasonsoso.com/2015/12/elasticsearch/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>Hadoop学习（一）Hadoop2.6.0伪分布式安装与配置</title>
-      <link>http://blog.jasonsoso.com/2015/05/03/install-hadoop/</link>
-      <guid>http://blog.jasonsoso.com/2015/05/03/install-hadoop/</guid>
+      <link>http://blog.jasonsoso.com/2015/05/install-hadoop/</link>
+      <guid>http://blog.jasonsoso.com/2015/05/install-hadoop/</guid>
       <pubDate>Sat, 02 May 2015 16:00:00 GMT</pubDate>
       
       <description>&lt;h3 id=&quot;环境&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#环境&quot;&gt;&lt;/a&gt; 环境&lt;/h3&gt;
@@ -119,14 +119,14 @@
       <category domain="http://blog.jasonsoso.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</category>
       
       
-      <comments>http://blog.jasonsoso.com/2015/05/03/install-hadoop/#disqus_thread</comments>
+      <comments>http://blog.jasonsoso.com/2015/05/install-hadoop/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>论框架设计(一)</title>
-      <link>http://blog.jasonsoso.com/2015/02/06/design-1/</link>
-      <guid>http://blog.jasonsoso.com/2015/02/06/design-1/</guid>
+      <link>http://blog.jasonsoso.com/2015/02/design-1/</link>
+      <guid>http://blog.jasonsoso.com/2015/02/design-1/</guid>
       <pubDate>Thu, 05 Feb 2015 16:00:00 GMT</pubDate>
       
       <description>&lt;h3 id=&quot;web&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#web&quot;&gt;&lt;/a&gt; Web&lt;/h3&gt;
@@ -145,14 +145,14 @@
       <category domain="http://blog.jasonsoso.com/tags/%E6%A1%86%E6%9E%B6/">框架</category>
       
       
-      <comments>http://blog.jasonsoso.com/2015/02/06/design-1/#disqus_thread</comments>
+      <comments>http://blog.jasonsoso.com/2015/02/design-1/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>Gitbook（一）：从github到kindle</title>
-      <link>http://blog.jasonsoso.com/2015/02/02/gitbook-1/</link>
-      <guid>http://blog.jasonsoso.com/2015/02/02/gitbook-1/</guid>
+      <link>http://blog.jasonsoso.com/2015/02/gitbook-1/</link>
+      <guid>http://blog.jasonsoso.com/2015/02/gitbook-1/</guid>
       <pubDate>Sun, 01 Feb 2015 16:00:00 GMT</pubDate>
       
       <description>&lt;h3 id=&quot;简说&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#简说&quot;&gt;&lt;/a&gt; 简说&lt;/h3&gt;
@@ -172,14 +172,14 @@
       <category domain="http://blog.jasonsoso.com/tags/kindle/">kindle</category>
       
       
-      <comments>http://blog.jasonsoso.com/2015/02/02/gitbook-1/#disqus_thread</comments>
+      <comments>http://blog.jasonsoso.com/2015/02/gitbook-1/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>B树索引与位图索引</title>
-      <link>http://blog.jasonsoso.com/2015/01/18/B-tree-indexes-and-bitmap-indexes/</link>
-      <guid>http://blog.jasonsoso.com/2015/01/18/B-tree-indexes-and-bitmap-indexes/</guid>
+      <link>http://blog.jasonsoso.com/2015/01/B-tree-indexes-and-bitmap-indexes/</link>
+      <guid>http://blog.jasonsoso.com/2015/01/B-tree-indexes-and-bitmap-indexes/</guid>
       <pubDate>Sat, 17 Jan 2015 16:00:00 GMT</pubDate>
       
       <description>&lt;h3 id=&quot;简说&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#简说&quot;&gt;&lt;/a&gt; 简说&lt;/h3&gt;
@@ -199,7 +199,7 @@
       <category domain="http://blog.jasonsoso.com/tags/%E4%BD%8D%E5%9B%BE/">位图</category>
       
       
-      <comments>http://blog.jasonsoso.com/2015/01/18/B-tree-indexes-and-bitmap-indexes/#disqus_thread</comments>
+      <comments>http://blog.jasonsoso.com/2015/01/B-tree-indexes-and-bitmap-indexes/#disqus_thread</comments>
       
     </item>
     
