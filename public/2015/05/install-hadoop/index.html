@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.1.0">
+
+<link rel="preconnect" href="//fonts.loli.net" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/favicon.ico" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.loli.net/css?family=Noto+Sans+SC:300,300italic,400,400italic,700,700italic%7CRoboto+Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/themes/orange/pace-theme-minimal.css">
+  <script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"tech.jasonsoso.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"buttons","active":"gitalk","storage":true,"lazyload":true,"nav":{"gitalk":{"order":-2}}},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="环境  准备Ubuntu 14.04 LTS  并更新apt  执行">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hadoop学习（一）Hadoop2.6.0伪分布式安装与配置">
+<meta property="og:url" content="http://tech.jasonsoso.com/2015/05/install-hadoop/index.html">
+<meta property="og:site_name" content="Jason">
+<meta property="og:description" content="环境  准备Ubuntu 14.04 LTS  并更新apt  执行">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://cdn.jasonsoso.com/2015/start-all.png">
+<meta property="og:image" content="http://cdn.jasonsoso.com/2015/50070.png">
+<meta property="og:image" content="http://cdn.jasonsoso.com/2015/50090.png">
+<meta property="article:published_time" content="2015-05-02T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-03-21T05:40:44.489Z">
+<meta property="article:author" content="Jason">
+<meta property="article:tag" content="分布式">
+<meta property="article:tag" content="hadoop">
+<meta property="article:tag" content="大数据">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://cdn.jasonsoso.com/2015/start-all.png">
+
+
+<link rel="canonical" href="http://tech.jasonsoso.com/2015/05/install-hadoop/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://tech.jasonsoso.com/2015/05/install-hadoop/","path":"2015/05/install-hadoop/","title":"Hadoop学习（一）Hadoop2.6.0伪分布式安装与配置"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Hadoop学习（一）Hadoop2.6.0伪分布式安装与配置 | Jason</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Jason" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="Jason" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Jason</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">技术流水账</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83"><span class="nav-number">1.</span> <span class="nav-text"> 环境</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%87%86%E5%A4%87ubuntu-1404-lts-%E5%B9%B6%E6%9B%B4%E6%96%B0apt"><span class="nav-number">1.1.</span> <span class="nav-text"> 准备Ubuntu 14.04 LTS  并更新apt</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E9%9D%99%E6%80%81ip%E5%9C%B0%E5%9D%80"><span class="nav-number">1.2.</span> <span class="nav-text"> 设置静态IP地址</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9hostname"><span class="nav-number">1.3.</span> <span class="nav-text"> 修改HostName</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ip%E4%B8%8Ehostname%E7%BB%91%E5%AE%9A"><span class="nav-number">1.4.</span> <span class="nav-text"> IP与HostName绑定</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9B%E5%BB%BAhadoop%E7%B3%BB%E7%BB%9F%E7%94%A8%E6%88%B7"><span class="nav-number">1.5.</span> <span class="nav-text"> 创建hadoop系统用户</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sun-jdk-7"><span class="nav-number">1.6.</span> <span class="nav-text"> Sun JDK 7</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85ssh-server-%E9%85%8D%E7%BD%AEssh%E6%97%A0%E5%AF%86%E7%A0%81%E7%99%BB%E9%99%86"><span class="nav-number">1.7.</span> <span class="nav-text"> 安装SSH server、配置SSH无密码登陆</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hadoop260%E5%AE%89%E8%A3%85"><span class="nav-number">2.</span> <span class="nav-text"> hadoop2.6.0安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE"><span class="nav-number">3.</span> <span class="nav-text"> 配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8"><span class="nav-number">4.</span> <span class="nav-text"> 启动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E4%BE%8B%E4%B8%8E%E6%B5%8B%E8%AF%95"><span class="nav-number">5.</span> <span class="nav-text"> 实例与测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AC%E6%96%87%E9%85%8D%E7%BD%AE%E4%B8%BB%E8%A6%81%E6%98%AF%E4%B8%BA%E4%BC%AA%E5%B8%83%E5%BC%8F%E9%82%A3%E4%B9%88hadoop-%E9%9B%86%E7%BE%A4%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E5%A4%A7%E8%87%B4%E4%B8%BA%E5%A6%82%E4%B8%8B"><span class="nav-number">6.</span> <span class="nav-text"> 本文配置主要是为伪布式，那么Hadoop 集群的安装配置大致为如下:</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Jason"
+      src="/images/jason.jpg">
+  <p class="site-author-name" itemprop="name">Jason</p>
+  <div class="site-description" itemprop="description">欢迎来到我的技术流水账~</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/jasonsoso" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;jasonsoso" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:648636045@qq.com" title="E-Mail → mailto:648636045@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/tanjianna" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;tanjianna" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fas fa-rss fa-fw"></i></a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://tech.jasonsoso.com/2015/05/install-hadoop/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/jason.jpg">
+      <meta itemprop="name" content="Jason">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jason">
+      <meta itemprop="description" content="欢迎来到我的技术流水账~">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Hadoop学习（一）Hadoop2.6.0伪分布式安装与配置 | Jason">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Hadoop学习（一）Hadoop2.6.0伪分布式安装与配置
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2015-05-03 00:00:00" itemprop="dateCreated datePublished" datetime="2015-05-03T00:00:00+08:00">2015-05-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-03-21 13:40:44" itemprop="dateModified" datetime="2022-03-21T13:40:44+08:00">2022-03-21</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>4.7k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>4 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="环境"><a class="markdownIt-Anchor" href="#环境"></a> 环境</h3>
+<h4 id="准备ubuntu-1404-lts-并更新apt"><a class="markdownIt-Anchor" href="#准备ubuntu-1404-lts-并更新apt"></a> 准备Ubuntu 14.04 LTS  并更新apt</h4>
+<ol>
+<li>执行</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>可更改数据源进行update</li>
+</ol>
+<h4 id="设置静态ip地址"><a class="markdownIt-Anchor" href="#设置静态ip地址"></a> 设置静态IP地址</h4>
+<p>必须设置静态IP，为以后的集群，分布式等做铺垫</p>
+<ol>
+<li>编辑interfaces文件</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/network/interfaces</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>写入如下:</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#如果做集群，则192.168.1.100此IP为主节点</span></span><br><span class="line">auto eth0</span><br><span class="line">iface eth0 inet static</span><br><span class="line">address 192.168.1.100 	<span class="comment">#IP地址		</span></span><br><span class="line">gateway 192.168.1.1 	<span class="comment">#网关	</span></span><br><span class="line">netmask 255.255.255.0</span><br><span class="line">network 192.168.1.0	</span><br><span class="line">broadcast 192.168.1.255</span><br><span class="line">	</span><br><span class="line"><span class="comment">#如果做集群，则192.168.1.101此IP为从节点</span></span><br><span class="line">auto eth0</span><br><span class="line">iface eth0 inet static</span><br><span class="line">address 192.168.1.101 	<span class="comment">#IP地址		</span></span><br><span class="line">gateway 192.168.1.1 	<span class="comment">#网关	</span></span><br><span class="line">netmask 255.255.255.0</span><br><span class="line">network 192.168.1.0	</span><br><span class="line">broadcast 192.168.1.255</span><br></pre></td></tr></table></figure>
+<h4 id="修改hostname"><a class="markdownIt-Anchor" href="#修改hostname"></a> 修改HostName</h4>
+<ol>
+<li>编辑hostname文件</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/hostname</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>写入<code>ubuntu</code></li>
+<li>那么ubuntu就是本机器的主机名，可以<code>hostname</code>进行查看</li>
+</ol>
+<h4 id="ip与hostname绑定"><a class="markdownIt-Anchor" href="#ip与hostname绑定"></a> IP与HostName绑定</h4>
+<ol>
+<li>执行</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/hosts</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>写入如下：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#如果做集群，则192.168.1.101此IP为从节点</span></span><br><span class="line">192.168.1.100 hadoop-yarn.jasonsoso.com hadoop-yarn master</span><br><span class="line"></span><br><span class="line"><span class="comment">#如果做集群，则192.168.1.101此IP为从节点</span></span><br><span class="line">192.168.1.101 slave1.jasonsoso.com slave1</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>那么访问<code>hadoop-yarn.jasonsoso.com</code>则访问IP为<code>192.168.1.100</code>的机器</li>
+</ol>
+<h4 id="创建hadoop系统用户"><a class="markdownIt-Anchor" href="#创建hadoop系统用户"></a> 创建hadoop系统用户</h4>
+<p>如果你安装 Ubuntu 的时候不是用的 hadoop 用户，那么最好增加一个名为 hadoop 的用户，密码可设置为 123456 (密码随意指定)。</p>
+<ol>
+<li>创建新用户</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo useradd -m hadoop -s /bin/bash</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>修改密码</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo passwd hadoop</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>为 hadoop 用户增加管理员权限，方便部署</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo adduser hadoop sudo</span><br></pre></td></tr></table></figure>
+<h4 id="sun-jdk-7"><a class="markdownIt-Anchor" href="#sun-jdk-7"></a> Sun JDK 7</h4>
+<p>详情请参考 <a target="_blank" rel="noopener" href="http://www.cnblogs.com/fnng/archive/2013/01/30/2883815.html" title="ubuntu下配置java环境">ubuntu下配置java环境</a> 和 <a target="_blank" rel="noopener" href="http://www.webupd8.org/2012/06/how-to-install-oracle-java-7-in-debian.html" title="HOW TO INSTALL ORACLE JAVA 7 IN DEBIAN VIA REPOSITORY">HOW TO INSTALL ORACLE JAVA 7 IN DEBIAN VIA REPOSITORY</a></p>
+<h4 id="安装ssh-server-配置ssh无密码登陆"><a class="markdownIt-Anchor" href="#安装ssh-server-配置ssh无密码登陆"></a> 安装SSH server、配置SSH无密码登陆</h4>
+<ol>
+<li>执行安装</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install openssh-server</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>登陆本机</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh localhost</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>配置SSH无密码登陆</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo ssh-keygen -t rsa		<span class="comment"># 生成密钥	</span></span><br><span class="line">sudo ssh-copy-id ubuntu@localhost	<span class="comment"># 拷贝密钥到某台机器		</span></span><br><span class="line">sudo ssh localhost	<span class="comment">#进行无密码登陆	</span></span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>如果做集群，则配置SSH无密码登陆，实现多机器互通</li>
+</ol>
+<h3 id="hadoop260安装"><a class="markdownIt-Anchor" href="#hadoop260安装"></a> hadoop2.6.0安装</h3>
+<ol>
+<li>下载hadoop2.6.0	<br />
+官网hadoop下载http://hadoop.apache.org/releases.html</li>
+<li>解压tar包</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo tar -zxvf ./hadoop-2.6.0.tar.gz -C /opt/hadoop  <span class="comment"># 解压到/opt/hadoop中</span></span><br></pre></td></tr></table></figure>
+<pre><code>则hadoop的安装根目录为：`/opt/hadoop/hadoop-2.6.0`
+</code></pre>
+<ol start="3">
+<li>修改文件权限</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">chown</span> -R hadoop:hadoop ./hadoop-2.6.0</span><br></pre></td></tr></table></figure>
+<h3 id="配置"><a class="markdownIt-Anchor" href="#配置"></a> 配置</h3>
+<ol>
+<li>配置环境变量	<br />
+下面<code>#set Hadoop</code>才是真正的hadoop配置，而<code>#set java environment</code>是必须的java环境变量，<code>#set findbugs</code>、<code>#set ant</code>、<code>#PROTOBUF</code>和<code>#set maven environment</code>是编译hadoop代码必须的，现在没有编译hadoop源码，只需要java环境和hadoop环境足矣。</li>
+</ol>
+<p>执行<code>sudo vi /etc/profile</code>修改profile文件			<br />
+添加如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#set java environment</span></span><br><span class="line">JAVA_HOME=/usr/java/jdk1.7.0_60</span><br><span class="line"><span class="built_in">export</span> JRE_HOME=/usr/java/jdk1.7.0_60/jre</span><br><span class="line"><span class="built_in">export</span> CLASSPATH=.:<span class="variable">$JAVA_HOME</span>/lib:<span class="variable">$JRE_HOME</span>/lib:<span class="variable">$CLASSPATH</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$JAVA_HOME</span>/bin:<span class="variable">$JRE_HOME</span>/bin:<span class="variable">$PATH</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#set findbugs</span></span><br><span class="line"><span class="built_in">export</span> LD_LIBRARY_PATH=/usr/local/lib/</span><br><span class="line"><span class="built_in">export</span> FINDBUGS_HOME=/usr/local/findbugs-3.0.0</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$FINDBUGS_HOME</span>/bin</span><br><span class="line"></span><br><span class="line"><span class="comment">#set ant</span></span><br><span class="line">ANT_HOME=/usr/local/apache-ant-1.9.4</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$ANT_HOME</span>/bin</span><br><span class="line"></span><br><span class="line"><span class="comment">#PROTOBUF</span></span><br><span class="line"><span class="built_in">export</span> PROTOC_HOME=/usr/local/protobuf-2.5.0</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$PROTOC_HOME</span>/bin</span><br><span class="line"><span class="built_in">export</span> LD_LIBRARY_PATH=<span class="variable">$LD_LIBRARY_PATH</span>:<span class="variable">$PROTOC_HOME</span>/lib`</span><br><span class="line">	</span><br><span class="line"><span class="comment">#set maven environment</span></span><br><span class="line">M2_HOME=/usr/maven/apache-maven-3.0.5</span><br><span class="line"><span class="built_in">export</span> MAVEN_OPTS=<span class="string">&quot;-Xms256m -Xmx512m&quot;</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$M2_HOME</span>/bin:<span class="variable">$PATH</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#set Hadoop</span></span><br><span class="line"><span class="built_in">export</span> HADOOP_HOME=/opt/hadoop/hadoop-2.6.0</span><br><span class="line"><span class="built_in">export</span> HADOOP_INSTALL=<span class="variable">$HADOOP_HOME</span></span><br><span class="line"><span class="built_in">export</span> HADOOP_MAPRED_HOME=<span class="variable">$HADOOP_HOME</span></span><br><span class="line"><span class="built_in">export</span> HADOOP_COMMON_HOME=<span class="variable">$HADOOP_HOME</span></span><br><span class="line"><span class="built_in">export</span> HADOOP_HDFS_HOME=<span class="variable">$HADOOP_HOME</span></span><br><span class="line"><span class="built_in">export</span> HADOOP_YARN_HOME=<span class="variable">$HADOOP_HOME</span></span><br><span class="line"><span class="built_in">export</span> HADOOP_COMMON_LIB_NATIVE_DIR=<span class="variable">$HADOOP_HOME</span>/lib/native</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$HADOOP_HOME</span>/sbin:<span class="variable">$HADOOP_HOME</span>/bin</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li><a target="_blank" rel="noopener" href="http://hadoop-env.sh">hadoop-env.sh</a></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/java/jdk1.7.0_60		</span><br><span class="line"><span class="built_in">export</span> HADOOP_HOME=/opt/hadoop/hadoop-2.6.0</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li><a target="_blank" rel="noopener" href="http://yarn-env.sh">yarn-env.sh</a></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/java/jdk1.7.0_60		</span><br><span class="line"><span class="built_in">export</span> HADOOP_HOME=/opt/hadoop/hadoop-2.6.0</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li><a target="_blank" rel="noopener" href="http://mapred-env.sh">mapred-env.sh</a></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/java/jdk1.7.0_60		</span><br><span class="line"><span class="built_in">export</span> HADOOP_HOME=/opt/hadoop/hadoop-2.6.0</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>core-site.xml</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">	&lt;name&gt;fs.default.name&lt;/name&gt;</span><br><span class="line">	&lt;value&gt;hdfs://hadoop-yarn.dragon.org:8020&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line"></span><br><span class="line">&lt;property&gt;</span><br><span class="line">		&lt;name&gt;hadoop.tmp.dir&lt;/name&gt;</span><br><span class="line">		&lt;value&gt;/opt/modules/hadoop-2.2.0/data/tmp&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure>
+<ol start="6">
+<li>hdfs-site.xml</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;property&gt;		</span><br><span class="line">		&lt;name&gt;dfs.replication&lt;/name&gt;</span><br><span class="line">		&lt;value&gt;1&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">              &lt;name&gt;dfs.permissions&lt;/name&gt;</span><br><span class="line">              &lt;value&gt;<span class="literal">false</span>&lt;/value&gt;</span><br><span class="line">      &lt;/property&gt;</span><br></pre></td></tr></table></figure>
+<ol start="7">
+<li>yarn-site.xml</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">	&lt;name&gt;yarn.nodemanager.aux-services&lt;/name&gt;</span><br><span class="line">	&lt;value&gt;mapreduce_shuffle&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure>
+<ol start="8">
+<li>mapred-site.xml</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;property&gt;	 	        		</span><br><span class="line">	&lt;name&gt;mapreduce.framework.name&lt;/name&gt;</span><br><span class="line">	&lt;value&gt;yarn&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="启动"><a class="markdownIt-Anchor" href="#启动"></a> 启动</h3>
+<ol>
+<li>
+<p>启动HDFS(NameNode、DataNode、SecondaryNameNode)</p>
+<ul>
+<li>NameNode 格式化</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/hdfs namenode -format</span><br></pre></td></tr></table></figure>
+<pre><code>- 启动NameNode
+</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sbin/hadoop-daemon.sh start namenode</span><br></pre></td></tr></table></figure>
+<pre><code>- 启动DataNode
+</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sbin/hadoop-daemon.sh start datanode</span><br></pre></td></tr></table></figure>
+<pre><code>- 启动SecondaryNameNode
+</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sbin/hadoop-daemon.sh start secondarynamenode</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>启动YARN(ResourceManager、NodeManager)
+<ul>
+<li>启动ResourceManger</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sbin/yarn-daemon.sh start resourcemanager</span><br></pre></td></tr></table></figure>
+<pre><code>- 启动NodeManager
+</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sbin/yarn-daemon.sh start nodemanager</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>启动历史服务器</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sbin/mr-jobhistory-daemon.sh start historyserver</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>启动方式</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sbin/start-dfs.sh</span><br><span class="line">sbin/start-yarn.sh</span><br><span class="line">sbin/start-all.sh</span><br></pre></td></tr></table></figure>
+<h3 id="实例与测试"><a class="markdownIt-Anchor" href="#实例与测试"></a> 实例与测试</h3>
+<p>启动后，用命令<code>jps</code>检查是否启动</p>
+<p><img data-src="http://cdn.jasonsoso.com/2015/start-all.png" alt="" /></p>
+<p>访问HDFD的NameNode url <code>http://hadoop-yarn.jasonsoso.com:50070/</code></p>
+<p><img data-src="http://cdn.jasonsoso.com/2015/50070.png" alt="" /></p>
+<p>访问HDFD的Secondary NameNode  url <code>http://hadoop-yarn.jasonsoso.com:50090/</code></p>
+<p><img data-src="http://cdn.jasonsoso.com/2015/50090.png" alt="" /></p>
+<h3 id="本文配置主要是为伪布式那么hadoop-集群的安装配置大致为如下"><a class="markdownIt-Anchor" href="#本文配置主要是为伪布式那么hadoop-集群的安装配置大致为如下"></a> 本文配置主要是为伪布式，那么Hadoop 集群的安装配置大致为如下:</h3>
+<ol>
+<li>
+<p>选定一台机器作为 Master 主节点</p>
+</li>
+<li>
+<p>在 Master 主机上配置hadoop用户、安装SSH server、安装Java环境</p>
+</li>
+<li>
+<p>在 Master 主机上安装Hadoop，并完成配置</p>
+</li>
+<li>
+<p>在其他主机上配置hadoop用户、安装SSH server、安装Java环境</p>
+</li>
+<li>
+<p>将 Master 主机上的Hadoop目录复制到其他主机上</p>
+</li>
+<li>
+<p>开启、使用 Hadoop</p>
+</li>
+<li>
+<p>需要特别注意的是:</p>
+<ul>
+<li>网络配置hosts</li>
+<li>SSH无密码登陆各节点</li>
+<li>部分配置</li>
+</ul>
+</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><div class="post-block">
+	
+    <div style="text-align:center;color:#696969;font-size:14px;">------------- 本 文 结 束 ❤️ 感 谢 阅 读 -------------</div>
+    
+</div>
+
+          <div class="reward-container">
+  <div></div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/weixin.jpg" alt="Jason 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/zhifubao.jpg" alt="Jason 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" rel="tag"><i class="fa fa-tag"></i> 分布式</a>
+              <a href="/tags/hadoop/" rel="tag"><i class="fa fa-tag"></i> hadoop</a>
+              <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag"><i class="fa fa-tag"></i> 大数据</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2015/02/design-1/" rel="prev" title="论框架设计(一)">
+                  <i class="fa fa-chevron-left"></i> 论框架设计(一)
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2015/12/elasticsearch/" rel="next" title="搜索引擎ElasticSearch">
+                  搜索引擎ElasticSearch <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">粤ICP备15021619号 </a>
+  </div>
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jason</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">14k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">13 分钟</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css" integrity="sha256-94CNZ/bJtwrBYZrXhCOBvpB4rZUzBnvAsirFv31TMGo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/copy-tex.min.css" integrity="sha256-+oItviPaTmqjDhk4y4fLLUIMgRQYDV/ZyrRNvQiebWM=" crossorigin="anonymous">
+  <script class="next-config" data-name="katex" type="application/json">{"copy_tex_js":{"url":"https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/copy-tex.min.js","integrity":"sha256-etSqbSVF4+Lwe8MGk/Vanc1sR+mWv+qOG73fxWw9p94="}}</script>
+  <script src="/js/third-party/math/katex.js"></script>
+
+
+
+</body>
+</html>
