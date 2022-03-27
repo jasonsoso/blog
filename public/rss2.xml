@@ -4,15 +4,15 @@
   xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Jason</title>
-    <link>http://blog.jasonsoso.com/</link>
+    <link>http://tech.jasonsoso.com/</link>
     
     <image>
-      <url>http://blog.jasonsoso.com/images/favicon.ico</url>
+      <url>http://tech.jasonsoso.com/images/favicon.ico</url>
       <title>Jason</title>
-      <link>http://blog.jasonsoso.com/</link>
+      <link>http://tech.jasonsoso.com/</link>
     </image>
     
-    <atom:link href="http://blog.jasonsoso.com/rss2.xml" rel="self" type="application/rss+xml"/>
+    <atom:link href="http://tech.jasonsoso.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>欢迎来到我的技术流水账~</description>
     <pubDate>Mon, 21 Mar 2022 06:53:35 GMT</pubDate>
@@ -20,8 +20,8 @@
     
     <item>
       <title>Hello World</title>
-      <link>http://blog.jasonsoso.com/2022/03/hello-world/</link>
-      <guid>http://blog.jasonsoso.com/2022/03/hello-world/</guid>
+      <link>http://tech.jasonsoso.com/2022/03/hello-world/</link>
+      <guid>http://tech.jasonsoso.com/2022/03/hello-world/</guid>
       <pubDate>Fri, 18 Mar 2022 06:46:25 GMT</pubDate>
       
       <description>&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
@@ -31,20 +31,20 @@
       
       
       
-      <category domain="http://blog.jasonsoso.com/categories/%E5%A4%87%E5%BF%98%E5%BD%95/">备忘录</category>
+      <category domain="http://tech.jasonsoso.com/categories/%E5%A4%87%E5%BF%98%E5%BD%95/">备忘录</category>
       
       
-      <category domain="http://blog.jasonsoso.com/tags/hello-wold/">hello wold</category>
+      <category domain="http://tech.jasonsoso.com/tags/hello-wold/">hello wold</category>
       
       
-      <comments>http://blog.jasonsoso.com/2022/03/hello-world/#disqus_thread</comments>
+      <comments>http://tech.jasonsoso.com/2022/03/hello-world/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>单点登录(SSO)概要设计</title>
-      <link>http://blog.jasonsoso.com/2016/04/sso/</link>
-      <guid>http://blog.jasonsoso.com/2016/04/sso/</guid>
+      <link>http://tech.jasonsoso.com/2016/04/sso/</link>
+      <guid>http://tech.jasonsoso.com/2016/04/sso/</guid>
       <pubDate>Thu, 14 Apr 2016 16:00:00 GMT</pubDate>
       
       <description>&lt;h3 id=&quot;第一章-单点登录sso&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#第一章-单点登录sso&quot;&gt;&lt;/a&gt; 第一章	： 单点登录(SSO)&lt;/h3&gt;
@@ -60,21 +60,21 @@
       
       
       
-      <category domain="http://blog.jasonsoso.com/tags/%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/">单点登录</category>
+      <category domain="http://tech.jasonsoso.com/tags/%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/">单点登录</category>
       
-      <category domain="http://blog.jasonsoso.com/tags/%E6%9E%B6%E6%9E%84/">架构</category>
+      <category domain="http://tech.jasonsoso.com/tags/%E6%9E%B6%E6%9E%84/">架构</category>
       
-      <category domain="http://blog.jasonsoso.com/tags/SSO/">SSO</category>
+      <category domain="http://tech.jasonsoso.com/tags/SSO/">SSO</category>
       
       
-      <comments>http://blog.jasonsoso.com/2016/04/sso/#disqus_thread</comments>
+      <comments>http://tech.jasonsoso.com/2016/04/sso/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>搜索引擎ElasticSearch</title>
-      <link>http://blog.jasonsoso.com/2015/12/elasticsearch/</link>
-      <guid>http://blog.jasonsoso.com/2015/12/elasticsearch/</guid>
+      <link>http://tech.jasonsoso.com/2015/12/elasticsearch/</link>
+      <guid>http://tech.jasonsoso.com/2015/12/elasticsearch/</guid>
       <pubDate>Tue, 15 Dec 2015 16:00:00 GMT</pubDate>
       
       <description>&lt;h3 id=&quot;第一章-搜索引擎&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#第一章-搜索引擎&quot;&gt;&lt;/a&gt; 第一章 搜索引擎&lt;/h3&gt;
@@ -85,21 +85,21 @@
       
       
       
-      <category domain="http://blog.jasonsoso.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</category>
+      <category domain="http://tech.jasonsoso.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</category>
       
-      <category domain="http://blog.jasonsoso.com/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/">搜索引擎</category>
+      <category domain="http://tech.jasonsoso.com/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/">搜索引擎</category>
       
-      <category domain="http://blog.jasonsoso.com/tags/ElasticSearch/">ElasticSearch</category>
+      <category domain="http://tech.jasonsoso.com/tags/ElasticSearch/">ElasticSearch</category>
       
       
-      <comments>http://blog.jasonsoso.com/2015/12/elasticsearch/#disqus_thread</comments>
+      <comments>http://tech.jasonsoso.com/2015/12/elasticsearch/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>Hadoop学习（一）Hadoop2.6.0伪分布式安装与配置</title>
-      <link>http://blog.jasonsoso.com/2015/05/install-hadoop/</link>
-      <guid>http://blog.jasonsoso.com/2015/05/install-hadoop/</guid>
+      <link>http://tech.jasonsoso.com/2015/05/install-hadoop/</link>
+      <guid>http://tech.jasonsoso.com/2015/05/install-hadoop/</guid>
       <pubDate>Sat, 02 May 2015 16:00:00 GMT</pubDate>
       
       <description>&lt;h3 id=&quot;环境&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#环境&quot;&gt;&lt;/a&gt; 环境&lt;/h3&gt;
@@ -112,21 +112,21 @@
       
       
       
-      <category domain="http://blog.jasonsoso.com/tags/%E5%88%86%E5%B8%83%E5%BC%8F/">分布式</category>
+      <category domain="http://tech.jasonsoso.com/tags/%E5%88%86%E5%B8%83%E5%BC%8F/">分布式</category>
       
-      <category domain="http://blog.jasonsoso.com/tags/hadoop/">hadoop</category>
+      <category domain="http://tech.jasonsoso.com/tags/hadoop/">hadoop</category>
       
-      <category domain="http://blog.jasonsoso.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</category>
+      <category domain="http://tech.jasonsoso.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</category>
       
       
-      <comments>http://blog.jasonsoso.com/2015/05/install-hadoop/#disqus_thread</comments>
+      <comments>http://tech.jasonsoso.com/2015/05/install-hadoop/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>论框架设计(一)</title>
-      <link>http://blog.jasonsoso.com/2015/02/design-1/</link>
-      <guid>http://blog.jasonsoso.com/2015/02/design-1/</guid>
+      <link>http://tech.jasonsoso.com/2015/02/design-1/</link>
+      <guid>http://tech.jasonsoso.com/2015/02/design-1/</guid>
       <pubDate>Thu, 05 Feb 2015 16:00:00 GMT</pubDate>
       
       <description>&lt;h3 id=&quot;web&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#web&quot;&gt;&lt;/a&gt; Web&lt;/h3&gt;
@@ -142,17 +142,17 @@
       
       
       
-      <category domain="http://blog.jasonsoso.com/tags/%E6%A1%86%E6%9E%B6/">框架</category>
+      <category domain="http://tech.jasonsoso.com/tags/%E6%A1%86%E6%9E%B6/">框架</category>
       
       
-      <comments>http://blog.jasonsoso.com/2015/02/design-1/#disqus_thread</comments>
+      <comments>http://tech.jasonsoso.com/2015/02/design-1/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>Gitbook（一）：从github到kindle</title>
-      <link>http://blog.jasonsoso.com/2015/02/gitbook-1/</link>
-      <guid>http://blog.jasonsoso.com/2015/02/gitbook-1/</guid>
+      <link>http://tech.jasonsoso.com/2015/02/gitbook-1/</link>
+      <guid>http://tech.jasonsoso.com/2015/02/gitbook-1/</guid>
       <pubDate>Sun, 01 Feb 2015 16:00:00 GMT</pubDate>
       
       <description>&lt;h3 id=&quot;简说&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#简说&quot;&gt;&lt;/a&gt; 简说&lt;/h3&gt;
@@ -163,23 +163,23 @@
       
       
       
-      <category domain="http://blog.jasonsoso.com/tags/github/">github</category>
+      <category domain="http://tech.jasonsoso.com/tags/github/">github</category>
       
-      <category domain="http://blog.jasonsoso.com/tags/gitbook/">gitbook</category>
+      <category domain="http://tech.jasonsoso.com/tags/gitbook/">gitbook</category>
       
-      <category domain="http://blog.jasonsoso.com/tags/nodejs/">nodejs</category>
+      <category domain="http://tech.jasonsoso.com/tags/nodejs/">nodejs</category>
       
-      <category domain="http://blog.jasonsoso.com/tags/kindle/">kindle</category>
+      <category domain="http://tech.jasonsoso.com/tags/kindle/">kindle</category>
       
       
-      <comments>http://blog.jasonsoso.com/2015/02/gitbook-1/#disqus_thread</comments>
+      <comments>http://tech.jasonsoso.com/2015/02/gitbook-1/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>B树索引与位图索引</title>
-      <link>http://blog.jasonsoso.com/2015/01/B-tree-indexes-and-bitmap-indexes/</link>
-      <guid>http://blog.jasonsoso.com/2015/01/B-tree-indexes-and-bitmap-indexes/</guid>
+      <link>http://tech.jasonsoso.com/2015/01/B-tree-indexes-and-bitmap-indexes/</link>
+      <guid>http://tech.jasonsoso.com/2015/01/B-tree-indexes-and-bitmap-indexes/</guid>
       <pubDate>Sat, 17 Jan 2015 16:00:00 GMT</pubDate>
       
       <description>&lt;h3 id=&quot;简说&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#简说&quot;&gt;&lt;/a&gt; 简说&lt;/h3&gt;
@@ -192,14 +192,14 @@
       
       
       
-      <category domain="http://blog.jasonsoso.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</category>
+      <category domain="http://tech.jasonsoso.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</category>
       
-      <category domain="http://blog.jasonsoso.com/tags/B%E6%A0%91/">B树</category>
+      <category domain="http://tech.jasonsoso.com/tags/B%E6%A0%91/">B树</category>
       
-      <category domain="http://blog.jasonsoso.com/tags/%E4%BD%8D%E5%9B%BE/">位图</category>
+      <category domain="http://tech.jasonsoso.com/tags/%E4%BD%8D%E5%9B%BE/">位图</category>
       
       
-      <comments>http://blog.jasonsoso.com/2015/01/B-tree-indexes-and-bitmap-indexes/#disqus_thread</comments>
+      <comments>http://tech.jasonsoso.com/2015/01/B-tree-indexes-and-bitmap-indexes/#disqus_thread</comments>
       
     </item>
     

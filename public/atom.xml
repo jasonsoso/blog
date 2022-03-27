@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Jason</title>
-  <icon>http://blog.jasonsoso.com/images/favicon.ico</icon>
+  <icon>http://tech.jasonsoso.com/images/favicon.ico</icon>
   <subtitle>技术流水账</subtitle>
-  <link href="http://blog.jasonsoso.com/atom.xml" rel="self"/>
+  <link href="http://tech.jasonsoso.com/atom.xml" rel="self"/>
   
-  <link href="http://blog.jasonsoso.com/"/>
+  <link href="http://tech.jasonsoso.com/"/>
   <updated>2022-03-21T06:53:35.378Z</updated>
-  <id>http://blog.jasonsoso.com/</id>
+  <id>http://tech.jasonsoso.com/</id>
   
   <author>
     <name>Jason</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://blog.jasonsoso.com/2022/03/hello-world/"/>
-    <id>http://blog.jasonsoso.com/2022/03/hello-world/</id>
+    <link href="http://tech.jasonsoso.com/2022/03/hello-world/"/>
+    <id>http://tech.jasonsoso.com/2022/03/hello-world/</id>
     <published>2022-03-18T06:46:25.000Z</published>
     <updated>2022-03-21T06:53:35.378Z</updated>
     
@@ -30,17 +30,17 @@
     
     
     
-    <category term="备忘录" scheme="http://blog.jasonsoso.com/categories/%E5%A4%87%E5%BF%98%E5%BD%95/"/>
+    <category term="备忘录" scheme="http://tech.jasonsoso.com/categories/%E5%A4%87%E5%BF%98%E5%BD%95/"/>
     
     
-    <category term="hello wold" scheme="http://blog.jasonsoso.com/tags/hello-wold/"/>
+    <category term="hello wold" scheme="http://tech.jasonsoso.com/tags/hello-wold/"/>
     
   </entry>
   
   <entry>
     <title>单点登录(SSO)概要设计</title>
-    <link href="http://blog.jasonsoso.com/2016/04/sso/"/>
-    <id>http://blog.jasonsoso.com/2016/04/sso/</id>
+    <link href="http://tech.jasonsoso.com/2016/04/sso/"/>
+    <id>http://tech.jasonsoso.com/2016/04/sso/</id>
     <published>2016-04-14T16:00:00.000Z</published>
     <updated>2022-03-21T06:53:35.378Z</updated>
     
@@ -57,18 +57,18 @@
     
     
     
-    <category term="单点登录" scheme="http://blog.jasonsoso.com/tags/%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/"/>
+    <category term="单点登录" scheme="http://tech.jasonsoso.com/tags/%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/"/>
     
-    <category term="架构" scheme="http://blog.jasonsoso.com/tags/%E6%9E%B6%E6%9E%84/"/>
+    <category term="架构" scheme="http://tech.jasonsoso.com/tags/%E6%9E%B6%E6%9E%84/"/>
     
-    <category term="SSO" scheme="http://blog.jasonsoso.com/tags/SSO/"/>
+    <category term="SSO" scheme="http://tech.jasonsoso.com/tags/SSO/"/>
     
   </entry>
   
   <entry>
     <title>搜索引擎ElasticSearch</title>
-    <link href="http://blog.jasonsoso.com/2015/12/elasticsearch/"/>
-    <id>http://blog.jasonsoso.com/2015/12/elasticsearch/</id>
+    <link href="http://tech.jasonsoso.com/2015/12/elasticsearch/"/>
+    <id>http://tech.jasonsoso.com/2015/12/elasticsearch/</id>
     <published>2015-12-15T16:00:00.000Z</published>
     <updated>2022-03-21T06:53:35.378Z</updated>
     
@@ -80,18 +80,18 @@
     
     
     
-    <category term="大数据" scheme="http://blog.jasonsoso.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    <category term="大数据" scheme="http://tech.jasonsoso.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
     
-    <category term="搜索引擎" scheme="http://blog.jasonsoso.com/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/"/>
+    <category term="搜索引擎" scheme="http://tech.jasonsoso.com/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/"/>
     
-    <category term="ElasticSearch" scheme="http://blog.jasonsoso.com/tags/ElasticSearch/"/>
+    <category term="ElasticSearch" scheme="http://tech.jasonsoso.com/tags/ElasticSearch/"/>
     
   </entry>
   
   <entry>
     <title>Hadoop学习（一）Hadoop2.6.0伪分布式安装与配置</title>
-    <link href="http://blog.jasonsoso.com/2015/05/install-hadoop/"/>
-    <id>http://blog.jasonsoso.com/2015/05/install-hadoop/</id>
+    <link href="http://tech.jasonsoso.com/2015/05/install-hadoop/"/>
+    <id>http://tech.jasonsoso.com/2015/05/install-hadoop/</id>
     <published>2015-05-02T16:00:00.000Z</published>
     <updated>2022-03-21T06:53:35.378Z</updated>
     
@@ -105,18 +105,18 @@
     
     
     
-    <category term="分布式" scheme="http://blog.jasonsoso.com/tags/%E5%88%86%E5%B8%83%E5%BC%8F/"/>
+    <category term="分布式" scheme="http://tech.jasonsoso.com/tags/%E5%88%86%E5%B8%83%E5%BC%8F/"/>
     
-    <category term="hadoop" scheme="http://blog.jasonsoso.com/tags/hadoop/"/>
+    <category term="hadoop" scheme="http://tech.jasonsoso.com/tags/hadoop/"/>
     
-    <category term="大数据" scheme="http://blog.jasonsoso.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    <category term="大数据" scheme="http://tech.jasonsoso.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
     
   </entry>
   
   <entry>
     <title>论框架设计(一)</title>
-    <link href="http://blog.jasonsoso.com/2015/02/design-1/"/>
-    <id>http://blog.jasonsoso.com/2015/02/design-1/</id>
+    <link href="http://tech.jasonsoso.com/2015/02/design-1/"/>
+    <id>http://tech.jasonsoso.com/2015/02/design-1/</id>
     <published>2015-02-05T16:00:00.000Z</published>
     <updated>2022-03-21T06:53:35.377Z</updated>
     
@@ -133,14 +133,14 @@
     
     
     
-    <category term="框架" scheme="http://blog.jasonsoso.com/tags/%E6%A1%86%E6%9E%B6/"/>
+    <category term="框架" scheme="http://tech.jasonsoso.com/tags/%E6%A1%86%E6%9E%B6/"/>
     
   </entry>
   
   <entry>
     <title>Gitbook（一）：从github到kindle</title>
-    <link href="http://blog.jasonsoso.com/2015/02/gitbook-1/"/>
-    <id>http://blog.jasonsoso.com/2015/02/gitbook-1/</id>
+    <link href="http://tech.jasonsoso.com/2015/02/gitbook-1/"/>
+    <id>http://tech.jasonsoso.com/2015/02/gitbook-1/</id>
     <published>2015-02-01T16:00:00.000Z</published>
     <updated>2022-03-21T06:53:35.377Z</updated>
     
@@ -152,20 +152,20 @@
     
     
     
-    <category term="github" scheme="http://blog.jasonsoso.com/tags/github/"/>
+    <category term="github" scheme="http://tech.jasonsoso.com/tags/github/"/>
     
-    <category term="gitbook" scheme="http://blog.jasonsoso.com/tags/gitbook/"/>
+    <category term="gitbook" scheme="http://tech.jasonsoso.com/tags/gitbook/"/>
     
-    <category term="nodejs" scheme="http://blog.jasonsoso.com/tags/nodejs/"/>
+    <category term="nodejs" scheme="http://tech.jasonsoso.com/tags/nodejs/"/>
     
-    <category term="kindle" scheme="http://blog.jasonsoso.com/tags/kindle/"/>
+    <category term="kindle" scheme="http://tech.jasonsoso.com/tags/kindle/"/>
     
   </entry>
   
   <entry>
     <title>B树索引与位图索引</title>
-    <link href="http://blog.jasonsoso.com/2015/01/B-tree-indexes-and-bitmap-indexes/"/>
-    <id>http://blog.jasonsoso.com/2015/01/B-tree-indexes-and-bitmap-indexes/</id>
+    <link href="http://tech.jasonsoso.com/2015/01/B-tree-indexes-and-bitmap-indexes/"/>
+    <id>http://tech.jasonsoso.com/2015/01/B-tree-indexes-and-bitmap-indexes/</id>
     <published>2015-01-17T16:00:00.000Z</published>
     <updated>2022-03-21T06:53:35.377Z</updated>
     
@@ -179,11 +179,11 @@
     
     
     
-    <category term="数据结构" scheme="http://blog.jasonsoso.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    <category term="数据结构" scheme="http://tech.jasonsoso.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
-    <category term="B树" scheme="http://blog.jasonsoso.com/tags/B%E6%A0%91/"/>
+    <category term="B树" scheme="http://tech.jasonsoso.com/tags/B%E6%A0%91/"/>
     
-    <category term="位图" scheme="http://blog.jasonsoso.com/tags/%E4%BD%8D%E5%9B%BE/"/>
+    <category term="位图" scheme="http://tech.jasonsoso.com/tags/%E4%BD%8D%E5%9B%BE/"/>
     
   </entry>
   
