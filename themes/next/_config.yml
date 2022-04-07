@@ -9,12 +9,14 @@
 # See: https://theme-next.js.org/docs/theme-settings/
 # ---------------------------------------------------------------
 
+
+
 # Allow to cache content generation.
 cache:
-  enable: false
+  enable: true
 
 # Remove unnecessary files after hexo generate.
-minify: true
+minify: false
 
 # Define custom file paths.
 # Create your custom files in site directory `source/_data` and uncomment needed files below.
@@ -23,12 +25,12 @@ custom_file_path:
   #header: source/_data/header.njk
   #sidebar: source/_data/sidebar.njk
   #postMeta: source/_data/post-meta.njk
-  postBodyEnd: source/_data/post-body-end.njk
+  #postBodyEnd: source/_data/post-body-end.njk
   #footer: source/_data/footer.njk
   #bodyEnd: source/_data/body-end.njk
-  variable: source/_data/variables.styl
+  #variable: source/_data/variables.styl
   #mixin: source/_data/mixins.styl
-  style: source/_data/styles.styl
+  #style: source/_data/styles.styl
 
 
 # ---------------------------------------------------------------
@@ -36,7 +38,7 @@ custom_file_path:
 # ---------------------------------------------------------------
 
 # Schemes
-scheme: Gemini
+scheme: Muse
 #scheme: Mist
 #scheme: Pisces
 #scheme: Gemini
@@ -50,10 +52,10 @@ darkmode: false
 # ---------------------------------------------------------------
 
 favicon:
-  small: /images/favicon.ico
-  medium: /images/favicon.ico
-  apple_touch_icon: /images/favicon.ico
-  safari_pinned_tab: /images/favicon.ico
+  small: /images/favicon-16x16-next.png
+  medium: /images/favicon-32x32-next.png
+  apple_touch_icon: /images/apple-touch-icon-next.png
+  safari_pinned_tab: /images/logo.svg
   #android_manifest: /manifest.json
 
 # Custom Logo (Warning: Do not support scheme Mist)
@@ -95,11 +97,11 @@ open_graph:
 # Value before `||` delimiter is the target link, value after `||` delimiter is the name of Font Awesome icon.
 # External url should start with http:// or https://
 menu:
-  home: / || fa fa-home
-  categories: /categories/ || fa fa-th
-  archives: /archives/ || fa fa-archive
-  tags: /tags/ || fa fa-tags
+  #home: / || fa fa-home
   #about: /about/ || fa fa-user
+  #tags: /tags/ || fa fa-tags
+  #categories: /categories/ || fa fa-th
+  #archives: /archives/ || fa fa-archive
   #schedule: /schedule/ || fa fa-calendar
   #sitemap: /sitemap.xml || fa fa-sitemap
   #commonweal: /404/ || fa fa-heartbeat
@@ -140,9 +142,9 @@ sidebar:
 # Sidebar Avatar
 avatar:
   # Replace the default image and set the url here.
-  url: /images/jason.jpg
+  url: #/images/avatar.gif
   # If true, the avatar will be displayed in circle.
-  rounded: true
+  rounded: false
   # If true, the avatar will be rotated with the cursor.
   rotated: false
 
@@ -154,10 +156,9 @@ site_state: true
 # Key is the link label showing to end users.
 # Value before `||` delimiter is the target permalink, value after `||` delimiter is the name of Font Awesome icon.
 social:
-  GitHub: https://github.com/jasonsoso || fab fa-github
-  E-Mail: mailto:648636045@qq.com || fa fa-envelope
-  Weibo: https://weibo.com/tanjianna || fab fa-weibo
-  RSS: /atom.xml || fas fa-rss
+  #GitHub: https://github.com/yourname || fab fa-github
+  #E-Mail: mailto:yourname@gmail.com || fa fa-envelope
+  #Weibo: https://weibo.com/yourname || fab fa-weibo
   #Google: https://plus.google.com/yourname || fab fa-google
   #Twitter: https://twitter.com/yourname || fab fa-twitter
   #FB Page: https://www.facebook.com/yourname || fab fa-facebook
@@ -168,12 +169,8 @@ social:
 
 social_icons:
   enable: true
-  E-Mail: mail-bulk   # 自定义图标，图标名字在https://fontawesome.com上搜索
-  Github: github
-  Telegram: telegram-plane
-  RSS: rss
-  icons_only: true
-  transition: true
+  icons_only: false
+  transition: false
 
 # Blog rolls
 links_settings:
@@ -185,18 +182,16 @@ links_settings:
 links:
   #Title: https://example.com
 
-
-
 # Table of Contents in the Sidebar
-# Front-matter variable (unsupport wrap expand_all).
+# Front-matter variable (nonsupport wrap expand_all).
 toc:
   enable: true
   # Automatically add list number to toc.
-  number: true    # 显示数字
+  number: true
   # If true, all words will placed on next lines if header width longer then sidebar width.
-  wrap: false   # 不折叠
+  wrap: false
   # If true, all level of TOC in a post will be displayed, rather than the activated part of it.
-  expand_all: false   # 只显示活跃部分的TOC 
+  expand_all: false
   # Maximum heading depth of generated toc.
   max_depth: 6
 
@@ -211,7 +206,7 @@ language_switcher: false
 
 footer:
   # Specify the year when the site was setup. If not defined, current year will be used.
-  # since: 2015
+  #since: 2021
 
   # Icon between year and copyright info.
   icon:
@@ -230,8 +225,8 @@ footer:
 
   # Beian ICP and gongan information for Chinese users. See: https://beian.miit.gov.cn, http://www.beian.gov.cn
   beian:
-    enable: true
-    icp: 粤ICP备15021619号
+    enable: false
+    icp:
     # The digit in the num of gongan beian.
     gongan_id:
     # The full num of gongan beian.
@@ -246,7 +241,7 @@ footer:
 # ---------------------------------------------------------------
 
 # Automatically excerpt description in homepage as preamble text.
-excerpt_description: false
+excerpt_description: true
 
 # Read more button
 # If true, the read more button will be displayed in excerpt section.
@@ -264,29 +259,23 @@ post_meta:
 # Post wordcount display settings
 # Dependencies: https://github.com/next-theme/hexo-word-counter
 symbols_count_time:
-  symbols: true   # 开启字符计数
-  time: true    # 显示阅读时间
-  total_symbols: false    # 关闭博客总字符数目
-  total_time: false   # 关闭博客总阅读时间
-  exclude_codeblock: false
-  awl: 2
-  wpm: 275
-
+  separated_meta: true
+  item_text_total: false
 
 # Use icon instead of the symbol # to indicate the tag at the bottom of the post
-tag_icon: true
+tag_icon: false
 
 # Donate (Sponsor) settings
 # Front-matter variable (nonsupport animation).
 reward_settings:
   # If true, a donate button will be displayed in every article by default.
-  enable: true
+  enable: false
   animation: false
   #comment: Buy me a coffee
 
 reward:
-  wechatpay: /images/weixin.jpg
-  alipay: /images/zhifubao.jpg
+  #wechatpay: /images/wechatpay.png
+  #alipay: /images/alipay.png
   #paypal: /images/paypal.png
   #bitcoin: /images/bitcoin.png
 
@@ -343,7 +332,6 @@ calendar:
   singleEvents: true
   maxResults: 250
 
-
 # ---------------------------------------------------------------
 # Misc Theme Settings
 # See: https://theme-next.js.org/docs/theme-settings/miscellaneous
@@ -351,7 +339,7 @@ calendar:
 
 # Preconnect CDN for fonts and plugins.
 # For more information: https://www.w3.org/TR/resource-hints/#preconnect
-preconnect: true
+preconnect: false
 
 # Set the text alignment in posts / pages.
 text_align:
@@ -378,23 +366,23 @@ codeblock:
   # Code Highlight theme
   # All available themes: https://theme-next.js.org/highlight/
   theme:
-    light: a11y-light # default
-    dark: a11y-dark # stackoverflow-dark
+    light: default
+    dark: stackoverflow-dark
   prism:
     light: prism
     dark: prism-dark
   # Add copy button on codeblock
   copy_button:
-    enable: true
+    enable: false
     # Available values: default | flat | mac
-    style: mac
+    style:
 
 back2top:
   enable: true
   # Back to top in sidebar.
-  sidebar: true
+  sidebar: false
   # Scroll percent label in b2t button.
-  scrollpercent: true
+  scrollpercent: false
 
 # Reading progress bar
 reading_progress:
@@ -404,8 +392,8 @@ reading_progress:
   # Available values: top | bottom
   position: top
   reversed: false
-  color: "#008086"
-  height: 2.5px
+  color: "#37c6c0"
+  height: 3px
 
 # Bookmark Support
 bookmark:
@@ -436,10 +424,10 @@ github_banner:
 # ---------------------------------------------------------------
 
 font:
-  enable: true
+  enable: false
 
   # Uri of fonts host, e.g. https://fonts.googleapis.com (Default).
-  host: //fonts.loli.net
+  host:
 
   # Font options:
   # `external: true` will load this font family from `host` above.
@@ -449,7 +437,7 @@ font:
   # Global font settings used for all elements inside <body>.
   global:
     external: true
-    family: Noto Sans SC
+    family: Lato
     size:
 
   # Font settings for site title (.site-title).
@@ -472,7 +460,7 @@ font:
   # Font settings for <code> and code blocks.
   codes:
     external: true
-    family: Roboto Mono
+    family:
 
 
 # ---------------------------------------------------------------
@@ -526,20 +514,20 @@ math:
   mathjax:
     enable: false
     # Available values: none | ams | all
-    tags: ams
+    tags: none
 
   katex:
-    enable: true
+    enable: false
     # See: https://github.com/KaTeX/KaTeX/tree/master/contrib/copy-tex
-    copy_tex: true
+    copy_tex: false
 
 # Easily enable fast Ajax navigation on your website.
 # For more information: https://github.com/next-theme/pjax
-pjax: true
+pjax: false
 
 # FancyBox is a tool that offers a nice and elegant way to add zooming functionality for images.
 # For more information: https://fancyapps.com/fancybox/
-fancybox: true
+fancybox: false
 
 # A JavaScript library for zooming images like Medium.
 # Warning: Do not enable both `fancybox` and `mediumzoom`.
@@ -548,7 +536,7 @@ mediumzoom: false
 
 # Vanilla JavaScript plugin for lazyloading images.
 # For more information: https://apoorv.pro/lozad.js/demo/
-lazyload: true
+lazyload: false
 
 # Pangu Support
 # For more information: https://github.com/vinta/pangu.js
@@ -582,21 +570,21 @@ quicklink:
 # Multiple Comment System Support
 comments:
   # Available values: tabs | buttons
-  style: buttons
+  style: tabs
   # Choose a comment system to be displayed by default.
   # Available values: disqus | disqusjs | changyan | livere | gitalk | utterances
-  active: gitalk
+  active:
   # Setting `true` means remembering the comment system selected by the visitor.
   storage: true
   # Lazyload all comment systems.
-  lazyload: true
+  lazyload: false
   # Modify texts or order for any naves, here are some examples.
   nav:
     #disqus:
     #  text: Load Disqus
     #  order: -1
-    gitalk:
-      order: -2
+    #gitalk:
+    #  order: -2
 
 # Disqus
 # For more information: https://disqus.com
@@ -755,7 +743,7 @@ algolia_search:
 # Local Search
 # Dependencies: https://github.com/next-theme/hexo-generator-searchdb
 local_search:
-  enable: true
+  enable: false
   # If auto, trigger search by changing input.
   # If manual, trigger search by pressing enter key or search button.
   trigger: auto
@@ -764,7 +752,7 @@ local_search:
   # Unescape html strings to the readable one.
   unescape: false
   # Preload the search data when the page loads.
-  preload: true
+  preload: false
 
 
 # ---------------------------------------------------------------
@@ -867,10 +855,10 @@ motion:
 # Progress bar in the top during page loading.
 # For more information: https://github.com/CodeByZach/pace
 pace:
-  enable: true
+  enable: false
   # All available colors:
   # black | blue | green | orange | pink | purple | red | silver | white | yellow
-  color: orange
+  color: blue
   # All available themes:
   # big-counter | bounce | barber-shop | center-atom | center-circle | center-radar | center-simple
   # corner-indicator | fill-left | flat-top | flash | loading-bar | mac-osx | material | minimal
@@ -908,11 +896,6 @@ vendors:
 # Assets
 # Accelerate delivery of static files using a CDN
 # The js option is only valid when vendors.internal is local.
-css: css #//cdn.jsdelivr.net/gh/hyl-xidian/hyl-xidian.github.io@master/css
-js: js #//cdn.jsdelivr.net/gh/hyl-xidian/hyl-xidian.github.io@master/js
-images: images #//cdn.jsdelivr.net/gh/hyl-xidian/hyl-xidian.github.io@master/images
-
-
-passage_end_tag:
-  enabled: true
-  content: ------------- 本 文 结 束 ❤️ 感 谢 阅 读 -------------
+css: css
+js: js
+images: images
