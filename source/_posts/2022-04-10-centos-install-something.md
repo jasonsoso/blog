@@ -112,7 +112,7 @@ categories: 备忘录
 
 ## CentOS7上安装Git客户端
 
-### 安装Git
+### 安装Git客户端
 
 1. 安装命令
    ``` bash
@@ -136,7 +136,7 @@ categories: 备忘录
    ``` 
    ![Git相关配置](http://tech.jasonsoso.com/images/202204/git-2.png "Git相关配置")
 
-### Git客户端通过SSH Key连接GitHub
+### 通过SSH Key连接GitHub
 
 1. 生成SSH Key
    ``` bash
@@ -234,9 +234,27 @@ categories: 备忘录
 
 ## CentOS7上安装Node.js和npm
 
+1. 安装命令
+   ``` bash
+   curl -fsSL https://rpm.nodesource.com/setup_16.x | sudo bash -
+   yum install nodejs
+   ``` 
 
+2. 查看安装结果
+   ``` bash
+   node --version
+   npm --version
+   ``` 
+   ![安装nodejs](http://tech.jasonsoso.com/images/202204/nodejs-1.png "安装nodejs")
 
-
+3. hexo搞起
+   ``` bash
+   npm install -g hexo-cli
+   npm install hexo
+   hexo init blog
+   ``` 
+   后面就可以随便创建hexo快速、简洁且高效的博客框架了: [https://hexo.io/zh-cn/](https://hexo.io/zh-cn/ "https://hexo.io/zh-cn/")
+   
 
 
 

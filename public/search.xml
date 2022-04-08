@@ -915,7 +915,7 @@ nginx 不仅支持 http 协议，还支持 https（即在ssl协议上传输http�
 </li>
 </ol>
 <h2 id="centos7上安装git客户端"><a class="markdownIt-Anchor" href="#centos7上安装git客户端"></a> CentOS7上安装Git客户端</h2>
-<h3 id="安装git"><a class="markdownIt-Anchor" href="#安装git"></a> 安装Git</h3>
+<h3 id="安装git客户端"><a class="markdownIt-Anchor" href="#安装git客户端"></a> 安装Git客户端</h3>
 <ol>
 <li>
 <p>安装命令</p>
@@ -932,7 +932,7 @@ nginx 不仅支持 http 协议，还支持 https（即在ssl协议上传输http�
 <p><img data-src="http://tech.jasonsoso.com/images/202204/git-2.png" alt="Git相关配置" title="Git相关配置" /></p>
 </li>
 </ol>
-<h3 id="git客户端通过ssh-key连接github"><a class="markdownIt-Anchor" href="#git客户端通过ssh-key连接github"></a> Git客户端通过SSH Key连接GitHub</h3>
+<h3 id="通过ssh-key连接github"><a class="markdownIt-Anchor" href="#通过ssh-key连接github"></a> 通过SSH Key连接GitHub</h3>
 <ol>
 <li>
 <p>生成SSH Key</p>
@@ -992,6 +992,22 @@ GitHub点击用户头像，选择setting<br />
 </li>
 </ol>
 <h2 id="centos7上安装nodejs和npm"><a class="markdownIt-Anchor" href="#centos7上安装nodejs和npm"></a> CentOS7上安装Node.js和npm</h2>
+<ol>
+<li>
+<p>安装命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -fsSL https://rpm.nodesource.com/setup_16.x | sudo bash -</span><br><span class="line">yum install nodejs</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>查看安装结果</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">node --version</span><br><span class="line">npm --version</span><br></pre></td></tr></table></figure>
+<p><img data-src="http://tech.jasonsoso.com/images/202204/nodejs-1.png" alt="安装nodejs" title="安装nodejs" /></p>
+</li>
+<li>
+<p>hexo搞起</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br><span class="line">npm install hexo</span><br><span class="line">hexo init blog</span><br></pre></td></tr></table></figure>
+<p>后面就可以随便创建hexo快速、简洁且高效的博客框架了: <a href="https://hexo.io/zh-cn/" title="https://hexo.io/zh-cn/">https://hexo.io/zh-cn/</a></p>
+</li>
+</ol>
 ]]></content>
       <categories>
         <category>备忘录</category>
