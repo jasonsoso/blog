@@ -6,7 +6,7 @@
   <link href="http://tech.jasonsoso.com/atom.xml" rel="self"/>
   
   <link href="http://tech.jasonsoso.com/"/>
-  <updated>2022-04-08T04:03:32.783Z</updated>
+  <updated>2022-04-08T06:19:18.603Z</updated>
   <id>http://tech.jasonsoso.com/</id>
   
   <author>
@@ -21,12 +21,14 @@
     <link href="http://tech.jasonsoso.com/2022/04/centos-install-something/"/>
     <id>http://tech.jasonsoso.com/2022/04/centos-install-something/</id>
     <published>2022-04-10T11:46:25.000Z</published>
-    <updated>2022-04-08T04:03:32.783Z</updated>
+    <updated>2022-04-08T06:19:18.603Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;centos7安装nginx&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#centos7安装nginx&quot;&gt;&lt;/a&gt; CentOS7安装Nginx&lt;/h2&gt;
 &lt;h3 id=&quot;安装所需环境&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#安装所需环境&quot;&gt;&lt;/a&gt; 安装所需环境&lt;/h3&gt;
 &lt;ol&gt;
+&lt;li&gt;CentOS7更新升级&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;yum -y update&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
 &lt;li&gt;gcc 安装&lt;br&gt;
 安装 nginx 需要先将官网下载的源码进行编译，编译依赖 gcc 环境，如果没有 gcc 环境，则需要安装：&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;yum install gcc-c++&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;/li&gt;

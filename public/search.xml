@@ -868,6 +868,8 @@ OAuth 2.0官网：<a href="http://oauth.net/2/">http://oauth.net/2/</a>	<br />
     <content><![CDATA[<h2 id="centos7安装nginx"><a class="markdownIt-Anchor" href="#centos7安装nginx"></a> CentOS7安装Nginx</h2>
 <h3 id="安装所需环境"><a class="markdownIt-Anchor" href="#安装所需环境"></a> 安装所需环境</h3>
 <ol>
+<li>CentOS7更新升级<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum -y update</span><br></pre></td></tr></table></figure>
+</li>
 <li>gcc 安装<br />
 安装 nginx 需要先将官网下载的源码进行编译，编译依赖 gcc 环境，如果没有 gcc 环境，则需要安装：<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum install gcc-c++</span><br></pre></td></tr></table></figure>
 </li>
@@ -886,7 +888,7 @@ nginx 不仅支持 http 协议，还支持 https（即在ssl协议上传输http�
 <ol>
 <li>
 <p>直接下载.tar.gz安装包，地址：<a href="https://nginx.org/en/download.html">https://nginx.org/en/download.html</a><br />
-<img data-src="http://tech.jasonsoso.com/images/202204/ng-1.png" alt="nginx下载" title="nginx下载" /></p>
+<img data-src="http://tech.jasonsoso.com/images/202204/ng-1.png" alt="nginx下载页面" title="nginx下载页面" /></p>
 </li>
 <li>
 <p>使用wget命令下载（推荐）。确保系统已经安装了wget，如果没有安装，执行 yum install wget 安装。</p>
@@ -926,6 +928,54 @@ nginx 不仅支持 http 协议，还支持 https（即在ssl协议上传输http�
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./nginx -t</span><br><span class="line">./nginx -s reload</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
+<h3 id="开机自动启动"><a class="markdownIt-Anchor" href="#开机自动启动"></a> 开机自动启动</h3>
+<ol>
+<li>
+<p>编辑/etc/rc.local文件，添加一行代码即可</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vi /etc/rc.local</span><br><span class="line"><span class="comment"># 增加一行 /usr/local/nginx/sbin/nginx</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>设置执行权限：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">chmod</span> 755 rc.local</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="centos7上安装git客户端"><a class="markdownIt-Anchor" href="#centos7上安装git客户端"></a> CentOS7上安装Git客户端</h2>
+<h3 id="安装git"><a class="markdownIt-Anchor" href="#安装git"></a> 安装Git</h3>
+<ol>
+<li>
+<p>安装命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum install git</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>查看版本等命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git --version</span><br><span class="line">git --<span class="built_in">help</span></span><br></pre></td></tr></table></figure>
+<p><img data-src="http://tech.jasonsoso.com/images/202204/git-1.png" alt="Git相关命令" title="Git相关命令" /></p>
+</li>
+<li>
+<p>设置git的user name和email</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;jasonsoso&quot;</span></span><br><span class="line">git config --global user.email  <span class="string">&quot;648636045@qq.com&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#查看配置</span></span><br><span class="line">git config --list</span><br></pre></td></tr></table></figure>
+<p><img data-src="http://tech.jasonsoso.com/images/202204/git-2.png" alt="Git相关配置" title="Git相关配置" /></p>
+</li>
+<li>
+<p>生成SSH Key</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查看是否有SSH Key</span></span><br><span class="line"><span class="built_in">cd</span> ~/.ssh</span><br><span class="line">ll</span><br><span class="line"><span class="comment"># 生成SSH Key</span></span><br><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;648636045@qq.com&quot;</span></span><br></pre></td></tr></table></figure>
+<p><img data-src="http://tech.jasonsoso.com/images/202204/git-3.png" alt="生成的SSH Key" title="生成的SSH Key" /></p>
+</li>
+<li>
+<p>GitHub添加SSH Key<br />
+GitHub点击用户头像，选择setting<br />
+<img data-src="http://tech.jasonsoso.com/images/202204/git-4.png" alt="github setting" title="github setting" /><br />
+新增一个SSH Key<br />
+<img data-src="http://tech.jasonsoso.com/images/202204/git-5.png" alt="新增一个SSH Key" title="新增一个SSH Key" /><br />
+取个名字，把之前拷贝的秘钥id_rsa.pub复制进去</p>
+</li>
+<li>
+<p>测试验证</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 测试连接github是否成功</span></span><br><span class="line">ssh -T git@github.com</span><br><span class="line"><span class="comment"># git clone 仓库</span></span><br><span class="line">git <span class="built_in">clone</span> git@github.com:jasonsoso/blog.git</span><br></pre></td></tr></table></figure>
+<p><img data-src="http://tech.jasonsoso.com/images/202204/git-6.png" alt="验证是否能连接github" title="验证是否能连接github" /></p>
+</li>
+</ol>
+<h2 id="centos7上安装ruby和jekyll"><a class="markdownIt-Anchor" href="#centos7上安装ruby和jekyll"></a> CentOS7上安装Ruby和Jekyll</h2>
 <h2 id="centos7上安装nodejs和npm"><a class="markdownIt-Anchor" href="#centos7上安装nodejs和npm"></a> CentOS7上安装Node.js和npm</h2>
 ]]></content>
       <categories>
