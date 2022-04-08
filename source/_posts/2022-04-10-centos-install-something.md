@@ -136,7 +136,9 @@ categories: 备忘录
    ``` 
    ![Git相关配置](http://tech.jasonsoso.com/images/202204/git-2.png "Git相关配置")
 
-4. 生成SSH Key
+### Git客户端通过SSH Key连接GitHub
+
+1. 生成SSH Key
    ``` bash
    #查看是否有SSH Key
    cd ~/.ssh
@@ -146,14 +148,14 @@ categories: 备忘录
    ``` 
    ![生成的SSH Key](http://tech.jasonsoso.com/images/202204/git-3.png "生成的SSH Key")
 
-5. GitHub添加SSH Key
+2. GitHub添加SSH Key
    GitHub点击用户头像，选择setting
       ![github setting](http://tech.jasonsoso.com/images/202204/git-4.png "github setting")
    新增一个SSH Key
       ![新增一个SSH Key](http://tech.jasonsoso.com/images/202204/git-5.png "新增一个SSH Key")
    取个名字，把之前拷贝的秘钥id_rsa.pub复制进去
 
-6. 测试验证
+3. 测试验证
 
    ``` bash
       # 测试连接github是否成功
@@ -164,7 +166,71 @@ categories: 备忘录
    ![验证是否能连接github](http://tech.jasonsoso.com/images/202204/git-6.png "验证是否能连接github")
 
 
+
+
+
 ## CentOS7上安装Ruby和Jekyll
+
+
+### 安装Ruby
+
+1. 安装命令
+   ``` bash
+   yum install ruby
+   ``` 
+
+2. 查看安装结果
+   ``` bash
+   ruby -v
+   gem -v
+   ``` 
+   您可能注意到,这不是最新版本的Ruby。
+
+### 升级为高版本的Ruby（RVM来管理）
+
+1. 安装RVM来管理ruby
+   ``` bash
+   #导入key 
+   gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
+   #执行安装 (以下命令有时会提示报错误,我这里执行了几次才成功)
+   curl -sSL https://get.rvm.io | bash -s stable
+   source /etc/profile.d/rvm.sh
+   rvm install ruby
+   ``` 
+
+   ``` bash
+   #查看已有版本
+   rvm list known
+   #选择一个版本进行安装
+   rvm install 2.4.1
+   ``` 
+   
+
+2. 查看安装结果
+   ``` bash
+   ruby -v
+   gem -v
+   ``` 
+   ![安装ruby](http://tech.jasonsoso.com/images/202204/ruby-1.png "安装ruby")
+
+
+
+### 安装Jekyll
+
+1. 安装命令
+   ``` bash
+   gem install jekyll
+   
+   gem install bundler
+   ``` 
+
+2. 查看安装结果
+   ``` bash
+   jekyll -v
+   #jekyll 4.2.2
+   ``` 
+   后面就可以随便创建Jekyll静态网站和博客了: [https://www.jekyll.com.cn/docs/](https://www.jekyll.com.cn/docs/ "https://www.jekyll.com.cn/docs/")
+   
 
 ## CentOS7上安装Node.js和npm
 

@@ -15,7 +15,7 @@
     <atom:link href="http://tech.jasonsoso.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>欢迎来到我的技术流水账~</description>
-    <pubDate>Fri, 08 Apr 2022 06:19:18 GMT</pubDate>
+    <pubDate>Fri, 08 Apr 2022 07:12:41 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -104,29 +104,6 @@ nginx 不仅支持 http 协议，还支持 https（即在ssl协议上传输http�
       
       
       <comments>http://tech.jasonsoso.com/2022/04/iot-first-contact/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Hello World</title>
-      <link>http://tech.jasonsoso.com/2022/03/hello-world/</link>
-      <guid>http://tech.jasonsoso.com/2022/03/hello-world/</guid>
-      <pubDate>Fri, 18 Mar 2022 06:46:25 GMT</pubDate>
-      
-      <description>&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&quot;quick-start&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#quick-start&quot;&gt;&lt;/a&gt; Quick Start&lt;/h2&gt;
-&lt;h3 id=&quot;create-a-new-post&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#create-a-new-post&quot;&gt;&lt;/a&gt; Create a new post&lt;/h3&gt;</description>
-      
-      
-      
-      
-      <category domain="http://tech.jasonsoso.com/categories/%E5%A4%87%E5%BF%98%E5%BD%95/">备忘录</category>
-      
-      
-      <category domain="http://tech.jasonsoso.com/tags/hello-wold/">hello wold</category>
-      
-      
-      <comments>http://tech.jasonsoso.com/2022/03/hello-world/#disqus_thread</comments>
       
     </item>
     

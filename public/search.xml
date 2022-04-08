@@ -746,31 +746,6 @@ OAuth 2.0官网：<a href="http://oauth.net/2/">http://oauth.net/2/</a>	<br />
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2022/03/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="quick-start"><a class="markdownIt-Anchor" href="#quick-start"></a> Quick Start</h2>
-<h3 id="create-a-new-post"><a class="markdownIt-Anchor" href="#create-a-new-post"></a> Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="run-server"><a class="markdownIt-Anchor" href="#run-server"></a> Run server</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="generate-static-files"><a class="markdownIt-Anchor" href="#generate-static-files"></a> Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="deploy-to-remote-sites"><a class="markdownIt-Anchor" href="#deploy-to-remote-sites"></a> Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-      <categories>
-        <category>备忘录</category>
-      </categories>
-      <tags>
-        <tag>hello wold</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>第一次接触IOT物联网</title>
     <url>/2022/04/iot-first-contact/</url>
     <content><![CDATA[<h2 id="iot物联网概念"><a class="markdownIt-Anchor" href="#iot物联网概念"></a> IOT物联网概念</h2>
@@ -956,6 +931,9 @@ nginx 不仅支持 http 协议，还支持 https（即在ssl协议上传输http�
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;jasonsoso&quot;</span></span><br><span class="line">git config --global user.email  <span class="string">&quot;648636045@qq.com&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#查看配置</span></span><br><span class="line">git config --list</span><br></pre></td></tr></table></figure>
 <p><img data-src="http://tech.jasonsoso.com/images/202204/git-2.png" alt="Git相关配置" title="Git相关配置" /></p>
 </li>
+</ol>
+<h3 id="git客户端通过ssh-key连接github"><a class="markdownIt-Anchor" href="#git客户端通过ssh-key连接github"></a> Git客户端通过SSH Key连接GitHub</h3>
+<ol>
 <li>
 <p>生成SSH Key</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查看是否有SSH Key</span></span><br><span class="line"><span class="built_in">cd</span> ~/.ssh</span><br><span class="line">ll</span><br><span class="line"><span class="comment"># 生成SSH Key</span></span><br><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;648636045@qq.com&quot;</span></span><br></pre></td></tr></table></figure>
@@ -976,6 +954,43 @@ GitHub点击用户头像，选择setting<br />
 </li>
 </ol>
 <h2 id="centos7上安装ruby和jekyll"><a class="markdownIt-Anchor" href="#centos7上安装ruby和jekyll"></a> CentOS7上安装Ruby和Jekyll</h2>
+<h3 id="安装ruby"><a class="markdownIt-Anchor" href="#安装ruby"></a> 安装Ruby</h3>
+<ol>
+<li>
+<p>安装命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum install ruby</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>查看安装结果</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ruby -v</span><br><span class="line">gem -v</span><br></pre></td></tr></table></figure>
+<p>您可能注意到,这不是最新版本的Ruby。</p>
+</li>
+</ol>
+<h3 id="升级为高版本的rubyrvm来管理"><a class="markdownIt-Anchor" href="#升级为高版本的rubyrvm来管理"></a> 升级为高版本的Ruby（RVM来管理）</h3>
+<ol>
+<li>
+<p>安装RVM来管理ruby</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#导入key </span></span><br><span class="line">gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB</span><br><span class="line"><span class="comment">#执行安装 (以下命令有时会提示报错误,我这里执行了几次才成功)</span></span><br><span class="line">curl -sSL https://get.rvm.io | bash -s stable</span><br><span class="line"><span class="built_in">source</span> /etc/profile.d/rvm.sh</span><br><span class="line">rvm install ruby</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查看已有版本</span></span><br><span class="line">rvm list known</span><br><span class="line"><span class="comment">#选择一个版本进行安装</span></span><br><span class="line">rvm install 2.4.1</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>查看安装结果</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ruby -v</span><br><span class="line">gem -v</span><br></pre></td></tr></table></figure>
+<p><img data-src="http://tech.jasonsoso.com/images/202204/ruby-1.png" alt="安装ruby" title="安装ruby" /></p>
+</li>
+</ol>
+<h3 id="安装jekyll"><a class="markdownIt-Anchor" href="#安装jekyll"></a> 安装Jekyll</h3>
+<ol>
+<li>
+<p>安装命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gem install jekyll</span><br><span class="line"></span><br><span class="line">gem install bundler</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>查看安装结果</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">jekyll -v</span><br><span class="line"><span class="comment">#jekyll 4.2.2</span></span><br></pre></td></tr></table></figure>
+<p>后面就可以随便创建Jekyll静态网站和博客了: <a href="https://www.jekyll.com.cn/docs/" title="https://www.jekyll.com.cn/docs/">https://www.jekyll.com.cn/docs/</a></p>
+</li>
+</ol>
 <h2 id="centos7上安装nodejs和npm"><a class="markdownIt-Anchor" href="#centos7上安装nodejs和npm"></a> CentOS7上安装Node.js和npm</h2>
 ]]></content>
       <categories>
