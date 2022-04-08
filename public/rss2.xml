@@ -15,8 +15,47 @@
     <atom:link href="http://tech.jasonsoso.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>欢迎来到我的技术流水账~</description>
-    <pubDate>Fri, 08 Apr 2022 02:07:24 GMT</pubDate>
+    <pubDate>Fri, 08 Apr 2022 04:03:32 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>CentOS7安装一些软件的备忘录</title>
+      <link>http://tech.jasonsoso.com/2022/04/centos-install-something/</link>
+      <guid>http://tech.jasonsoso.com/2022/04/centos-install-something/</guid>
+      <pubDate>Sun, 10 Apr 2022 11:46:25 GMT</pubDate>
+      
+      <description>&lt;h2 id=&quot;centos7安装nginx&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#centos7安装nginx&quot;&gt;&lt;/a&gt; CentOS7安装Nginx&lt;/h2&gt;
+&lt;h3 id=&quot;安装所需环境&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#安装所需环境&quot;&gt;&lt;/a&gt; 安装所需环境&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;gcc 安装&lt;br&gt;
+安装 nginx 需要先将官网下载的源码进行编译，编译依赖 gcc 环境，如果没有 gcc 环境，则需要安装：&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;yum install gcc-c++&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;PCRE pcre-devel 安装&lt;br&gt;
+PCRE(Perl Compatible Regular Expressions) 是一个Perl库，包括 perl 兼容的正则表达式库。nginx 的 http 模块使用 pcre 来解析正则表达式，所以需要在 linux 上安装 pcre 库，pcre-devel 是使用 pcre 开发的一个二次开发库。nginx也需要此库。命令：&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;yum install -y pcre pcre-devel&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;zlib 安装&lt;br&gt;
+zlib 库提供了很多种压缩和解压缩的方式， nginx 使用 zlib 对 http 包的内容进行 gzip ，所以需要在 Centos 上安装 zlib 库。&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;yum install -y zlib zlib-devel&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;OpenSSL 安装&lt;br&gt;
+OpenSSL 是一个强大的安全套接字层密码库，囊括主要的密码算法、常用的密钥和证书封装管理功能及 SSL 协议，并提供丰富的应用程序供测试或其它目的使用。&lt;br&gt;
+nginx 不仅支持 http 协议，还支持 https（即在ssl协议上传输http），所以需要在 Centos 安装 OpenSSL 库。&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;yum install -y openssl openssl-devel&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</description>
+      
+      
+      
+      
+      <category domain="http://tech.jasonsoso.com/categories/%E5%A4%87%E5%BF%98%E5%BD%95/">备忘录</category>
+      
+      
+      <category domain="http://tech.jasonsoso.com/tags/CentOS/">CentOS</category>
+      
+      <category domain="http://tech.jasonsoso.com/tags/%E8%BD%AF%E4%BB%B6/">软件</category>
+      
+      
+      <comments>http://tech.jasonsoso.com/2022/04/centos-install-something/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>何为物联网中的物模型</title>
