@@ -5,6 +5,7 @@ tags:
     - 搜索引擎
     - ElasticSearch
     - 大数据
+categories: 技术
 ---
 
 

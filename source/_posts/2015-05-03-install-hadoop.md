@@ -5,6 +5,7 @@ tags:
     - 分布式
     - hadoop
     - 大数据
+categories: 技术
 ---
 
 ### 环境
