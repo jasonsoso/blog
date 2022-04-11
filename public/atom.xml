@@ -6,7 +6,7 @@
   <link href="http://tech.jasonsoso.com/atom.xml" rel="self"/>
   
   <link href="http://tech.jasonsoso.com/"/>
-  <updated>2022-04-11T03:50:19.102Z</updated>
+  <updated>2022-04-11T10:31:18.618Z</updated>
   <id>http://tech.jasonsoso.com/</id>
   
   <author>
@@ -17,11 +17,44 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>CentOS7安装开发软件的备忘录</title>
+    <link href="http://tech.jasonsoso.com/2022/04/centos-install-develop-software/"/>
+    <id>http://tech.jasonsoso.com/2022/04/centos-install-develop-software/</id>
+    <published>2022-04-11T11:46:25.000Z</published>
+    <updated>2022-04-11T10:31:18.618Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;centos7安装jdk8&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#centos7安装jdk8&quot;&gt;&lt;/a&gt; CentOS7安装JDK8&lt;/h2&gt;
+&lt;h3 id=&quot;下载与解压jdk&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#下载与解压jdk&quot;&gt;&lt;/a&gt; 下载与解压JDK&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;下载&lt;br&gt;
+前往&lt;a href=&quot;https://www.injdk.cn/&quot;&gt;https://www.injdk.cn/&lt;/a&gt;进行下载（懒得去Oracle注册了）&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;wget https://d6.injdk.cn/oraclejdk/8/jdk-8u301-linux-x64.tar.gz&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;解压&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;mkdir&lt;/span&gt; -p /usr/local/java&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;tar zxvf jdk-8u301-linux-x64.tar.gz -C /usr/local/java&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</summary>
+    
+    
+    
+    <category term="备忘录" scheme="http://tech.jasonsoso.com/categories/%E5%A4%87%E5%BF%98%E5%BD%95/"/>
+    
+    
+    <category term="CentOS" scheme="http://tech.jasonsoso.com/tags/CentOS/"/>
+    
+    <category term="软件" scheme="http://tech.jasonsoso.com/tags/%E8%BD%AF%E4%BB%B6/"/>
+    
+    <category term="JDK" scheme="http://tech.jasonsoso.com/tags/JDK/"/>
+    
+    <category term="Mysql" scheme="http://tech.jasonsoso.com/tags/Mysql/"/>
+    
+  </entry>
+  
+  <entry>
     <title>CentOS7安装系统软件的备忘录</title>
     <link href="http://tech.jasonsoso.com/2022/04/centos-install-something/"/>
     <id>http://tech.jasonsoso.com/2022/04/centos-install-something/</id>
     <published>2022-04-10T11:46:25.000Z</published>
-    <updated>2022-04-11T03:50:19.102Z</updated>
+    <updated>2022-04-11T10:18:09.231Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;centos7安装nginx&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#centos7安装nginx&quot;&gt;&lt;/a&gt; CentOS7安装Nginx&lt;/h2&gt;
@@ -52,6 +85,14 @@ nginx 不仅支持 http 协议，还支持 https（即在ssl协议上传输http�
     <category term="CentOS" scheme="http://tech.jasonsoso.com/tags/CentOS/"/>
     
     <category term="软件" scheme="http://tech.jasonsoso.com/tags/%E8%BD%AF%E4%BB%B6/"/>
+    
+    <category term="Nginx" scheme="http://tech.jasonsoso.com/tags/Nginx/"/>
+    
+    <category term="Git" scheme="http://tech.jasonsoso.com/tags/Git/"/>
+    
+    <category term="Node.js" scheme="http://tech.jasonsoso.com/tags/Node-js/"/>
+    
+    <category term="Ruby" scheme="http://tech.jasonsoso.com/tags/Ruby/"/>
     
   </entry>
   

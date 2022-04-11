@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://tech.jasonsoso.com/404.html</loc>
+    <loc>http://tech.jasonsoso.com/2022/04/centos-install-develop-software/</loc>
     
     <lastmod>2022-04-11</lastmod>
     
@@ -12,6 +12,15 @@
   
   <url>
     <loc>http://tech.jasonsoso.com/2022/04/centos-install-something/</loc>
+    
+    <lastmod>2022-04-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://tech.jasonsoso.com/404.html</loc>
     
     <lastmod>2022-04-11</lastmod>
     
@@ -262,6 +271,48 @@
   
   <url>
     <loc>http://tech.jasonsoso.com/tags/%E7%89%A9%E6%A8%A1%E5%9E%8B/</loc>
+    <lastmod>2022-04-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://tech.jasonsoso.com/tags/Nginx/</loc>
+    <lastmod>2022-04-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://tech.jasonsoso.com/tags/Git/</loc>
+    <lastmod>2022-04-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://tech.jasonsoso.com/tags/Node-js/</loc>
+    <lastmod>2022-04-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://tech.jasonsoso.com/tags/Ruby/</loc>
+    <lastmod>2022-04-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://tech.jasonsoso.com/tags/JDK/</loc>
+    <lastmod>2022-04-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://tech.jasonsoso.com/tags/Mysql/</loc>
     <lastmod>2022-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

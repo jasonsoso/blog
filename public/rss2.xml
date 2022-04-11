@@ -15,8 +15,43 @@
     <atom:link href="http://tech.jasonsoso.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>欢迎来到我的技术流水账~</description>
-    <pubDate>Mon, 11 Apr 2022 03:50:19 GMT</pubDate>
+    <pubDate>Mon, 11 Apr 2022 10:31:18 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>CentOS7安装开发软件的备忘录</title>
+      <link>http://tech.jasonsoso.com/2022/04/centos-install-develop-software/</link>
+      <guid>http://tech.jasonsoso.com/2022/04/centos-install-develop-software/</guid>
+      <pubDate>Mon, 11 Apr 2022 11:46:25 GMT</pubDate>
+      
+      <description>&lt;h2 id=&quot;centos7安装jdk8&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#centos7安装jdk8&quot;&gt;&lt;/a&gt; CentOS7安装JDK8&lt;/h2&gt;
+&lt;h3 id=&quot;下载与解压jdk&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#下载与解压jdk&quot;&gt;&lt;/a&gt; 下载与解压JDK&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;下载&lt;br&gt;
+前往&lt;a href=&quot;https://www.injdk.cn/&quot;&gt;https://www.injdk.cn/&lt;/a&gt;进行下载（懒得去Oracle注册了）&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;wget https://d6.injdk.cn/oraclejdk/8/jdk-8u301-linux-x64.tar.gz&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;解压&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;mkdir&lt;/span&gt; -p /usr/local/java&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;tar zxvf jdk-8u301-linux-x64.tar.gz -C /usr/local/java&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</description>
+      
+      
+      
+      
+      <category domain="http://tech.jasonsoso.com/categories/%E5%A4%87%E5%BF%98%E5%BD%95/">备忘录</category>
+      
+      
+      <category domain="http://tech.jasonsoso.com/tags/CentOS/">CentOS</category>
+      
+      <category domain="http://tech.jasonsoso.com/tags/%E8%BD%AF%E4%BB%B6/">软件</category>
+      
+      <category domain="http://tech.jasonsoso.com/tags/JDK/">JDK</category>
+      
+      <category domain="http://tech.jasonsoso.com/tags/Mysql/">Mysql</category>
+      
+      
+      <comments>http://tech.jasonsoso.com/2022/04/centos-install-develop-software/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>CentOS7安装系统软件的备忘录</title>
@@ -53,6 +88,14 @@ nginx 不仅支持 http 协议，还支持 https（即在ssl协议上传输http�
       <category domain="http://tech.jasonsoso.com/tags/CentOS/">CentOS</category>
       
       <category domain="http://tech.jasonsoso.com/tags/%E8%BD%AF%E4%BB%B6/">软件</category>
+      
+      <category domain="http://tech.jasonsoso.com/tags/Nginx/">Nginx</category>
+      
+      <category domain="http://tech.jasonsoso.com/tags/Git/">Git</category>
+      
+      <category domain="http://tech.jasonsoso.com/tags/Node-js/">Node.js</category>
+      
+      <category domain="http://tech.jasonsoso.com/tags/Ruby/">Ruby</category>
       
       
       <comments>http://tech.jasonsoso.com/2022/04/centos-install-something/#disqus_thread</comments>

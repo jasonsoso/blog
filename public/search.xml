@@ -1015,6 +1015,10 @@ GitHub点击用户头像，选择setting<br />
       <tags>
         <tag>CentOS</tag>
         <tag>软件</tag>
+        <tag>Nginx</tag>
+        <tag>Git</tag>
+        <tag>Node.js</tag>
+        <tag>Ruby</tag>
       </tags>
   </entry>
   <entry>
@@ -1146,6 +1150,46 @@ Element:
       <tags>
         <tag>物联网</tag>
         <tag>物模型</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CentOS7安装开发软件的备忘录</title>
+    <url>/2022/04/centos-install-develop-software/</url>
+    <content><![CDATA[<h2 id="centos7安装jdk8"><a class="markdownIt-Anchor" href="#centos7安装jdk8"></a> CentOS7安装JDK8</h2>
+<h3 id="下载与解压jdk"><a class="markdownIt-Anchor" href="#下载与解压jdk"></a> 下载与解压JDK</h3>
+<ol>
+<li>下载<br />
+前往<a href="https://www.injdk.cn/">https://www.injdk.cn/</a>进行下载（懒得去Oracle注册了）<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://d6.injdk.cn/oraclejdk/8/jdk-8u301-linux-x64.tar.gz</span><br></pre></td></tr></table></figure>
+</li>
+<li>解压<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p /usr/local/java</span><br><span class="line">tar zxvf jdk-8u301-linux-x64.tar.gz -C /usr/local/java</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="配置环境变量"><a class="markdownIt-Anchor" href="#配置环境变量"></a> 配置环境变量</h3>
+<ol>
+<li>
+<p>复制以下到此文件（/etc/profile）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">JAVA_HOME=/usr/local/java/jdk1.8.0_301</span><br><span class="line"><span class="built_in">export</span> CLASSPATH=$:CLASSPATH:<span class="variable">$JAVA_HOME</span>/lib/</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>编辑，并使之生效</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vi /etc/profile</span><br><span class="line"><span class="built_in">source</span> /etc/profile</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="检查是否安装成功"><a class="markdownIt-Anchor" href="#检查是否安装成功"></a> 检查是否安装成功</h3>
+<ol>
+<li>检查命令<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">java -version</span><br><span class="line">javac -version</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><img data-src="http://tech.jasonsoso.com/images/202204/jdk-1.png" alt="检查JDK是否安装成功" title="检查JDK是否安装成功" /></p>
+]]></content>
+      <categories>
+        <category>备忘录</category>
+      </categories>
+      <tags>
+        <tag>CentOS</tag>
+        <tag>软件</tag>
+        <tag>JDK</tag>
+        <tag>Mysql</tag>
       </tags>
   </entry>
 </search>

@@ -4,6 +4,10 @@ date: 2022/4/10 19:46:25
 tags:
     - CentOS
     - 软件
+    - Nginx
+    - Git
+    - Node.js
+    - Ruby
 categories: 备忘录
 ---
 

@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://tech.jasonsoso.com/2022/04/centos-install-develop-software/</loc>
+    <lastmod>2022-04-11</lastmod>
+  </url>
+  <url>
     <loc>http://tech.jasonsoso.com/2022/04/centos-install-something/</loc>
     <lastmod>2022-04-11</lastmod>
   </url>

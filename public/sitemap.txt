@@ -1,5 +1,6 @@
-http://tech.jasonsoso.com/404.html
+http://tech.jasonsoso.com/2022/04/centos-install-develop-software/
 http://tech.jasonsoso.com/2022/04/centos-install-something/
+http://tech.jasonsoso.com/404.html
 http://tech.jasonsoso.com/2020/08/iot-model/
 http://tech.jasonsoso.com/2020/09/iot-first-contact/
 http://tech.jasonsoso.com/2016/04/sso/
@@ -32,5 +33,11 @@ http://tech.jasonsoso.com/tags/%E7%89%A9%E8%81%94%E7%BD%91/
 http://tech.jasonsoso.com/tags/CentOS/
 http://tech.jasonsoso.com/tags/%E8%BD%AF%E4%BB%B6/
 http://tech.jasonsoso.com/tags/%E7%89%A9%E6%A8%A1%E5%9E%8B/
+http://tech.jasonsoso.com/tags/Nginx/
+http://tech.jasonsoso.com/tags/Git/
+http://tech.jasonsoso.com/tags/Node-js/
+http://tech.jasonsoso.com/tags/Ruby/
+http://tech.jasonsoso.com/tags/JDK/
+http://tech.jasonsoso.com/tags/Mysql/
 http://tech.jasonsoso.com/categories/%E5%A4%87%E5%BF%98%E5%BD%95/
 http://tech.jasonsoso.com/categories/%E6%8A%80%E6%9C%AF/
