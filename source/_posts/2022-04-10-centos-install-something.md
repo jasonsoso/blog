@@ -1,5 +1,5 @@
 ---
-title: CentOS7安装一些软件的备忘录
+title: CentOS7安装系统软件的备忘录
 date: 2022/4/10 19:46:25
 tags:
     - CentOS
