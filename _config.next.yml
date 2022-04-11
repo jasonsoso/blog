@@ -934,6 +934,9 @@ live2d:
   mobile:
     show: true
 
+# 鼠标点击烟花特效
+cursor_effect: fireworks
+
 
 # 自动生成sitemap
 sitemap:
