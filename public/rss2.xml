@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Jason</title>
+    <link>http://tech.jasonsoso.com/</link>
+    
+    <image>
+      <url>http://tech.jasonsoso.com/images/favicon.ico</url>
+      <title>Jason</title>
+      <link>http://tech.jasonsoso.com/</link>
+    </image>
+    
+    <atom:link href="http://tech.jasonsoso.com/rss2.xml" rel="self" type="application/rss+xml"/>
+    
+    <description>欢迎来到我的技术流水账~</description>
+    <pubDate>Mon, 11 Apr 2022 03:50:19 GMT</pubDate>
+    <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>CentOS7安装系统软件的备忘录</title>
+      <link>http://tech.jasonsoso.com/2022/04/centos-install-something/</link>
+      <guid>http://tech.jasonsoso.com/2022/04/centos-install-something/</guid>
+      <pubDate>Sun, 10 Apr 2022 11:46:25 GMT</pubDate>
+      
+      <description>&lt;h2 id=&quot;centos7安装nginx&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#centos7安装nginx&quot;&gt;&lt;/a&gt; CentOS7安装Nginx&lt;/h2&gt;
+&lt;h3 id=&quot;安装所需环境&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#安装所需环境&quot;&gt;&lt;/a&gt; 安装所需环境&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;CentOS7更新升级&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;yum -y update&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;gcc 安装&lt;br&gt;
+安装 nginx 需要先将官网下载的源码进行编译，编译依赖 gcc 环境，如果没有 gcc 环境，则需要安装：&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;yum install gcc-c++&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;PCRE pcre-devel 安装&lt;br&gt;
+PCRE(Perl Compatible Regular Expressions) 是一个Perl库，包括 perl 兼容的正则表达式库。nginx 的 http 模块使用 pcre 来解析正则表达式，所以需要在 linux 上安装 pcre 库，pcre-devel 是使用 pcre 开发的一个二次开发库。nginx也需要此库。命令：&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;yum install -y pcre pcre-devel&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;zlib 安装&lt;br&gt;
+zlib 库提供了很多种压缩和解压缩的方式， nginx 使用 zlib 对 http 包的内容进行 gzip ，所以需要在 Centos 上安装 zlib 库。&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;yum install -y zlib zlib-devel&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;OpenSSL 安装&lt;br&gt;
+OpenSSL 是一个强大的安全套接字层密码库，囊括主要的密码算法、常用的密钥和证书封装管理功能及 SSL 协议，并提供丰富的应用程序供测试或其它目的使用。&lt;br&gt;
+nginx 不仅支持 http 协议，还支持 https（即在ssl协议上传输http），所以需要在 Centos 安装 OpenSSL 库。&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;yum install -y openssl openssl-devel&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</description>
+      
+      
+      
+      
+      <category domain="http://tech.jasonsoso.com/categories/%E5%A4%87%E5%BF%98%E5%BD%95/">备忘录</category>
+      
+      
+      <category domain="http://tech.jasonsoso.com/tags/CentOS/">CentOS</category>
+      
+      <category domain="http://tech.jasonsoso.com/tags/%E8%BD%AF%E4%BB%B6/">软件</category>
+      
+      
+      <comments>http://tech.jasonsoso.com/2022/04/centos-install-something/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>第一次接触IOT物联网</title>
+      <link>http://tech.jasonsoso.com/2020/09/iot-first-contact/</link>
+      <guid>http://tech.jasonsoso.com/2020/09/iot-first-contact/</guid>
+      <pubDate>Thu, 03 Sep 2020 12:46:25 GMT</pubDate>
+      
+      <description>&lt;h2 id=&quot;iot物联网概念&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#iot物联网概念&quot;&gt;&lt;/a&gt; IOT物联网概念&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;什么是新基建？&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;新基建，主要包括5G基站建设、特高压、城际高速铁路和城市轨道交通、新能源汽车充电桩、大数据中心、人工智能、工业互联网七大领域，涉及诸多产业链，是以新发展理念为引领，以技术创新为驱动，以信息网络为基础，面向高质量发展需要，提供数字转型、智能升级、融合创新等服务的基础设施体系&lt;/p&gt;</description>
+      
+      
+      
+      
+      <category domain="http://tech.jasonsoso.com/categories/%E6%8A%80%E6%9C%AF/">技术</category>
+      
+      
+      <category domain="http://tech.jasonsoso.com/tags/%E7%89%A9%E8%81%94%E7%BD%91/">物联网</category>
+      
+      
+      <comments>http://tech.jasonsoso.com/2020/09/iot-first-contact/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>何为物联网中的物模型</title>
+      <link>http://tech.jasonsoso.com/2020/08/iot-model/</link>
+      <guid>http://tech.jasonsoso.com/2020/08/iot-model/</guid>
+      <pubDate>Mon, 24 Aug 2020 12:46:25 GMT</pubDate>
+      
+      <description>&lt;h2 id=&quot;物模型简单说明&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#物模型简单说明&quot;&gt;&lt;/a&gt; 物模型简单说明&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;什么是物模型？&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;物模型指将物理空间中的实体数字化，并在云端构建该实体的数据模型。在物联网平台中，定义物模型即定义产品功能。完成功能定义后，系统将自动生成该产品的物模型。物模型描述产品是什么、能做什么、可以对外提供哪些服务。&lt;/p&gt;</description>
+      
+      
+      
+      
+      <category domain="http://tech.jasonsoso.com/categories/%E6%8A%80%E6%9C%AF/">技术</category>
+      
+      
+      <category domain="http://tech.jasonsoso.com/tags/%E7%89%A9%E8%81%94%E7%BD%91/">物联网</category>
+      
+      <category domain="http://tech.jasonsoso.com/tags/%E7%89%A9%E6%A8%A1%E5%9E%8B/">物模型</category>
+      
+      
+      <comments>http://tech.jasonsoso.com/2020/08/iot-model/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>单点登录(SSO)概要设计</title>
+      <link>http://tech.jasonsoso.com/2016/04/sso/</link>
+      <guid>http://tech.jasonsoso.com/2016/04/sso/</guid>
+      <pubDate>Thu, 14 Apr 2016 16:00:00 GMT</pubDate>
+      
+      <description>&lt;h3 id=&quot;第一章-单点登录sso&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#第一章-单点登录sso&quot;&gt;&lt;/a&gt; 第一章	： 单点登录(SSO)&lt;/h3&gt;
+&lt;h4 id=&quot;sso诞生的目标&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#sso诞生的目标&quot;&gt;&lt;/a&gt; SSO诞生的目标&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;提高用户体验，提高用户的效率；&lt;/li&gt;
+&lt;li&gt;资源整合；&lt;/li&gt;
+&lt;li&gt;简化管理，降低了安全的风险和管理的消耗；&lt;/li&gt;
+&lt;li&gt;提高服务之间的合作效率&lt;/li&gt;
+&lt;/ol&gt;</description>
+      
+      
+      
+      
+      <category domain="http://tech.jasonsoso.com/categories/%E6%8A%80%E6%9C%AF/">技术</category>
+      
+      
+      <category domain="http://tech.jasonsoso.com/tags/%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/">单点登录</category>
+      
+      <category domain="http://tech.jasonsoso.com/tags/%E6%9E%B6%E6%9E%84/">架构</category>
+      
+      <category domain="http://tech.jasonsoso.com/tags/SSO/">SSO</category>
+      
+      
+      <comments>http://tech.jasonsoso.com/2016/04/sso/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>搜索引擎ElasticSearch</title>
+      <link>http://tech.jasonsoso.com/2015/12/elasticsearch/</link>
+      <guid>http://tech.jasonsoso.com/2015/12/elasticsearch/</guid>
+      <pubDate>Tue, 15 Dec 2015 16:00:00 GMT</pubDate>
+      
+      <description>&lt;h3 id=&quot;第一章-搜索引擎&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#第一章-搜索引擎&quot;&gt;&lt;/a&gt; 第一章 搜索引擎&lt;/h3&gt;
+&lt;h4 id=&quot;搜索引擎简单结构&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#搜索引擎简单结构&quot;&gt;&lt;/a&gt; 搜索引擎简单结构&lt;/h4&gt;
+&lt;p&gt;&lt;img data-src=&quot;http://cdn.jasonsoso.com/2015/index.png&quot; alt=&quot;搜索引擎简单结构&quot;&gt;&lt;/p&gt;</description>
+      
+      
+      
+      
+      <category domain="http://tech.jasonsoso.com/categories/%E6%8A%80%E6%9C%AF/">技术</category>
+      
+      
+      <category domain="http://tech.jasonsoso.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</category>
+      
+      <category domain="http://tech.jasonsoso.com/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/">搜索引擎</category>
+      
+      <category domain="http://tech.jasonsoso.com/tags/ElasticSearch/">ElasticSearch</category>
+      
+      
+      <comments>http://tech.jasonsoso.com/2015/12/elasticsearch/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Hadoop学习（一）Hadoop2.6.0伪分布式安装与配置</title>
+      <link>http://tech.jasonsoso.com/2015/05/install-hadoop/</link>
+      <guid>http://tech.jasonsoso.com/2015/05/install-hadoop/</guid>
+      <pubDate>Sat, 02 May 2015 16:00:00 GMT</pubDate>
+      
+      <description>&lt;h3 id=&quot;环境&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#环境&quot;&gt;&lt;/a&gt; 环境&lt;/h3&gt;
+&lt;h4 id=&quot;准备ubuntu-1404-lts-并更新apt&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#准备ubuntu-1404-lts-并更新apt&quot;&gt;&lt;/a&gt; 准备Ubuntu 14.04 LTS  并更新apt&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;执行&lt;/li&gt;
+&lt;/ol&gt;</description>
+      
+      
+      
+      
+      <category domain="http://tech.jasonsoso.com/categories/%E6%8A%80%E6%9C%AF/">技术</category>
+      
+      
+      <category domain="http://tech.jasonsoso.com/tags/%E5%88%86%E5%B8%83%E5%BC%8F/">分布式</category>
+      
+      <category domain="http://tech.jasonsoso.com/tags/hadoop/">hadoop</category>
+      
+      <category domain="http://tech.jasonsoso.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</category>
+      
+      
+      <comments>http://tech.jasonsoso.com/2015/05/install-hadoop/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>论框架设计(一)</title>
+      <link>http://tech.jasonsoso.com/2015/02/design-1/</link>
+      <guid>http://tech.jasonsoso.com/2015/02/design-1/</guid>
+      <pubDate>Thu, 05 Feb 2015 16:00:00 GMT</pubDate>
+      
+      <description>&lt;h3 id=&quot;web&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#web&quot;&gt;&lt;/a&gt; Web&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;MVC Framwork:&lt;a href=&quot;http://docs.spring.io/spring/docs/current/spring-framework-reference/html/mvc.html&quot; title=&quot;SpringMVC&quot;&gt;SpringMVC&lt;/a&gt;，Restful的风格，对比Strus2更简单，更友好。&lt;/li&gt;
+&lt;li&gt;CSS Framwork：最热火的&lt;a href=&quot;http://getbootstrap.com/&quot; title=&quot;Bootstrap&quot;&gt;Twitter Bootstrap&lt;/a&gt;，提供了简便的布局能力和基本的页面美化。&lt;/li&gt;
+&lt;li&gt;Javascript Library：随大流用了&lt;a href=&quot;http://jquery.com/&quot; title=&quot;jquery&quot;&gt;JQuery&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Validation Framwork:当然用&lt;a href=&quot;http://jqueryvalidation.org/&quot; title=&quot;jquery validation&quot;&gt;jQuery Validation&lt;/a&gt;,客户端校验和体验都不错！&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;database&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#database&quot;&gt;&lt;/a&gt; Database&lt;/h3&gt;</description>
+      
+      
+      
+      
+      <category domain="http://tech.jasonsoso.com/categories/%E6%8A%80%E6%9C%AF/">技术</category>
+      
+      
+      <category domain="http://tech.jasonsoso.com/tags/%E6%A1%86%E6%9E%B6/">框架</category>
+      
+      
+      <comments>http://tech.jasonsoso.com/2015/02/design-1/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Gitbook（一）：从github到kindle</title>
+      <link>http://tech.jasonsoso.com/2015/02/gitbook-1/</link>
+      <guid>http://tech.jasonsoso.com/2015/02/gitbook-1/</guid>
+      <pubDate>Sun, 01 Feb 2015 16:00:00 GMT</pubDate>
+      
+      <description>&lt;h3 id=&quot;简说&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#简说&quot;&gt;&lt;/a&gt; 简说&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.gitbook.io/&quot;&gt;gitbook&lt;/a&gt;是一个用于发布书籍的平台。&lt;/p&gt;
+&lt;p&gt;gitbook提供了一个简单的命令行工具&lt;code&gt;gitbook&lt;/code&gt;用来编译和预览的书籍.&lt;/p&gt;</description>
+      
+      
+      
+      
+      
+      <category domain="http://tech.jasonsoso.com/tags/github/">github</category>
+      
+      <category domain="http://tech.jasonsoso.com/tags/gitbook/">gitbook</category>
+      
+      <category domain="http://tech.jasonsoso.com/tags/nodejs/">nodejs</category>
+      
+      <category domain="http://tech.jasonsoso.com/tags/kindle/">kindle</category>
+      
+      
+      <comments>http://tech.jasonsoso.com/2015/02/gitbook-1/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>B树索引与位图索引</title>
+      <link>http://tech.jasonsoso.com/2015/01/B-tree-indexes-and-bitmap-indexes/</link>
+      <guid>http://tech.jasonsoso.com/2015/01/B-tree-indexes-and-bitmap-indexes/</guid>
+      <pubDate>Sat, 17 Jan 2015 16:00:00 GMT</pubDate>
+      
+      <description>&lt;h3 id=&quot;简说&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#简说&quot;&gt;&lt;/a&gt; 简说&lt;/h3&gt;
+&lt;p&gt;在理解索引时，可以想象一本书，其中书的内容就相当于表里的数据，而书前面的目录就相当于该表的索引。&lt;br&gt;
+同时，通常情况下，索引所占用的磁盘空间要比表要小得多，其主要作用是为了加快对数据的搜索速度，也可以用来保证数据的唯一性。&lt;br&gt;
+普遍运用在数据库和文件系统。&lt;/p&gt;
+&lt;p&gt;索引作为一种可选的数据结构，你可以选择为某个表里的创建索引，也可以不创建。这是因为一旦创建了索引，就意味着数据库对表进行DML（包括INSERT、UPDATE、DELETE）时，必须处理额外的工作量（也就是对索引结构的维护）以及存储方面的开销。所以创建索引时，需要考虑创建索引所带来的查询性能方面的提高，与引起的额外的开销相比，是否值得。&lt;/p&gt;</description>
+      
+      
+      
+      
+      <category domain="http://tech.jasonsoso.com/categories/%E6%8A%80%E6%9C%AF/">技术</category>
+      
+      
+      <category domain="http://tech.jasonsoso.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</category>
+      
+      <category domain="http://tech.jasonsoso.com/tags/B%E6%A0%91/">B树</category>
+      
+      <category domain="http://tech.jasonsoso.com/tags/%E4%BD%8D%E5%9B%BE/">位图</category>
+      
+      
+      <comments>http://tech.jasonsoso.com/2015/01/B-tree-indexes-and-bitmap-indexes/#disqus_thread</comments>
+      
+    </item>
+    
+  </channel>
+</rss>
