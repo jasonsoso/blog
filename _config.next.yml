@@ -178,12 +178,15 @@ social_icons:
 # Blog rolls
 links_settings:
   icon: fa fa-globe
-  title: Links
+  title: 友情链接：
   # Available values: block | inline
   layout: block
 
 links:
-  #Title: https://example.com
+  Jason个人主页: http://www.jasonsoso.com
+  技术知识堂: https://www.jhelp.net
+  大前端技术博客:  https://www.91temaichang.com
+  扫地僧: http://www.googsql.cn
 
 
 
