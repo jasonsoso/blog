@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://tech.jasonsoso.com/2020/09/iot-first-contact/</loc>
+    
+    <lastmod>2022-08-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://tech.jasonsoso.com/2022/04/centos-install-develop-software/</loc>
     
     <lastmod>2022-04-11</lastmod>
@@ -30,15 +39,6 @@
   
   <url>
     <loc>http://tech.jasonsoso.com/2020/08/iot-model/</loc>
-    
-    <lastmod>2022-04-11</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://tech.jasonsoso.com/2020/09/iot-first-contact/</loc>
     
     <lastmod>2022-04-11</lastmod>
     

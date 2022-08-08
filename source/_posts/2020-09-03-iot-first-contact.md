@@ -138,4 +138,4 @@ categories: 技术
 下面是物模型配置页面
 ![物模型配置页面](http://tech.jasonsoso.com/images/202204/QQ截图20200903152904.png "物模型配置页面")
 
-[详情请点击我](http://tech.jasonsoso.com/2022/04/iot-model/ "详情请点击我")
+[详情请点击我](http://tech.jasonsoso.com/2020/08/iot-model/ "详情请点击我")
