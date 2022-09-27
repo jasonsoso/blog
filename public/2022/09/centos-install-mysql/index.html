@@ -24,28 +24,33 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"tech.jasonsoso.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"buttons","active":"gitalk","storage":true,"lazyload":true,"nav":{"gitalk":{"order":-2}}},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Web  MVC Framwork:SpringMVC，Restful的风格，对比Strus2更简单，更友好。 CSS Framwork：最热火的Twitter Bootstrap，提供了简便的布局能力和基本的页面美化。 Javascript Library：随大流用了JQuery Validation Framwork:当然用jQuery Validation,客户端校验和体验都不错！   D">
+    <meta name="description" content="CentOS7安装mysql8  安装前清理工作   清理原有的mysql数据库安装的mysql软件包和依赖包： 1rpm -pa | grep mysql 结果如下： 12345678mysql80-community-release-el7-1.noarchmysql-community-server-8.0.11-1.el7.x86_64mysql-community-common-8.0">
 <meta property="og:type" content="article">
-<meta property="og:title" content="论框架设计(一)">
-<meta property="og:url" content="http://tech.jasonsoso.com/2015/02/design-1/index.html">
+<meta property="og:title" content="CentOS7安装Mysql8">
+<meta property="og:url" content="http://tech.jasonsoso.com/2022/09/centos-install-mysql/index.html">
 <meta property="og:site_name" content="Jason">
-<meta property="og:description" content="Web  MVC Framwork:SpringMVC，Restful的风格，对比Strus2更简单，更友好。 CSS Framwork：最热火的Twitter Bootstrap，提供了简便的布局能力和基本的页面美化。 Javascript Library：随大流用了JQuery Validation Framwork:当然用jQuery Validation,客户端校验和体验都不错！   D">
+<meta property="og:description" content="CentOS7安装mysql8  安装前清理工作   清理原有的mysql数据库安装的mysql软件包和依赖包： 1rpm -pa | grep mysql 结果如下： 12345678mysql80-community-release-el7-1.noarchmysql-community-server-8.0.11-1.el7.x86_64mysql-community-common-8.0">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2015-02-05T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-04-08T01:44:03.829Z">
+<meta property="og:image" content="http://tech.jasonsoso.com/images/202210/mysql-2.png">
+<meta property="og:image" content="http://tech.jasonsoso.com/images/202210/mysql-3.png">
+<meta property="article:published_time" content="2022-09-27T11:46:25.000Z">
+<meta property="article:modified_time" content="2022-09-27T14:51:01.363Z">
 <meta property="article:author" content="Jason">
-<meta property="article:tag" content="框架">
+<meta property="article:tag" content="CentOS">
+<meta property="article:tag" content="软件">
+<meta property="article:tag" content="Mysql">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://tech.jasonsoso.com/images/202210/mysql-2.png">
 
 
-<link rel="canonical" href="http://tech.jasonsoso.com/2015/02/design-1/">
+<link rel="canonical" href="http://tech.jasonsoso.com/2022/09/centos-install-mysql/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://tech.jasonsoso.com/2015/02/design-1/","path":"2015/02/design-1/","title":"论框架设计(一)"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://tech.jasonsoso.com/2022/09/centos-install-mysql/","path":"2022/09/centos-install-mysql/","title":"CentOS7安装Mysql8"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>论框架设计(一) | Jason</title>
+<title>CentOS7安装Mysql8 | Jason</title>
   
 
 
@@ -154,7 +159,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#web"><span class="nav-number">1.</span> <span class="nav-text"> Web</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#database"><span class="nav-number">2.</span> <span class="nav-text"> Database</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#search-engine"><span class="nav-number">3.</span> <span class="nav-text"> Search Engine</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#services"><span class="nav-number">4.</span> <span class="nav-text"> Services</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#utilizes"><span class="nav-number">5.</span> <span class="nav-text"> Utilizes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#test"><span class="nav-number">6.</span> <span class="nav-text"> Test</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#centos7%E5%AE%89%E8%A3%85mysql8"><span class="nav-number">1.</span> <span class="nav-text"> CentOS7安装mysql8</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%89%8D%E6%B8%85%E7%90%86%E5%B7%A5%E4%BD%9C"><span class="nav-number">1.1.</span> <span class="nav-text"> 安装前清理工作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mysql80%E5%AE%89%E8%A3%85-yum%E6%96%B9%E5%BC%8F"><span class="nav-number">1.2.</span> <span class="nav-text"> Mysql8.0安装 (YUM方式)</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -252,7 +257,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://tech.jasonsoso.com/2015/02/design-1/">
+    <link itemprop="mainEntityOfPage" href="http://tech.jasonsoso.com/2022/09/centos-install-mysql/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/jason.jpg">
@@ -265,12 +270,12 @@
     </span>
     
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="论框架设计(一) | Jason">
+      <meta itemprop="name" content="CentOS7安装Mysql8 | Jason">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          论框架设计(一)
+          CentOS7安装Mysql8
         </h1>
 
         <div class="post-meta-container">
@@ -280,15 +285,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2015-02-06 00:00:00" itemprop="dateCreated datePublished" datetime="2015-02-06T00:00:00+08:00">2015-02-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-04-08 09:44:03" itemprop="dateModified" datetime="2022-04-08T09:44:03+08:00">2022-04-08</time>
+      <time title="创建时间：2022-09-27 19:46:25 / 修改时间：22:51:01" itemprop="dateCreated datePublished" datetime="2022-09-27T19:46:25+08:00">2022-09-27</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -296,7 +295,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+          <a href="/categories/%E5%A4%87%E5%BF%98%E5%BD%95/" itemprop="url" rel="index"><span itemprop="name">备忘录</span></a>
         </span>
     </span>
 
@@ -314,7 +313,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.8k</span>
+      <span>2.2k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -332,125 +331,82 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h3 id="web"><a class="markdownIt-Anchor" href="#web"></a> Web</h3>
-<ol>
-<li>MVC Framwork:<a target="_blank" rel="noopener" href="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/mvc.html" title="SpringMVC">SpringMVC</a>，Restful的风格，对比Strus2更简单，更友好。</li>
-<li>CSS Framwork：最热火的<a target="_blank" rel="noopener" href="http://getbootstrap.com/" title="Bootstrap">Twitter Bootstrap</a>，提供了简便的布局能力和基本的页面美化。</li>
-<li>Javascript Library：随大流用了<a target="_blank" rel="noopener" href="http://jquery.com/" title="jquery">JQuery</a></li>
-<li>Validation Framwork:当然用<a target="_blank" rel="noopener" href="http://jqueryvalidation.org/" title="jquery validation">jQuery Validation</a>,客户端校验和体验都不错！</li>
-</ol>
-<h3 id="database"><a class="markdownIt-Anchor" href="#database"></a> Database</h3>
+        <h2 id="centos7安装mysql8"><a class="markdownIt-Anchor" href="#centos7安装mysql8"></a> CentOS7安装mysql8</h2>
+<h3 id="安装前清理工作"><a class="markdownIt-Anchor" href="#安装前清理工作"></a> 安装前清理工作</h3>
 <ol>
 <li>
-<p>数据库设计一般性原则</p>
-<ol>
-<li>主键的列名统一为id。</li>
-<li>为方便数据操作及维护，不建立任何外键，用程序去保证关联关系。</li>
-<li>为表名添加前缀以便日后管理。比如有几十个表，将联系比较紧密的表，使用相同的前缀。</li>
-<li>表名全小写，因为MySQL在Linux下默认区分表名大小写。</li>
-</ol>
+<p>清理原有的mysql数据库安装的mysql软件包和依赖包：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -pa | grep mysql</span><br></pre></td></tr></table></figure>
+<p>结果如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mysql80-community-release-el7-1.noarch</span><br><span class="line">mysql-community-server-8.0.11-1.el7.x86_64</span><br><span class="line">mysql-community-common-8.0.11-1.el7.x86_64</span><br><span class="line">mysql-community-libs-8.0.11-1.el7.x86_64</span><br><span class="line">mysql-community-client-8.0.11-1.el7.x86_64</span><br><span class="line"></span><br><span class="line"><span class="comment">#使用以下命令依次删除上面的程序</span></span><br><span class="line">yum remove mysql-xxx-xxx-</span><br></pre></td></tr></table></figure>
 </li>
 <li>
-<p>传统关系型数据库</p>
-<ol>
-<li>MySql，Postgresql</li>
-<li>Oracle</li>
-</ol>
-</li>
-<li>
-<p>流行的NoSql</p>
-<ol>
-<li><a target="_blank" rel="noopener" href="http://www.mongodb.org/" title="mongodb">MongoDB</a>，最流行Nosql，一个分布式，面向文档的开源数据库，将数据存成BSON格式，与关系型数据库最为相似，也提供类似SQL的查询语句，更像个schema-less的数据库。</li>
-<li><a target="_blank" rel="noopener" href="http://redis.io/" title="redis">Redis</a>，一个基于内存的缓存数据库，提供强大的TTL等功能，Redis不仅仅支持简单的k/v类型的数据，同时还提供list，set，hash等数据结构的存储。</li>
-<li><a target="_blank" rel="noopener" href="http://ssdb.io/" title="ssdb">SSDB</a>，基于磁盘高速数据库（国产），号称一个高性能的支持丰富数据结构的 NoSQL 数据库代替Redis。</li>
-<li><a target="_blank" rel="noopener" href="http://hbase.apache.org/" title="hbase">HBase</a>，一个分布式的、面向列的开源数据库，该技术来源于Google论文“Bigtable：一个结构化数据的分布式存储系统”。</li>
-</ol>
-</li>
-<li>
-<p>本地缓存Cache</p>
-<ol>
-<li>在JVM里的缓存，最老牌的就是Ehcache；</li>
-<li>另外最简单的是<a target="_blank" rel="noopener" href="http://code.google.com/p/guava-libraries/" title="guava">Guava</a>的Cache，也提供TTL；</li>
-</ol>
-</li>
-<li>
-<p>ORM框架</p>
-<ol>
-<li><a target="_blank" rel="noopener" href="http://mybatis.github.io/mybatis-3/zh/index.html" title="mybatis">MyBatis</a>,追求高性能的应用，代码与SQL分离管理，相对码农来说更友好，个人推荐的ORM。</li>
-<li><a target="_blank" rel="noopener" href="http://hibernate.org/" title="hibernate">Hibernate</a>，最流行的ORM框架，无论是JPA还是Hibernate（当然JPA的实现还是用Hibernate），都是码农界里面最快速开发的东西。</li>
-</ol>
+<p>删除mysql的配置文件，卸载不会自动删除配置文件</p>
+<p>首先使用如下命令查找出所用的配置文件；</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find / -name mysql</span><br></pre></td></tr></table></figure>
+<p>可能的显示结果如下：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/etc/logrotate.d/mysql</span><br><span class="line">/etc/selinux/targeted/active/modules/100/mysql</span><br><span class="line">/etc/selinux/targeted/tmp/modules/100/mysql</span><br><span class="line">/var/lib/mysql</span><br><span class="line">/var/lib/mysql/mysql</span><br><span class="line">/usr/bin/mysql</span><br><span class="line">/usr/lib64/mysql</span><br><span class="line">/usr/local/mysql</span><br></pre></td></tr></table></figure>
+<p>根据需求使用以下命令 依次 对配置文件进行删除</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rm</span> -rf /var/lib/mysql</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h3 id="search-engine"><a class="markdownIt-Anchor" href="#search-engine"></a> Search Engine</h3>
-<ol>
-<li><a target="_blank" rel="noopener" href="http://www.elasticsearch.org/" title="elasticsearch">Elasticsearch</a>,一个基于Lucene构建的开源，分布式，RESTful搜索引擎;设计用于云计算；能够达到实时搜索，稳定，可靠，快速。本人喜欢这个。</li>
-<li><a target="_blank" rel="noopener" href="http://lucene.apache.org/solr/" title="solr">Solr</a>,一个基于Lucene构建的开源，最流行的，最快的搜索引擎。</li>
-</ol>
-<h3 id="services"><a class="markdownIt-Anchor" href="#services"></a> Services</h3>
+<h3 id="mysql80安装-yum方式"><a class="markdownIt-Anchor" href="#mysql80安装-yum方式"></a> Mysql8.0安装 (YUM方式)</h3>
 <ol>
 <li>
-<p>Security Framework</p>
-<ol>
-<li><a target="_blank" rel="noopener" href="http://shiro.apache.org/" title="shiro">Apache Shiro</a>，个人推荐，比Spring Security简单，容易扩展。</li>
-<li>Spring Security， 老牌的安全权限框架。</li>
-</ol>
+<p>安装Mysql8.0 的yum资源库：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/local/</span><br><span class="line"> <span class="built_in">mkdir</span> mysql</span><br><span class="line"> <span class="built_in">cd</span> mysql</span><br><span class="line"> wget https://repo.mysql.com/mysql80-community-release-el7.rpm</span><br></pre></td></tr></table></figure>
 </li>
 <li>
-<p>Schedule</p>
-<ol>
-<li><a target="_blank" rel="noopener" href="http://quartz-scheduler.org/" title="quartz-scheduler">Quartz</a>，最推荐这个。</li>
-<li>Spring Schedule spring自带的轻量级定时调度器</li>
-</ol>
+<p>yum repo文件并更新 yum 缓存</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -ivh mysql80-community-release-el7.rpm</span><br></pre></td></tr></table></figure>
+<p>执行结果：<br />
+会在/etc/yum.repos.d/目录下生成repo文件mysql-community.repo mysql-community-source.repo<br />
+<img data-src="http://tech.jasonsoso.com/images/202210/mysql-2.png" alt="检查JDK是否安装成功" title="检查JDK是否安装成功" /></p>
+<p>更新 yum 命令</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum clean all</span><br><span class="line">yum makecache</span><br></pre></td></tr></table></figure>
 </li>
-</ol>
-<h3 id="utilizes"><a class="markdownIt-Anchor" href="#utilizes"></a> Utilizes</h3>
-<ol>
-<li>General 常规包
-<ol>
-<li><a target="_blank" rel="noopener" href="http://commons.apache.org/proper/commons-lang/" title="commons-lang">Apache Commons Lang</a>,这也太黏码农了，陪伴着码农长大的Jar。</li>
-<li><a target="_blank" rel="noopener" href="http://code.google.com/p/guava-libraries/" title="guava">Guava</a>，Google新鲜出炉的优雅产品，有点新潮，Java8好多基础Class都收此为囊中。</li>
-<li><a target="_blank" rel="noopener" href="http://commons.apache.org/proper/commons-io/" title="commons-io">Apache Commons IO</a>， 同样好使。</li>
-<li><a target="_blank" rel="noopener" href="http://commons.apache.org/proper/commons-fileupload/" title="commons-fileupload">Commons FileUpload</a>，基础上传文件包。</li>
-</ol>
+<li>
+<p>使用 yum安装mysql<br />
+查看mysql yum仓库中mysql版本，使用如下命令</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum repolist all | grep mysql</span><br></pre></td></tr></table></figure>
+<p><img data-src="http://tech.jasonsoso.com/images/202210/mysql-3.png" alt="查看mysql yum仓库中mysql版本" title="查看mysql yum仓库中mysql版本" /></p>
+<p>或者可以编辑 mysql repo文件</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/yum.repos.d/mysql-community.repo</span><br><span class="line"><span class="built_in">cat</span> /etc/yum.repos.d/mysql-community.repo </span><br><span class="line"><span class="comment">#将相应版本下的enabled改成 1 即可；</span></span><br></pre></td></tr></table></figure>
 </li>
-<li>XML
-<ol>
-<li>JDK JAXB ,JDK自带</li>
-<li><a target="_blank" rel="noopener" href="http://xstream.codehaus.org/" title="xstream">Xstream</a> ,以轻易的将Java对象和xml文档相互转换,而且可以修改某个特定的属性和节点名称,而且也支持json的转换。</li>
-</ol>
+<li>
+<p>安装mysql 命令如下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install mysql-community-server</span><br></pre></td></tr></table></figure>
 </li>
-<li>JSON
-<ol>
-<li><a target="_blank" rel="noopener" href="http://code.google.com/p/google-gson/" title="google-gson">GSon</a>,出身名门，出于Google之手，接口优雅。</li>
-<li><a target="_blank" rel="noopener" href="http://jackson.codehaus.org/" title="jackson">Jackson</a>，功能丰富，相对快，Spring默认用它，所以我一直都用他。</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/alibaba/fastjson" title="fastjson">Fastjson</a>，出于阿里人之手，号称全球最快的Json处理框架。</li>
-</ol>
+<li>
+<p>开启mysql 服务<br />
+在开启前最最重要的一步，防止数据库运行后，产生数据库大小写敏感无法更改的问题！</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#(使用repo安装的mysql，生成的文件为my.cnfreoNew,修改为my.cnf即可)</span></span><br><span class="line">vi /etc/my.cnf</span><br></pre></td></tr></table></figure>
+<p>在[mysqlId]下增加配置</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lower_case_table_names=1</span><br></pre></td></tr></table></figure>
+<p>然后ESC退出，:wq退出并保存，然后在启动服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start mysqld.service</span><br></pre></td></tr></table></figure>
 </li>
-<li>Logging
-<ol>
-<li>Slf4j,早就替代了Apache Common Logging了,个人一直用它Log日志。</li>
-<li>Logback，Log4j作者的后作Logback就好很多了，另外选择Logstash做日志的中央式处理。</li>
-</ol>
+<li>
+<p>获取初始密码登录mysql<br />
+mysql在安装后会创建一个root@locahost账户，并且把初始的密码放到了/var/log/mysqld.log文件中；</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> /var/log/mysqld.log | grep password</span><br></pre></td></tr></table></figure>
 </li>
-<li>HttpClient
-<ol>
-<li>JDK URL，JDK原生的URL请求。</li>
-<li>Apache HttpClient，建议用Apache HttpClient好过JDK自带。</li>
-</ol>
+<li>
+<p>使用初始密码登录mysql</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p  <span class="comment">#会提示输入密码</span></span><br><span class="line"><span class="comment">#修改初始密码：</span></span><br><span class="line">ALTER USER <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> IDENTIFIED BY <span class="string">&#x27;MyNewPass4!&#x27;</span>; <span class="comment">#注意位数和种类至少大+写+小写+符号+数字</span></span><br></pre></td></tr></table></figure>
 </li>
-<li>Serializer
-<ol>
-<li>JDK Serializer</li>
-<li>Jackson Serializer</li>
-<li><a target="_blank" rel="noopener" href="http://thrift.apache.org/" title="thrift">Thrift</a>，出自Facebook，跨语言，推荐</li>
-<li><a target="_blank" rel="noopener" href="http://avro.apache.org/" title="avro">Avro</a>，出自Hadoop之父Doug Cutting，跨语言，推荐</li>
-</ol>
+<li>
+<p>将mysql 服务加入开机启动项，并启动mysql进程</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> mysqld.service</span><br><span class="line">systemctl start mysqld.service</span><br></pre></td></tr></table></figure>
 </li>
-</ol>
-<h3 id="test"><a class="markdownIt-Anchor" href="#test"></a> Test</h3>
-<ol>
-<li>Unit Test:Junit正统Java测试用例框架，AssertJ 是目前最好的Assert语句库。</li>
-<li>Performance/Stability Test：[Jmeter]作为测试工具是最成熟，常用于压力测试，并发测试等等。</li>
+<li>
+<p>修改加密规则及密码</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">select version(); #mysql版本</span><br><span class="line">show global variables like &#x27;port&#x27;; #查看服务端口</span><br><span class="line">select host,user,authentication_string from mysql.user; #查看用户表</span><br><span class="line">ALTER USER &#x27;root&#x27;@&#x27;%&#x27; IDENTIFIED BY &#x27;123456&#x27; PASSWORD EXPIRE NEVER; #修改加密规则</span><br><span class="line">ALTER USER &#x27;root&#x27;@&#x27;%&#x27; IDENTIFIED WITH mysql_native_password BY &#x27;123456&#x27;; #修改密码</span><br><span class="line">FLUSH PRIVILEGES; #刷新数据</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>重启mysql</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">service mysqld start #启动服务</span><br><span class="line">service mysqld stop #停止服务</span><br><span class="line">service mysqld restart #重启服务</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
 
     </div>
@@ -484,21 +440,20 @@
 </div>
 
           <div class="post-tags">
-              <a href="/tags/%E6%A1%86%E6%9E%B6/" rel="tag"><i class="fa fa-tag"></i> 框架</a>
+              <a href="/tags/CentOS/" rel="tag"><i class="fa fa-tag"></i> CentOS</a>
+              <a href="/tags/%E8%BD%AF%E4%BB%B6/" rel="tag"><i class="fa fa-tag"></i> 软件</a>
+              <a href="/tags/Mysql/" rel="tag"><i class="fa fa-tag"></i> Mysql</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2015/02/gitbook-1/" rel="prev" title="Gitbook（一）：从github到kindle">
-                  <i class="fa fa-chevron-left"></i> Gitbook（一）：从github到kindle
+                <a href="/2022/04/centos-install-develop-software/" rel="prev" title="CentOS7安装开发软件的备忘录">
+                  <i class="fa fa-chevron-left"></i> CentOS7安装开发软件的备忘录
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2015/05/install-hadoop/" rel="next" title="Hadoop学习（一）Hadoop2.6.0伪分布式安装与配置">
-                  Hadoop学习（一）Hadoop2.6.0伪分布式安装与配置 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>

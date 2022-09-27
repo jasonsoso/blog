@@ -5,7 +5,6 @@ tags:
     - CentOS
     - 软件
     - JDK
-    - Mysql
 categories: 备忘录
 ---
 

@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://tech.jasonsoso.com/2020/09/iot-first-contact/</loc>
-    <lastmod>2022-08-08</lastmod>
+    <loc>http://tech.jasonsoso.com/2022/09/centos-install-mysql/</loc>
+    <lastmod>2022-09-27</lastmod>
   </url>
   <url>
     <loc>http://tech.jasonsoso.com/2022/04/centos-install-develop-software/</loc>
-    <lastmod>2022-04-11</lastmod>
+    <lastmod>2022-09-27</lastmod>
+  </url>
+  <url>
+    <loc>http://tech.jasonsoso.com/2020/09/iot-first-contact/</loc>
+    <lastmod>2022-08-08</lastmod>
   </url>
   <url>
     <loc>http://tech.jasonsoso.com/2022/04/centos-install-something/</loc>

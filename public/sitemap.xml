@@ -2,9 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://tech.jasonsoso.com/2020/09/iot-first-contact/</loc>
+    <loc>http://tech.jasonsoso.com/2022/09/centos-install-mysql/</loc>
     
-    <lastmod>2022-08-08</lastmod>
+    <lastmod>2022-09-27</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -13,7 +13,16 @@
   <url>
     <loc>http://tech.jasonsoso.com/2022/04/centos-install-develop-software/</loc>
     
-    <lastmod>2022-04-11</lastmod>
+    <lastmod>2022-09-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://tech.jasonsoso.com/2020/09/iot-first-contact/</loc>
+    
+    <lastmod>2022-08-08</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -130,7 +139,7 @@
 
   <url>
     <loc>http://tech.jasonsoso.com/</loc>
-    <lastmod>2022-08-08</lastmod>
+    <lastmod>2022-09-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -138,182 +147,182 @@
   
   <url>
     <loc>http://tech.jasonsoso.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
-    <lastmod>2022-08-08</lastmod>
+    <lastmod>2022-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://tech.jasonsoso.com/tags/B%E6%A0%91/</loc>
-    <lastmod>2022-08-08</lastmod>
+    <lastmod>2022-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://tech.jasonsoso.com/tags/%E4%BD%8D%E5%9B%BE/</loc>
-    <lastmod>2022-08-08</lastmod>
+    <lastmod>2022-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://tech.jasonsoso.com/tags/github/</loc>
-    <lastmod>2022-08-08</lastmod>
+    <lastmod>2022-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://tech.jasonsoso.com/tags/gitbook/</loc>
-    <lastmod>2022-08-08</lastmod>
+    <lastmod>2022-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://tech.jasonsoso.com/tags/nodejs/</loc>
-    <lastmod>2022-08-08</lastmod>
+    <lastmod>2022-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://tech.jasonsoso.com/tags/kindle/</loc>
-    <lastmod>2022-08-08</lastmod>
+    <lastmod>2022-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://tech.jasonsoso.com/tags/%E6%A1%86%E6%9E%B6/</loc>
-    <lastmod>2022-08-08</lastmod>
+    <lastmod>2022-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://tech.jasonsoso.com/tags/%E5%88%86%E5%B8%83%E5%BC%8F/</loc>
-    <lastmod>2022-08-08</lastmod>
+    <lastmod>2022-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://tech.jasonsoso.com/tags/hadoop/</loc>
-    <lastmod>2022-08-08</lastmod>
+    <lastmod>2022-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://tech.jasonsoso.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/</loc>
-    <lastmod>2022-08-08</lastmod>
+    <lastmod>2022-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://tech.jasonsoso.com/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/</loc>
-    <lastmod>2022-08-08</lastmod>
+    <lastmod>2022-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://tech.jasonsoso.com/tags/ElasticSearch/</loc>
-    <lastmod>2022-08-08</lastmod>
+    <lastmod>2022-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://tech.jasonsoso.com/tags/%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/</loc>
-    <lastmod>2022-08-08</lastmod>
+    <lastmod>2022-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://tech.jasonsoso.com/tags/%E6%9E%B6%E6%9E%84/</loc>
-    <lastmod>2022-08-08</lastmod>
+    <lastmod>2022-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://tech.jasonsoso.com/tags/SSO/</loc>
-    <lastmod>2022-08-08</lastmod>
+    <lastmod>2022-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://tech.jasonsoso.com/tags/%E7%89%A9%E8%81%94%E7%BD%91/</loc>
-    <lastmod>2022-08-08</lastmod>
+    <lastmod>2022-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://tech.jasonsoso.com/tags/CentOS/</loc>
-    <lastmod>2022-08-08</lastmod>
+    <lastmod>2022-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://tech.jasonsoso.com/tags/%E8%BD%AF%E4%BB%B6/</loc>
-    <lastmod>2022-08-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://tech.jasonsoso.com/tags/%E7%89%A9%E6%A8%A1%E5%9E%8B/</loc>
-    <lastmod>2022-08-08</lastmod>
+    <lastmod>2022-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://tech.jasonsoso.com/tags/Nginx/</loc>
-    <lastmod>2022-08-08</lastmod>
+    <lastmod>2022-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://tech.jasonsoso.com/tags/Git/</loc>
-    <lastmod>2022-08-08</lastmod>
+    <lastmod>2022-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://tech.jasonsoso.com/tags/Node-js/</loc>
-    <lastmod>2022-08-08</lastmod>
+    <lastmod>2022-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://tech.jasonsoso.com/tags/Ruby/</loc>
-    <lastmod>2022-08-08</lastmod>
+    <lastmod>2022-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://tech.jasonsoso.com/tags/JDK/</loc>
-    <lastmod>2022-08-08</lastmod>
+    <lastmod>2022-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://tech.jasonsoso.com/tags/Mysql/</loc>
-    <lastmod>2022-08-08</lastmod>
+    <lastmod>2022-09-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://tech.jasonsoso.com/tags/%E7%89%A9%E6%A8%A1%E5%9E%8B/</loc>
+    <lastmod>2022-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -322,14 +331,14 @@
   
   <url>
     <loc>http://tech.jasonsoso.com/categories/%E5%A4%87%E5%BF%98%E5%BD%95/</loc>
-    <lastmod>2022-08-08</lastmod>
+    <lastmod>2022-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://tech.jasonsoso.com/categories/%E6%8A%80%E6%9C%AF/</loc>
-    <lastmod>2022-08-08</lastmod>
+    <lastmod>2022-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>

@@ -1022,6 +1022,138 @@ GitHub点击用户头像，选择setting<br />
       </tags>
   </entry>
   <entry>
+    <title>CentOS7安装开发软件的备忘录</title>
+    <url>/2022/04/centos-install-develop-software/</url>
+    <content><![CDATA[<h2 id="centos7安装jdk8"><a class="markdownIt-Anchor" href="#centos7安装jdk8"></a> CentOS7安装JDK8</h2>
+<h3 id="下载与解压jdk"><a class="markdownIt-Anchor" href="#下载与解压jdk"></a> 下载与解压JDK</h3>
+<ol>
+<li>
+<p>下载<br />
+前往<a href="https://www.injdk.cn/">https://www.injdk.cn/</a>进行下载（懒得去Oracle注册了）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://d6.injdk.cn/oraclejdk/8/jdk-8u301-linux-x64.tar.gz</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>解压</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p /usr/local/java</span><br><span class="line">tar zxvf jdk-8u301-linux-x64.tar.gz -C /usr/local/java</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="配置环境变量"><a class="markdownIt-Anchor" href="#配置环境变量"></a> 配置环境变量</h3>
+<ol>
+<li>
+<p>复制以下到此文件（/etc/profile）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">JAVA_HOME=/usr/local/java/jdk1.8.0_301</span><br><span class="line"><span class="built_in">export</span> CLASSPATH=$:CLASSPATH:<span class="variable">$JAVA_HOME</span>/lib/</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>编辑，并使之生效</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vi /etc/profile</span><br><span class="line"><span class="built_in">source</span> /etc/profile</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="检查是否安装成功"><a class="markdownIt-Anchor" href="#检查是否安装成功"></a> 检查是否安装成功</h3>
+<ol>
+<li>检查命令<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">java -version</span><br><span class="line">javac -version</span><br></pre></td></tr></table></figure>
+<img data-src="http://tech.jasonsoso.com/images/202204/jdk-1.png" alt="检查JDK是否安装成功" title="检查JDK是否安装成功" /></li>
+</ol>
+]]></content>
+      <categories>
+        <category>备忘录</category>
+      </categories>
+      <tags>
+        <tag>CentOS</tag>
+        <tag>软件</tag>
+        <tag>JDK</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CentOS7安装Mysql8</title>
+    <url>/2022/09/centos-install-mysql/</url>
+    <content><![CDATA[<h2 id="centos7安装mysql8"><a class="markdownIt-Anchor" href="#centos7安装mysql8"></a> CentOS7安装mysql8</h2>
+<h3 id="安装前清理工作"><a class="markdownIt-Anchor" href="#安装前清理工作"></a> 安装前清理工作</h3>
+<ol>
+<li>
+<p>清理原有的mysql数据库安装的mysql软件包和依赖包：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rpm -pa | grep mysql</span><br></pre></td></tr></table></figure>
+<p>结果如下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mysql80-community-release-el7-1.noarch</span><br><span class="line">mysql-community-server-8.0.11-1.el7.x86_64</span><br><span class="line">mysql-community-common-8.0.11-1.el7.x86_64</span><br><span class="line">mysql-community-libs-8.0.11-1.el7.x86_64</span><br><span class="line">mysql-community-client-8.0.11-1.el7.x86_64</span><br><span class="line"></span><br><span class="line"><span class="comment">#使用以下命令依次删除上面的程序</span></span><br><span class="line">yum remove mysql-xxx-xxx-</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>删除mysql的配置文件，卸载不会自动删除配置文件</p>
+<p>首先使用如下命令查找出所用的配置文件；</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">find / -name mysql</span><br></pre></td></tr></table></figure>
+<p>可能的显示结果如下：</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/etc/logrotate.d/mysql</span><br><span class="line">/etc/selinux/targeted/active/modules/100/mysql</span><br><span class="line">/etc/selinux/targeted/tmp/modules/100/mysql</span><br><span class="line">/var/lib/mysql</span><br><span class="line">/var/lib/mysql/mysql</span><br><span class="line">/usr/bin/mysql</span><br><span class="line">/usr/lib64/mysql</span><br><span class="line">/usr/local/mysql</span><br></pre></td></tr></table></figure>
+<p>根据需求使用以下命令 依次 对配置文件进行删除</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">rm</span> -rf /var/lib/mysql</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="mysql80安装-yum方式"><a class="markdownIt-Anchor" href="#mysql80安装-yum方式"></a> Mysql8.0安装 (YUM方式)</h3>
+<ol>
+<li>
+<p>安装Mysql8.0 的yum资源库：</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/local/</span><br><span class="line"> <span class="built_in">mkdir</span> mysql</span><br><span class="line"> <span class="built_in">cd</span> mysql</span><br><span class="line"> wget https://repo.mysql.com/mysql80-community-release-el7.rpm</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>yum repo文件并更新 yum 缓存</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rpm -ivh mysql80-community-release-el7.rpm</span><br></pre></td></tr></table></figure>
+<p>执行结果：<br />
+会在/etc/yum.repos.d/目录下生成repo文件mysql-community.repo mysql-community-source.repo<br />
+<img data-src="http://tech.jasonsoso.com/images/202210/mysql-2.png" alt="检查JDK是否安装成功" title="检查JDK是否安装成功" /></p>
+<p>更新 yum 命令</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum clean all</span><br><span class="line">yum makecache</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>使用 yum安装mysql<br />
+查看mysql yum仓库中mysql版本，使用如下命令</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum repolist all | grep mysql</span><br></pre></td></tr></table></figure>
+<p><img data-src="http://tech.jasonsoso.com/images/202210/mysql-3.png" alt="查看mysql yum仓库中mysql版本" title="查看mysql yum仓库中mysql版本" /></p>
+<p>或者可以编辑 mysql repo文件</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/yum.repos.d/mysql-community.repo</span><br><span class="line"><span class="built_in">cat</span> /etc/yum.repos.d/mysql-community.repo </span><br><span class="line"><span class="comment">#将相应版本下的enabled改成 1 即可；</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>安装mysql 命令如下</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum install mysql-community-server</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>开启mysql 服务<br />
+在开启前最最重要的一步，防止数据库运行后，产生数据库大小写敏感无法更改的问题！</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#(使用repo安装的mysql，生成的文件为my.cnfreoNew,修改为my.cnf即可)</span></span><br><span class="line">vi /etc/my.cnf</span><br></pre></td></tr></table></figure>
+<p>在[mysqlId]下增加配置</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">lower_case_table_names=1</span><br></pre></td></tr></table></figure>
+<p>然后ESC退出，:wq退出并保存，然后在启动服务</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl start mysqld.service</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>获取初始密码登录mysql<br />
+mysql在安装后会创建一个root@locahost账户，并且把初始的密码放到了/var/log/mysqld.log文件中；</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> /var/log/mysqld.log | grep password</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>使用初始密码登录mysql</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mysql -u root -p  <span class="comment">#会提示输入密码</span></span><br><span class="line"><span class="comment">#修改初始密码：</span></span><br><span class="line">ALTER USER <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> IDENTIFIED BY <span class="string">&#x27;MyNewPass4!&#x27;</span>; <span class="comment">#注意位数和种类至少大+写+小写+符号+数字</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>将mysql 服务加入开机启动项，并启动mysql进程</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> mysqld.service</span><br><span class="line">systemctl start mysqld.service</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>修改加密规则及密码</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">select version(); #mysql版本</span><br><span class="line">show global variables like &#x27;port&#x27;; #查看服务端口</span><br><span class="line">select host,user,authentication_string from mysql.user; #查看用户表</span><br><span class="line">ALTER USER &#x27;root&#x27;@&#x27;%&#x27; IDENTIFIED BY &#x27;123456&#x27; PASSWORD EXPIRE NEVER; #修改加密规则</span><br><span class="line">ALTER USER &#x27;root&#x27;@&#x27;%&#x27; IDENTIFIED WITH mysql_native_password BY &#x27;123456&#x27;; #修改密码</span><br><span class="line">FLUSH PRIVILEGES; #刷新数据</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>重启mysql</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">service mysqld start #启动服务</span><br><span class="line">service mysqld stop #停止服务</span><br><span class="line">service mysqld restart #重启服务</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>备忘录</category>
+      </categories>
+      <tags>
+        <tag>CentOS</tag>
+        <tag>软件</tag>
+        <tag>Mysql</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>何为物联网中的物模型</title>
     <url>/2020/08/iot-model/</url>
     <content><![CDATA[<h2 id="物模型简单说明"><a class="markdownIt-Anchor" href="#物模型简单说明"></a> 物模型简单说明</h2>
@@ -1150,49 +1282,6 @@ Element:
       <tags>
         <tag>物联网</tag>
         <tag>物模型</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CentOS7安装开发软件的备忘录</title>
-    <url>/2022/04/centos-install-develop-software/</url>
-    <content><![CDATA[<h2 id="centos7安装jdk8"><a class="markdownIt-Anchor" href="#centos7安装jdk8"></a> CentOS7安装JDK8</h2>
-<h3 id="下载与解压jdk"><a class="markdownIt-Anchor" href="#下载与解压jdk"></a> 下载与解压JDK</h3>
-<ol>
-<li>
-<p>下载<br />
-前往<a href="https://www.injdk.cn/">https://www.injdk.cn/</a>进行下载（懒得去Oracle注册了）</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://d6.injdk.cn/oraclejdk/8/jdk-8u301-linux-x64.tar.gz</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>解压</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p /usr/local/java</span><br><span class="line">tar zxvf jdk-8u301-linux-x64.tar.gz -C /usr/local/java</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="配置环境变量"><a class="markdownIt-Anchor" href="#配置环境变量"></a> 配置环境变量</h3>
-<ol>
-<li>
-<p>复制以下到此文件（/etc/profile）</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">JAVA_HOME=/usr/local/java/jdk1.8.0_301</span><br><span class="line"><span class="built_in">export</span> CLASSPATH=$:CLASSPATH:<span class="variable">$JAVA_HOME</span>/lib/</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>编辑，并使之生效</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vi /etc/profile</span><br><span class="line"><span class="built_in">source</span> /etc/profile</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="检查是否安装成功"><a class="markdownIt-Anchor" href="#检查是否安装成功"></a> 检查是否安装成功</h3>
-<ol>
-<li>检查命令<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">java -version</span><br><span class="line">javac -version</span><br></pre></td></tr></table></figure>
-<img data-src="http://tech.jasonsoso.com/images/202204/jdk-1.png" alt="检查JDK是否安装成功" title="检查JDK是否安装成功" /></li>
-</ol>
-]]></content>
-      <categories>
-        <category>备忘录</category>
-      </categories>
-      <tags>
-        <tag>CentOS</tag>
-        <tag>软件</tag>
-        <tag>JDK</tag>
-        <tag>Mysql</tag>
       </tags>
   </entry>
 </search>
