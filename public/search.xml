@@ -1064,9 +1064,82 @@ GitHub点击用户头像，选择setting<br />
       </tags>
   </entry>
   <entry>
-    <title>CentOS7安装Mysql8</title>
+    <title>玩转Mysql8</title>
     <url>/2022/09/centos-install-mysql/</url>
-    <content><![CDATA[<h2 id="centos7安装mysql8"><a class="markdownIt-Anchor" href="#centos7安装mysql8"></a> CentOS7安装mysql8</h2>
+    <content><![CDATA[<h2 id="mysql57和mysql80区别"><a class="markdownIt-Anchor" href="#mysql57和mysql80区别"></a> mysql5.7和mysql8.0区别</h2>
+<h3 id="背景"><a class="markdownIt-Anchor" href="#背景"></a> 背景</h3>
+<ol>
+<li>
+<p>以往的职业生涯当中，大多数都是使用mysql5.7版本，听闻mysql8.0性能不错，特意来玩玩！</p>
+</li>
+<li>
+<p>总体来说，各个业务表存储引擎为InnoDB的mysql 5.7在使用语法上和mysql 8.0差别不大，官方表示 MySQL 8 要比 MySQL 5.7 快 2 倍，还带来了大量的改进和更快的性能。</p>
+</li>
+</ol>
+<h3 id="新增功能"><a class="markdownIt-Anchor" href="#新增功能"></a> 新增功能</h3>
+<ol>
+<li>
+<p>性能： MySQL 8.0 在以下方面带来了更好的性能：读/写工作负载、IO 密集型工作负载、以及高竞争(”hot spot”热点竞争问题)工作负载。</p>
+</li>
+<li>
+<p>NoSQL：MySQL 从 5.7 版本开始提供 NoSQL 存储功能，目前在 8.0 版本中这部分功能也得到了更大的改进。该项功能消除了对独立的 NoSQL 文档数据库的需求，而 MySQL 文档存储也为 schema-less 模式的 JSON 文档提供了多文档事务支持和完整的 ACID 合规性。</p>
+</li>
+<li>
+<p>窗口函数(Window Functions)：从 MySQL 8.0 开始，新增了一个叫窗口函数的概念，它可以用来实现若干新的查询方式。窗口函数与 SUM()、COUNT() 这种集合函数类似，但它不会将多行查询结果合并为一行，而是将结果放回多行当中。即窗口函数不需要 GROUP BY。</p>
+</li>
+<li>
+<p>隐藏索引：在 MySQL 8.0 中，索引可以被“隐藏”和“显示”。当对索引进行隐藏时，它不会被查询优化器所使用。我们可以使用这个特性用于性能调试，例如我们先隐藏一个索引，然后观察其对数据库的影响。如果数据库性能有所下降，说明这个索引是有用的，然后将其“恢复显示”即可；如果数据库性能看不出变化，说明这个索引是多余的，可以考虑删掉。</p>
+</li>
+<li>
+<p>降序索引：MySQL 8.0 为索引提供按降序方式进行排序的支持，在这种索引中的值也会按降序的方式进行排序。</p>
+</li>
+<li>
+<p>通用表表达式(Common Table Expressions CTE)：在复杂的查询中使用嵌入式表时，使用 CTE 使得查询语句更清晰。</p>
+</li>
+<li>
+<p>UTF-8 编码：从 MySQL 8 开始，使用 utf8mb4 作为 MySQL 的默认字符集。</p>
+</li>
+<li>
+<p>JSON：MySQL 8 大幅改进了对 JSON 的支持，添加了基于路径查询参数从 JSON 字段中抽取数据的 JSON_EXTRACT() 函数，以及用于将数据分别组合到 JSON 数组和对象中的 JSON_ARRAYAGG() 和 JSON_OBJECTAGG() 聚合函数。</p>
+</li>
+<li>
+<p>可靠性：InnoDB 现在支持表 DDL 的原子性，也就是 InnoDB 表上的 DDL 也可以实现事务完整性，要么失败回滚，要么成功提交，不至于出现 DDL 时部分成功的问题，此外还支持 crash-safe 特性，元数据存储在单个事务数据字典中。</p>
+</li>
+<li>
+<p>高可用性(High Availability)：InnoDB 集群为您的数据库提供集成的原生 HA 解决方案。</p>
+</li>
+</ol>
+<h3 id="使用区别"><a class="markdownIt-Anchor" href="#使用区别"></a> 使用区别</h3>
+<ol>
+<li>
+<p>身份验证：<br />
+caching_sha2_password是MySQL 8.0中的默认身份验证插件，替换了mysql 5.7的mysql_native_password，身份验证安全性能提升。</p>
+</li>
+<li>
+<p>授权：<br />
+与帐户管理相关的授权语法略有差异： MySQL5.7创建用户和用户授权命令可以同时执行<br />
+grant all privileges on . to ‘canal’@’%’ identified by ‘123456’<br />
+MySQL8.0创建用户和用户授权的命令需要分开执行</p>
+</li>
+<li>
+<p>创建用户<br />
+create user ‘canal’@’%’ identified by ‘123456’;</p>
+</li>
+<li>
+<p>用户授权【给予所有权限】<br />
+grant all privileges on <em>.</em> to ‘canal’@’%’;</p>
+</li>
+<li>
+<p>语法层面<br />
+语法使用区别总体变化很小，但是部分因为索引排序的变化，可能mysql5.7和mysql8.0查询结果的顺序不一致。<br />
+json相关函数在mysql8.0有部分方法名有差异。如JSON_MERGE替换为JSON_MERGE_PRESERVE</p>
+</li>
+<li>
+<p>UTF-8 编码：<br />
+从 MySQL 8 开始，使用 utf8mb4 作为 MySQL 的默认字符集。</p>
+</li>
+</ol>
+<h2 id="centos7安装mysql8"><a class="markdownIt-Anchor" href="#centos7安装mysql8"></a> CentOS7安装mysql8</h2>
 <h3 id="安装前清理工作"><a class="markdownIt-Anchor" href="#安装前清理工作"></a> 安装前清理工作</h3>
 <ol>
 <li>
@@ -1096,7 +1169,7 @@ GitHub点击用户头像，选择setting<br />
  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rpm -ivh mysql80-community-release-el7.rpm</span><br></pre></td></tr></table></figure>
 <p>执行结果：<br />
 会在/etc/yum.repos.d/目录下生成repo文件mysql-community.repo mysql-community-source.repo<br />
-<img data-src="http://tech.jasonsoso.com/images/202210/mysql-2.png" alt="检查JDK是否安装成功" title="检查JDK是否安装成功" /></p>
+<img data-src="http://tech.jasonsoso.com/images/202210/mysql-2.png" alt="yum repo文件" title="yum repo文件" /></p>
 <p>更新 yum 命令</p>
  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum clean all</span><br><span class="line">yum makecache</span><br></pre></td></tr></table></figure>
 </li>
@@ -1111,6 +1184,7 @@ GitHub点击用户头像，选择setting<br />
 <li>
 <p>安装mysql 命令如下</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum install mysql-community-server</span><br></pre></td></tr></table></figure>
+<p><img data-src="http://tech.jasonsoso.com/images/202210/mysql-1.png" alt="mysql8的安装" title="mysql8的安装" /></p>
 </li>
 <li>
 <p>开启mysql 服务<br />
@@ -1136,11 +1210,30 @@ mysql在安装后会创建一个root@locahost账户，并且把初始的密码�
 </li>
 <li>
 <p>修改加密规则及密码</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">select version(); #mysql版本</span><br><span class="line">show global variables like &#x27;port&#x27;; #查看服务端口</span><br><span class="line">select host,user,authentication_string from mysql.user; #查看用户表</span><br><span class="line">ALTER USER &#x27;root&#x27;@&#x27;%&#x27; IDENTIFIED BY &#x27;123456&#x27; PASSWORD EXPIRE NEVER; #修改加密规则</span><br><span class="line">ALTER USER &#x27;root&#x27;@&#x27;%&#x27; IDENTIFIED WITH mysql_native_password BY &#x27;123456&#x27;; #修改密码</span><br><span class="line">FLUSH PRIVILEGES; #刷新数据</span><br></pre></td></tr></table></figure>
+<p>caching_sha2_password是MySQL 8.0中的默认身份验证插件，替换了mysql 5.7的mysql_native_password，身份验证安全性能提升。<br />
+<img data-src="http://tech.jasonsoso.com/images/202210/mysql-4.png" alt="身份验证" title="身份验证" /><br />
+修改以上问题可执行以下命令：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">select version(); #mysql版本</span><br><span class="line">show global variables like &#x27;port&#x27;; #查看服务端口</span><br><span class="line">select host,user,authentication_string from mysql.user; #查看用户表</span><br><span class="line">ALTER USER &#x27;root&#x27;@&#x27;%&#x27; IDENTIFIED BY &#x27;123456&#x27; PASSWORD EXPIRE NEVER; #修改加密规则</span><br><span class="line">ALTER USER &#x27;root&#x27;@&#x27;%&#x27; IDENTIFIED WITH mysql_native_password BY &#x27;123456&#x27;; #修改密码</span><br><span class="line">FLUSH PRIVILEGES; #刷新权限数据</span><br></pre></td></tr></table></figure>
 </li>
 <li>
 <p>重启mysql</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">service mysqld start #启动服务</span><br><span class="line">service mysqld stop #停止服务</span><br><span class="line">service mysqld restart #重启服务</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="常用的一些sql集锦"><a class="markdownIt-Anchor" href="#常用的一些sql集锦"></a> 常用的一些sql集锦</h2>
+<ol>
+<li>
+<p>创建用户并授权</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">create user &#x27;canal&#x27;@&#x27;%&#x27; identified by &#x27;123456&#x27;; #创建用户</span><br><span class="line">grant all privileges on *.* to &#x27;canal&#x27;@&#x27;%&#x27;; #授权</span><br><span class="line">ALTER USER &#x27;canal&#x27;@&#x27;%&#x27; IDENTIFIED BY &#x27;123456&#x27; PASSWORD EXPIRE NEVER; #修改加密规则</span><br><span class="line">ALTER USER &#x27;canal&#x27;@&#x27;%&#x27; IDENTIFIED WITH mysql_native_password BY &#x27;123456&#x27;; #修改密码</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">其中有报异常：ERROR 1227 (42000): Access denied; you need (at least one of) the SYSTEM_USER privilege(s) for this</span><br><span class="line">查阅了一下官方文档，原因是由于root用户没有SYSTEM_USER权限，把权限加入后即可解决：</span><br><span class="line">grant system_user on *.* to &#x27;root&#x27;;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>多表关联update</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 通过 INNER JOIN</span><br><span class="line">UPDATE test_a a</span><br><span class="line">INNER JOIN test_b b ON a.user_id = b.user_id</span><br><span class="line">SET b.dept_id = a.dept_id;</span><br><span class="line"></span><br><span class="line">#通过 LEFT JOIN</span><br><span class="line">UPDATE test_a a</span><br><span class="line">LEFT JOIN test_b b ON a.user_id = b.user_id</span><br><span class="line">SET b.dept_id = a.dept_id;</span><br><span class="line"></span><br><span class="line">#通过子查询</span><br><span class="line">UPDATE test_b b </span><br><span class="line">SET dept_id = ( SELECT dept_id FROM test_a WHERE user_id = b.user_id );</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>给某表的字段增加1s,方便触发表数据修改</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#减1秒</span><br><span class="line">UPDATE promotion_product set CREATE_TIME=date_add(CREATE_TIME, interval 1 second)</span><br><span class="line">WHERE  PROMOTION_ID in (</span><br><span class="line">&#x27;020512b9a0df49a48d05f92c097e2223&#x27;,</span><br><span class="line">&#x27;4a8053ee194d4020ab56f904863fdd0f&#x27;</span><br><span class="line">); </span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 ]]></content>
