@@ -36,7 +36,7 @@
 <meta property="og:image" content="http://tech.jasonsoso.com/images/202210/mysql-1.png">
 <meta property="og:image" content="http://tech.jasonsoso.com/images/202210/mysql-4.png">
 <meta property="article:published_time" content="2022-09-27T11:46:25.000Z">
-<meta property="article:modified_time" content="2022-09-28T08:17:53.446Z">
+<meta property="article:modified_time" content="2022-09-28T08:31:09.948Z">
 <meta property="article:author" content="Jason">
 <meta property="article:tag" content="CentOS">
 <meta property="article:tag" content="软件">
@@ -295,7 +295,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-09-28 16:17:53" itemprop="dateModified" datetime="2022-09-28T16:17:53+08:00">2022-09-28</time>
+      <time title="修改时间：2022-09-28 16:31:09" itemprop="dateModified" datetime="2022-09-28T16:31:09+08:00">2022-09-28</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -321,14 +321,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>4.9k</span>
+      <span>5k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>4 分钟</span>
+      <span>5 分钟</span>
     </span>
 </div>
 
@@ -352,34 +352,44 @@
 <h3 id="新增功能"><a class="markdownIt-Anchor" href="#新增功能"></a> 新增功能</h3>
 <ol>
 <li>
-<p>性能： MySQL 8.0 在以下方面带来了更好的性能：读/写工作负载、IO 密集型工作负载、以及高竞争(”hot spot”热点竞争问题)工作负载。</p>
+<p>性能：<br />
+MySQL 8.0 在以下方面带来了更好的性能：读/写工作负载、IO 密集型工作负载、以及高竞争(”hot spot”热点竞争问题)工作负载。</p>
 </li>
 <li>
-<p>NoSQL：MySQL 从 5.7 版本开始提供 NoSQL 存储功能，目前在 8.0 版本中这部分功能也得到了更大的改进。该项功能消除了对独立的 NoSQL 文档数据库的需求，而 MySQL 文档存储也为 schema-less 模式的 JSON 文档提供了多文档事务支持和完整的 ACID 合规性。</p>
+<p>NoSQL：<br />
+MySQL 从 5.7 版本开始提供 NoSQL 存储功能，目前在 8.0 版本中这部分功能也得到了更大的改进。该项功能消除了对独立的 NoSQL 文档数据库的需求，而 MySQL 文档存储也为 schema-less 模式的 JSON 文档提供了多文档事务支持和完整的 ACID 合规性。</p>
 </li>
 <li>
-<p>窗口函数(Window Functions)：从 MySQL 8.0 开始，新增了一个叫窗口函数的概念，它可以用来实现若干新的查询方式。窗口函数与 SUM()、COUNT() 这种集合函数类似，但它不会将多行查询结果合并为一行，而是将结果放回多行当中。即窗口函数不需要 GROUP BY。</p>
+<p>窗口函数(Window Functions)：<br />
+从 MySQL 8.0 开始，新增了一个叫窗口函数的概念，它可以用来实现若干新的查询方式。窗口函数与 SUM()、COUNT() 这种集合函数类似，但它不会将多行查询结果合并为一行，而是将结果放回多行当中。即窗口函数不需要 GROUP BY。</p>
 </li>
 <li>
-<p>隐藏索引：在 MySQL 8.0 中，索引可以被“隐藏”和“显示”。当对索引进行隐藏时，它不会被查询优化器所使用。我们可以使用这个特性用于性能调试，例如我们先隐藏一个索引，然后观察其对数据库的影响。如果数据库性能有所下降，说明这个索引是有用的，然后将其“恢复显示”即可；如果数据库性能看不出变化，说明这个索引是多余的，可以考虑删掉。</p>
+<p>隐藏索引：<br />
+在 MySQL 8.0 中，索引可以被“隐藏”和“显示”。当对索引进行隐藏时，它不会被查询优化器所使用。我们可以使用这个特性用于性能调试，例如我们先隐藏一个索引，然后观察其对数据库的影响。如果数据库性能有所下降，说明这个索引是有用的，然后将其“恢复显示”即可；如果数据库性能看不出变化，说明这个索引是多余的，可以考虑删掉。</p>
 </li>
 <li>
-<p>降序索引：MySQL 8.0 为索引提供按降序方式进行排序的支持，在这种索引中的值也会按降序的方式进行排序。</p>
+<p>降序索引：<br />
+MySQL 8.0 为索引提供按降序方式进行排序的支持，在这种索引中的值也会按降序的方式进行排序。</p>
 </li>
 <li>
-<p>通用表表达式(Common Table Expressions CTE)：在复杂的查询中使用嵌入式表时，使用 CTE 使得查询语句更清晰。</p>
+<p>通用表表达式(Common Table Expressions CTE)：<br />
+在复杂的查询中使用嵌入式表时，使用 CTE 使得查询语句更清晰。</p>
 </li>
 <li>
-<p>UTF-8 编码：从 MySQL 8 开始，使用 utf8mb4 作为 MySQL 的默认字符集。</p>
+<p>UTF-8 编码：<br />
+从 MySQL 8 开始，使用 utf8mb4 作为 MySQL 的默认字符集。</p>
 </li>
 <li>
-<p>JSON：MySQL 8 大幅改进了对 JSON 的支持，添加了基于路径查询参数从 JSON 字段中抽取数据的 JSON_EXTRACT() 函数，以及用于将数据分别组合到 JSON 数组和对象中的 JSON_ARRAYAGG() 和 JSON_OBJECTAGG() 聚合函数。</p>
+<p>JSON：<br />
+MySQL 8 大幅改进了对 JSON 的支持，添加了基于路径查询参数从 JSON 字段中抽取数据的 JSON_EXTRACT() 函数，以及用于将数据分别组合到 JSON 数组和对象中的 JSON_ARRAYAGG() 和 JSON_OBJECTAGG() 聚合函数。</p>
 </li>
 <li>
-<p>可靠性：InnoDB 现在支持表 DDL 的原子性，也就是 InnoDB 表上的 DDL 也可以实现事务完整性，要么失败回滚，要么成功提交，不至于出现 DDL 时部分成功的问题，此外还支持 crash-safe 特性，元数据存储在单个事务数据字典中。</p>
+<p>可靠性：<br />
+InnoDB 现在支持表 DDL 的原子性，也就是 InnoDB 表上的 DDL 也可以实现事务完整性，要么失败回滚，要么成功提交，不至于出现 DDL 时部分成功的问题，此外还支持 crash-safe 特性，元数据存储在单个事务数据字典中。</p>
 </li>
 <li>
-<p>高可用性(High Availability)：InnoDB 集群为您的数据库提供集成的原生 HA 解决方案。</p>
+<p>高可用性(High Availability)：<br />
+InnoDB 集群为您的数据库提供集成的原生 HA 解决方案。</p>
 </li>
 </ol>
 <h3 id="使用区别"><a class="markdownIt-Anchor" href="#使用区别"></a> 使用区别</h3>
@@ -391,16 +401,16 @@ caching_sha2_password是MySQL 8.0中的默认身份验证插件，替换了mysql
 <li>
 <p>授权：<br />
 与帐户管理相关的授权语法略有差异： MySQL5.7创建用户和用户授权命令可以同时执行<br />
-grant all privileges on . to ‘canal’@’%’ identified by ‘123456’<br />
 MySQL8.0创建用户和用户授权的命令需要分开执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grant all privileges on . to <span class="string">&#x27;canal&#x27;</span>@<span class="string">&#x27;%&#x27;</span> identified by <span class="string">&#x27;123456&#x27;</span> </span><br></pre></td></tr></table></figure>
 </li>
 <li>
-<p>创建用户<br />
-create user ‘canal’@’%’ identified by ‘123456’;</p>
+<p>创建用户</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create user <span class="string">&#x27;canal&#x27;</span>@<span class="string">&#x27;%&#x27;</span> identified by <span class="string">&#x27;123456&#x27;</span>;</span><br></pre></td></tr></table></figure>
 </li>
 <li>
-<p>用户授权【给予所有权限】<br />
-grant all privileges on <em>.</em> to ‘canal’@’%’;</p>
+<p>用户授权【给予所有权限】</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grant all privileges on *.* to <span class="string">&#x27;canal&#x27;</span>@<span class="string">&#x27;%&#x27;</span>;</span><br></pre></td></tr></table></figure>
 </li>
 <li>
 <p>语法层面<br />
@@ -506,7 +516,7 @@ mysql在安装后会创建一个root@locahost账户，并且把初始的密码�
 </li>
 <li>
 <p>给某表的字段增加1s,方便触发表数据修改</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#减1秒</span><br><span class="line">UPDATE promotion_product set CREATE_TIME=date_add(CREATE_TIME, interval 1 second)</span><br><span class="line">WHERE  PROMOTION_ID in (</span><br><span class="line">&#x27;020512b9a0df49a48d05f92c097e2223&#x27;,</span><br><span class="line">&#x27;4a8053ee194d4020ab56f904863fdd0f&#x27;</span><br><span class="line">); </span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#加1秒</span><br><span class="line">UPDATE promotion_product set CREATE_TIME=date_add(CREATE_TIME, interval 1 second)</span><br><span class="line">WHERE  PROMOTION_ID in (</span><br><span class="line">&#x27;020512b9a0df49a48d05f92c097e2223&#x27;,</span><br><span class="line">&#x27;4a8053ee194d4020ab56f904863fdd0f&#x27;</span><br><span class="line">); </span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 
