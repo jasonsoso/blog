@@ -6,7 +6,7 @@
   <link href="http://tech.jasonsoso.com/atom.xml" rel="self"/>
   
   <link href="http://tech.jasonsoso.com/"/>
-  <updated>2022-09-29T08:33:08.222Z</updated>
+  <updated>2022-09-29T10:25:42.818Z</updated>
   <id>http://tech.jasonsoso.com/</id>
   
   <author>
@@ -17,14 +17,14 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>玩转Elasticsearch</title>
+    <title>玩转ElasticSearch</title>
     <link href="http://tech.jasonsoso.com/2022/09/centos-install-es/"/>
     <id>http://tech.jasonsoso.com/2022/09/centos-install-es/</id>
     <published>2022-09-28T11:46:25.000Z</published>
-    <updated>2022-09-29T08:33:08.222Z</updated>
+    <updated>2022-09-29T10:25:42.818Z</updated>
     
     
-    <summary type="html">&lt;h2 id=&quot;玩转elasticsearch的背景&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#玩转elasticsearch的背景&quot;&gt;&lt;/a&gt; 玩转Elasticsearch的背景&lt;/h2&gt;
+    <summary type="html">&lt;h2 id=&quot;玩转elasticsearch的背景&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#玩转elasticsearch的背景&quot;&gt;&lt;/a&gt; 玩转ElasticSearch的背景&lt;/h2&gt;
 &lt;p&gt;早几年前玩过&lt;a href=&quot;http://tech.jasonsoso.com/2015/12/elasticsearch/&quot;&gt;Elasticsearch2.x&lt;/a&gt;，&lt;br&gt;
 针对新版本的ES了解甚少，程序员本应不断追求新技术，所以来玩玩ES7.x，当然ES8.x今年也新出了，但是生态还是7.x好。&lt;/p&gt;
 &lt;h2 id=&quot;安装elasticsearch服务端&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#安装elasticsearch服务端&quot;&gt;&lt;/a&gt; 安装ElasticSearch服务端&lt;/h2&gt;</summary>
@@ -34,11 +34,11 @@
     <category term="备忘录" scheme="http://tech.jasonsoso.com/categories/%E5%A4%87%E5%BF%98%E5%BD%95/"/>
     
     
+    <category term="ElasticSearch" scheme="http://tech.jasonsoso.com/tags/ElasticSearch/"/>
+    
     <category term="CentOS" scheme="http://tech.jasonsoso.com/tags/CentOS/"/>
     
     <category term="软件" scheme="http://tech.jasonsoso.com/tags/%E8%BD%AF%E4%BB%B6/"/>
-    
-    <category term="Elasticsearch" scheme="http://tech.jasonsoso.com/tags/Elasticsearch/"/>
     
     <category term="es" scheme="http://tech.jasonsoso.com/tags/es/"/>
     

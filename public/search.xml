@@ -1406,9 +1406,9 @@ Element:
       </tags>
   </entry>
   <entry>
-    <title>玩转Elasticsearch</title>
+    <title>玩转ElasticSearch</title>
     <url>/2022/09/centos-install-es/</url>
-    <content><![CDATA[<h2 id="玩转elasticsearch的背景"><a class="markdownIt-Anchor" href="#玩转elasticsearch的背景"></a> 玩转Elasticsearch的背景</h2>
+    <content><![CDATA[<h2 id="玩转elasticsearch的背景"><a class="markdownIt-Anchor" href="#玩转elasticsearch的背景"></a> 玩转ElasticSearch的背景</h2>
 <p>早几年前玩过<a href="http://tech.jasonsoso.com/2015/12/elasticsearch/">Elasticsearch2.x</a>，<br />
 针对新版本的ES了解甚少，程序员本应不断追求新技术，所以来玩玩ES7.x，当然ES8.x今年也新出了，但是生态还是7.x好。</p>
 <h2 id="安装elasticsearch服务端"><a class="markdownIt-Anchor" href="#安装elasticsearch服务端"></a> 安装ElasticSearch服务端</h2>
@@ -1441,34 +1441,35 @@ Element:
 <ul>
 <li>安装NodeJs环境</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ curl --silent --location https://rpm.nodesource.com/setup_10.x | sudo bash -</span><br><span class="line">$ sudo yum -y install nodejs       <span class="comment">#会将npm一起安装的</span></span><br><span class="line">$ node -v                          <span class="comment">#查看node版本信息</span></span><br><span class="line">$ npm -v                           <span class="comment">#查看npm版本信息</span></span><br></pre></td></tr></table></figure>
+<p>具体访问教程 <a href="http://tech.jasonsoso.com/2022/04/centos-install-something/#centos7%E4%B8%8A%E5%AE%89%E8%A3%85nodejs%E5%92%8Cnpm" title="CentOS7上安装Node.js和npm">CentOS7上安装Node.js和npm</a></p>
 <ul>
 <li>安装elasticsearch-head插件，</li>
 </ul>
-<p>具体访问<a href="https://github.com/mobz/elasticsearch-head" title="github地址">github地址</a>：<a href="https://github.com/mobz/elasticsearch-head">https://github.com/mobz/elasticsearch-head</a></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> git://github.com/mobz/elasticsearch-head.git</span><br><span class="line">$ <span class="built_in">cd</span> elasticsearch-head</span><br><span class="line">$ npm install          <span class="comment">#有时候不通过，自行百度解决nodejs环境问题</span></span><br><span class="line">$ npm run start</span><br><span class="line">open http://localhost:9100/</span><br></pre></td></tr></table></figure>
+<p>具体访问<a href="https://github.com/mobz/elasticsearch-head" title="elasticsearch-head插件">elasticsearch-head插件</a></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/mobz/elasticsearch-head.git</span><br><span class="line"><span class="built_in">cd</span> elasticsearch-head</span><br><span class="line">npm install          <span class="comment">#有时候不通过，自行百度解决nodejs环境问题</span></span><br><span class="line">npm run start</span><br><span class="line">open http://localhost:9100/</span><br></pre></td></tr></table></figure>
 <ul>
 <li>配置head插件<br />
 修改Gruntfile.js配置，增加hostname: '*'配置</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ vi Gruntfile.js</span><br><span class="line"></span><br><span class="line">                connect: &#123;</span><br><span class="line">                        server: &#123;</span><br><span class="line">                                options: &#123;</span><br><span class="line">                                        port: 9100,</span><br><span class="line">                                        base: <span class="string">&#x27;.&#x27;</span>,</span><br><span class="line">                                        keepalive: <span class="literal">true</span>,</span><br><span class="line">                                        hostname: <span class="string">&#x27;*&#x27;</span></span><br><span class="line">                                &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                &#125;</span><br></pre></td></tr></table></figure>
 <p>修改head/_site/app.js文件</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ vi app.js</span><br><span class="line">this.base_uri = this.config.base_uri || this.prefs.get(<span class="string">&quot;app-base_uri&quot;</span>) || <span class="string">&quot;http://192.168.199.93:9200&quot;</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ vi app.js</span><br><span class="line">this.base_uri = this.config.base_uri || this.prefs.get(<span class="string">&quot;app-base_uri&quot;</span>) || <span class="string">&quot;http://你的ip:9200&quot;</span>;</span><br></pre></td></tr></table></figure>
 <p>ES 配置 修改elasticsearch.yml ,增加跨域的配置（需要重启es才能生效）</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ vi config/elasticsearch.yml</span><br><span class="line">http.cors.enabled: <span class="literal">true</span></span><br><span class="line">http.cors.allow-origin: <span class="string">&quot;*&quot;</span></span><br></pre></td></tr></table></figure>
-<p><img data-src="http://zims.zhidianlife.com/attachment/MD/2021/06/22/head-1.png" alt="" /><br />
+<p><img data-src="http://tech.jasonsoso.com/images/202210/es-8.png" alt="安装head插件成功" title="安装head插件成功" /><br />
 以上代表head插件已经成功安装</p>
 <h2 id="安装kibana客户端"><a class="markdownIt-Anchor" href="#安装kibana客户端"></a> 安装kibana客户端</h2>
 <ul>
-<li>下载kibana客户端，<a href="https://www.elastic.co/cn/downloads/kibana" title="Download Kibana">kibana下载页</a>，下面以最新版本kibana-7.13.2为例子</li>
+<li>下载kibana客户端，<a href="https://www.elastic.co/cn/downloads/kibana" title="Download Kibana">kibana下载页</a>，对应版本kibana-7.17.6为例子</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ wget https://artifacts.elastic.co/downloads/kibana/kibana-7.13.2-linux-x86_64.tar.gz</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ wget https://artifacts.elastic.co/downloads/kibana/kibana-7.17.6-linux-x86_64.tar.gz</span><br></pre></td></tr></table></figure>
 <ul>
 <li>解压并启动搞起</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ tar -zxvf kibana-7.13.2-linux-x86_64.tar.gz</span><br><span class="line">$ <span class="built_in">cd</span> kibana-7.13.2-linux-x86_64</span><br><span class="line">$ vim kibana.yml                                               <span class="comment">#配置elasticsearch.hosts: [&quot;http://192.168.199.93:9200&quot;] 和 server.host: &quot;192.168.199.93&quot;</span></span><br><span class="line">$ ./bin/kibana                                                 <span class="comment">#切换成zhidian用户则启动成功</span></span><br><span class="line">$ <span class="built_in">nohup</span> /usr/local/es/kibana-7.13.2-linux-x86_64/bin/kibana &amp;  <span class="comment">#后台运行</span></span><br></pre></td></tr></table></figure>
-<p>访问 <a href="http://192.168.199.93:5601/">http://192.168.199.93:5601/</a> 即可<br />
-<img data-src="http://zims.zhidianlife.com/attachment/MD/2021/06/28/kibana-1.png" alt="" /></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ tar -zxvf kibana-7.17.6-linux-x86_64.tar.gz</span><br><span class="line">$ <span class="built_in">cd</span> kibana-7.17.6-linux-x86_64</span><br><span class="line">$ <span class="built_in">cd</span> config</span><br><span class="line">$ vim kibana.yml                                               <span class="comment">#配置elasticsearch.hosts: [&quot;http://你的ip:9200&quot;] 和 server.host: &quot;你的ip&quot;</span></span><br><span class="line">$ ./bin/kibana                                                 <span class="comment">#切换成es用户则启动成功</span></span><br><span class="line">$ <span class="built_in">nohup</span> /usr/local/es/kibana-7.17.6-linux-x86_64/bin/kibana &amp;  <span class="comment">#后台运行</span></span><br></pre></td></tr></table></figure>
+<p>访问 <a href="http://xn--ip-0p3cm89l:5601/">http://你的ip:5601/</a> 即可<br />
+<img data-src="http://tech.jasonsoso.com/images/202210/es-9.png" alt="安装kibana成功" title="安装kibana成功" /><br />
+<img data-src="http://tech.jasonsoso.com/images/202210/es-10.png" alt="kibana首页" title="kibana首页" /></p>
 <h2 id="安装cerebro监控工具"><a class="markdownIt-Anchor" href="#安装cerebro监控工具"></a> 安装cerebro监控工具</h2>
 <ul>
 <li>下载cerebro监控工具，<a href="https://github.com/lmenezes/cerebro/releases" title="Download Kibana">cerebro下载页</a>，下面以最新版本v0.9.4</li>
@@ -1494,9 +1495,9 @@ Element:
         <category>备忘录</category>
       </categories>
       <tags>
+        <tag>ElasticSearch</tag>
         <tag>CentOS</tag>
         <tag>软件</tag>
-        <tag>Elasticsearch</tag>
         <tag>es</tag>
       </tags>
   </entry>

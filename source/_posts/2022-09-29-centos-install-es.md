@@ -1,16 +1,20 @@
 ---
-title: 玩转Elasticsearch
+title: 玩转ElasticSearch
 date: 2022/9/28 19:46:25
 tags:
     - CentOS
     - 软件
-    - Elasticsearch
+    - ElasticSearch
     - es
 categories: 备忘录
 ---
-## 玩转Elasticsearch的背景
+
+
+## 玩转ElasticSearch的背景
 早几年前玩过[Elasticsearch2.x](http://tech.jasonsoso.com/2015/12/elasticsearch/)，
 针对新版本的ES了解甚少，程序员本应不断追求新技术，所以来玩玩ES7.x，当然ES8.x今年也新出了，但是生态还是7.x好。
+
+
 
 ## 安装ElasticSearch服务端
 
@@ -42,12 +46,9 @@ categories: 备忘录
     ./bin/elasticsearch                #启动成功
     ./bin/elasticsearch -d             #后台启动
     ```
-  
   ![不能用root身份进行启动](http://tech.jasonsoso.com/images/202210/es-2.png "不能用root身份进行启动")
 
   ![此截图代表启动成功](http://tech.jasonsoso.com/images/202210/es-4.png "此截图代表启动成功")
-
-
 
 - 问题
   ![此截图代表启动时候遇到的错误](http://tech.jasonsoso.com/images/202210/es-5.png "此截图代表启动时候遇到的错误")
@@ -71,30 +72,25 @@ categories: 备忘录
   ![外网查看启动结果](http://tech.jasonsoso.com/images/202210/es-7.png "外网查看启动结果")
 
 
-
 ## 安装elasticsearch-head客户端
 
 
 - 安装NodeJs环境
 
-```bash
-$ curl --silent --location https://rpm.nodesource.com/setup_10.x | sudo bash -
-$ sudo yum -y install nodejs       #会将npm一起安装的
-$ node -v                          #查看node版本信息
-$ npm -v                           #查看npm版本信息
-```
+具体访问教程 [CentOS7上安装Node.js和npm](http://tech.jasonsoso.com/2022/04/centos-install-something/#centos7%E4%B8%8A%E5%AE%89%E8%A3%85nodejs%E5%92%8Cnpm "CentOS7上安装Node.js和npm")
 
 - 安装elasticsearch-head插件，
 
-具体访问[github地址](https://github.com/mobz/elasticsearch-head "github地址")：https://github.com/mobz/elasticsearch-head
+具体访问[elasticsearch-head插件](https://github.com/mobz/elasticsearch-head "elasticsearch-head插件")
 
 ```bash
-$ git clone git://github.com/mobz/elasticsearch-head.git
-$ cd elasticsearch-head
-$ npm install          #有时候不通过，自行百度解决nodejs环境问题
-$ npm run start
+git clone https://github.com/mobz/elasticsearch-head.git
+cd elasticsearch-head
+npm install          #有时候不通过，自行百度解决nodejs环境问题
+npm run start
 open http://localhost:9100/
 ```
+
 
 - 配置head插件
   修改Gruntfile.js配置，增加hostname: '*'配置
@@ -116,7 +112,7 @@ $ vi Gruntfile.js
 修改head/_site/app.js文件
 ```bash
 $ vi app.js
-this.base_uri = this.config.base_uri || this.prefs.get("app-base_uri") || "http://192.168.199.93:9200";
+this.base_uri = this.config.base_uri || this.prefs.get("app-base_uri") || "http://你的ip:9200";
 ```
 
 ES 配置 修改elasticsearch.yml ,增加跨域的配置（需要重启es才能生效）
@@ -126,38 +122,33 @@ http.cors.enabled: true
 http.cors.allow-origin: "*"
 ```
 
-![](http://zims.zhidianlife.com/attachment/MD/2021/06/22/head-1.png)
+![安装head插件成功](http://tech.jasonsoso.com/images/202210/es-8.png "安装head插件成功")
 以上代表head插件已经成功安装
-
-
 
 
 
 
 ## 安装kibana客户端
 
-
-- 下载kibana客户端，[kibana下载页](https://www.elastic.co/cn/downloads/kibana "Download Kibana")，下面以最新版本kibana-7.13.2为例子
+- 下载kibana客户端，[kibana下载页](https://www.elastic.co/cn/downloads/kibana "Download Kibana")，对应版本kibana-7.17.6为例子
 
 ```bash
-$ wget https://artifacts.elastic.co/downloads/kibana/kibana-7.13.2-linux-x86_64.tar.gz
+$ wget https://artifacts.elastic.co/downloads/kibana/kibana-7.17.6-linux-x86_64.tar.gz
 ```
 
 - 解压并启动搞起
 
 ```bash
-$ tar -zxvf kibana-7.13.2-linux-x86_64.tar.gz
-$ cd kibana-7.13.2-linux-x86_64
-$ vim kibana.yml                                               #配置elasticsearch.hosts: ["http://192.168.199.93:9200"] 和 server.host: "192.168.199.93"
-$ ./bin/kibana                                                 #切换成zhidian用户则启动成功
-$ nohup /usr/local/es/kibana-7.13.2-linux-x86_64/bin/kibana &  #后台运行
+$ tar -zxvf kibana-7.17.6-linux-x86_64.tar.gz
+$ cd kibana-7.17.6-linux-x86_64
+$ cd config
+$ vim kibana.yml                                               #配置elasticsearch.hosts: ["http://你的ip:9200"] 和 server.host: "你的ip"
+$ ./bin/kibana                                                 #切换成es用户则启动成功
+$ nohup /usr/local/es/kibana-7.17.6-linux-x86_64/bin/kibana &  #后台运行
 ```
-访问 http://192.168.199.93:5601/ 即可
-![](http://zims.zhidianlife.com/attachment/MD/2021/06/28/kibana-1.png)
-
-
-
-
+访问 http://你的ip:5601/ 即可
+![安装kibana成功](http://tech.jasonsoso.com/images/202210/es-9.png "安装kibana成功")
+![kibana首页](http://tech.jasonsoso.com/images/202210/es-10.png "kibana首页")
 
 
 
