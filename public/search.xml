@@ -1408,7 +1408,10 @@ Element:
   <entry>
     <title>玩转Elasticsearch</title>
     <url>/2022/09/centos-install-es/</url>
-    <content><![CDATA[<h2 id="安装elasticsearch服务端"><a class="markdownIt-Anchor" href="#安装elasticsearch服务端"></a> 安装ElasticSearch服务端</h2>
+    <content><![CDATA[<h2 id="玩转elasticsearch的背景"><a class="markdownIt-Anchor" href="#玩转elasticsearch的背景"></a> 玩转Elasticsearch的背景</h2>
+<p>早几年前玩过<a href="http://tech.jasonsoso.com/2015/12/elasticsearch/">Elasticsearch2.x</a>，<br />
+针对新版本的ES了解甚少，程序员本应不断追求新技术，所以来玩玩ES7.x，当然ES8.x今年也新出了，但是生态还是7.x好。</p>
+<h2 id="安装elasticsearch服务端"><a class="markdownIt-Anchor" href="#安装elasticsearch服务端"></a> 安装ElasticSearch服务端</h2>
 <ul>
 <li>
 <p>安装ElasticSearch服务端，<a href="https://www.elastic.co/cn/downloads/elasticsearch" title="ElasticSearch下载页">ElasticSearch下载页</a></p>

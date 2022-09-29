@@ -8,6 +8,9 @@ tags:
     - es
 categories: 备忘录
 ---
+## 玩转Elasticsearch的背景
+早几年前玩过[Elasticsearch2.x](http://tech.jasonsoso.com/2015/12/elasticsearch/)，
+针对新版本的ES了解甚少，程序员本应不断追求新技术，所以来玩玩ES7.x，当然ES8.x今年也新出了，但是生态还是7.x好。
 
 ## 安装ElasticSearch服务端
 
