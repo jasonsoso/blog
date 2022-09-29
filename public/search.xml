@@ -1172,7 +1172,7 @@ json相关函数在mysql8.0有部分方法名有差异。如JSON_MERGE替换为J
 <ol>
 <li>
 <p>安装Mysql8.0 的yum资源库：</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/local/</span><br><span class="line"> <span class="built_in">mkdir</span> mysql</span><br><span class="line"> <span class="built_in">cd</span> mysql</span><br><span class="line"> wget https://repo.mysql.com/mysql80-community-release-el7.rpm</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/local/</span><br><span class="line"><span class="built_in">mkdir</span> mysql</span><br><span class="line"><span class="built_in">cd</span> mysql</span><br><span class="line">wget https://repo.mysql.com/mysql80-community-release-el7.rpm</span><br></pre></td></tr></table></figure>
 </li>
 <li>
 <p>yum repo文件并更新 yum 缓存</p>
@@ -1403,6 +1403,98 @@ Element:
       <tags>
         <tag>物联网</tag>
         <tag>物模型</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>玩转Elasticsearch</title>
+    <url>/2022/09/centos-install-es/</url>
+    <content><![CDATA[<h2 id="安装elasticsearch服务端"><a class="markdownIt-Anchor" href="#安装elasticsearch服务端"></a> 安装ElasticSearch服务端</h2>
+<ul>
+<li>
+<p>安装ElasticSearch服务端，<a href="https://www.elastic.co/cn/downloads/elasticsearch" title="ElasticSearch下载页">ElasticSearch下载页</a></p>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/local/</span><br><span class="line"><span class="built_in">mkdir</span> es</span><br><span class="line"><span class="built_in">cd</span> es/</span><br><span class="line">wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.17.6-linux-x86_64.tar.gz</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>解压并启动搞起</p>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -zxvf elasticsearch-7.17.6-linux-x86_64.tar.gz</span><br><span class="line"><span class="built_in">cd</span> elasticsearch-7.17.6/</span><br><span class="line">./bin/elasticsearch                <span class="comment">#启动成功</span></span><br><span class="line">./bin/elasticsearch -d             <span class="comment">#后台启动</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>不能用root身份进行启动</p>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">useradd es                         <span class="comment">#创建es用户，并设置密码</span></span><br><span class="line">passwd es  </span><br><span class="line"><span class="built_in">chown</span> -R es:es /usr/local/es/*     <span class="comment">#授权</span></span><br><span class="line">su es                              <span class="comment">#切换成es用户</span></span><br><span class="line">./bin/elasticsearch                <span class="comment">#启动成功</span></span><br><span class="line">./bin/elasticsearch -d             <span class="comment">#后台启动</span></span><br></pre></td></tr></table></figure>
+<p><img data-src="http://tech.jasonsoso.com/images/202210/es-2.png" alt="不能用root身份进行启动" title="不能用root身份进行启动" /></p>
+<p><img data-src="http://tech.jasonsoso.com/images/202210/es-4.png" alt="此截图代表启动成功" title="此截图代表启动成功" /></p>
+</li>
+<li>
+<p>问题<br />
+<img data-src="http://tech.jasonsoso.com/images/202210/es-5.png" alt="此截图代表启动时候遇到的错误" title="此截图代表启动时候遇到的错误" /></p>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#针对上面问题可参考以下配置</span></span><br><span class="line">vi config/elasticsearch.yml</span><br></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cluster.name: my-application</span><br><span class="line">node.name: node-1</span><br><span class="line">network.host: 10.0.12.4</span><br><span class="line"></span><br><span class="line">http.port: 9200</span><br><span class="line">transport.profiles.default.port: 9300</span><br><span class="line">cluster.initial_master_nodes: [<span class="string">&quot;node-1&quot;</span>]</span><br></pre></td></tr></table></figure>
+<p>终于启动成功：<br />
+<img data-src="http://tech.jasonsoso.com/images/202210/es-6.png" alt="内网查看启动结果" title="内网查看启动结果" /><br />
+<img data-src="http://tech.jasonsoso.com/images/202210/es-7.png" alt="外网查看启动结果" title="外网查看启动结果" /></p>
+</li>
+</ul>
+<h2 id="安装elasticsearch-head客户端"><a class="markdownIt-Anchor" href="#安装elasticsearch-head客户端"></a> 安装elasticsearch-head客户端</h2>
+<ul>
+<li>安装NodeJs环境</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ curl --silent --location https://rpm.nodesource.com/setup_10.x | sudo bash -</span><br><span class="line">$ sudo yum -y install nodejs       <span class="comment">#会将npm一起安装的</span></span><br><span class="line">$ node -v                          <span class="comment">#查看node版本信息</span></span><br><span class="line">$ npm -v                           <span class="comment">#查看npm版本信息</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>安装elasticsearch-head插件，</li>
+</ul>
+<p>具体访问<a href="https://github.com/mobz/elasticsearch-head" title="github地址">github地址</a>：<a href="https://github.com/mobz/elasticsearch-head">https://github.com/mobz/elasticsearch-head</a></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> git://github.com/mobz/elasticsearch-head.git</span><br><span class="line">$ <span class="built_in">cd</span> elasticsearch-head</span><br><span class="line">$ npm install          <span class="comment">#有时候不通过，自行百度解决nodejs环境问题</span></span><br><span class="line">$ npm run start</span><br><span class="line">open http://localhost:9100/</span><br></pre></td></tr></table></figure>
+<ul>
+<li>配置head插件<br />
+修改Gruntfile.js配置，增加hostname: '*'配置</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ vi Gruntfile.js</span><br><span class="line"></span><br><span class="line">                connect: &#123;</span><br><span class="line">                        server: &#123;</span><br><span class="line">                                options: &#123;</span><br><span class="line">                                        port: 9100,</span><br><span class="line">                                        base: <span class="string">&#x27;.&#x27;</span>,</span><br><span class="line">                                        keepalive: <span class="literal">true</span>,</span><br><span class="line">                                        hostname: <span class="string">&#x27;*&#x27;</span></span><br><span class="line">                                &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                &#125;</span><br></pre></td></tr></table></figure>
+<p>修改head/_site/app.js文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ vi app.js</span><br><span class="line">this.base_uri = this.config.base_uri || this.prefs.get(<span class="string">&quot;app-base_uri&quot;</span>) || <span class="string">&quot;http://192.168.199.93:9200&quot;</span>;</span><br></pre></td></tr></table></figure>
+<p>ES 配置 修改elasticsearch.yml ,增加跨域的配置（需要重启es才能生效）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ vi config/elasticsearch.yml</span><br><span class="line">http.cors.enabled: <span class="literal">true</span></span><br><span class="line">http.cors.allow-origin: <span class="string">&quot;*&quot;</span></span><br></pre></td></tr></table></figure>
+<p><img data-src="http://zims.zhidianlife.com/attachment/MD/2021/06/22/head-1.png" alt="" /><br />
+以上代表head插件已经成功安装</p>
+<h2 id="安装kibana客户端"><a class="markdownIt-Anchor" href="#安装kibana客户端"></a> 安装kibana客户端</h2>
+<ul>
+<li>下载kibana客户端，<a href="https://www.elastic.co/cn/downloads/kibana" title="Download Kibana">kibana下载页</a>，下面以最新版本kibana-7.13.2为例子</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ wget https://artifacts.elastic.co/downloads/kibana/kibana-7.13.2-linux-x86_64.tar.gz</span><br></pre></td></tr></table></figure>
+<ul>
+<li>解压并启动搞起</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ tar -zxvf kibana-7.13.2-linux-x86_64.tar.gz</span><br><span class="line">$ <span class="built_in">cd</span> kibana-7.13.2-linux-x86_64</span><br><span class="line">$ vim kibana.yml                                               <span class="comment">#配置elasticsearch.hosts: [&quot;http://192.168.199.93:9200&quot;] 和 server.host: &quot;192.168.199.93&quot;</span></span><br><span class="line">$ ./bin/kibana                                                 <span class="comment">#切换成zhidian用户则启动成功</span></span><br><span class="line">$ <span class="built_in">nohup</span> /usr/local/es/kibana-7.13.2-linux-x86_64/bin/kibana &amp;  <span class="comment">#后台运行</span></span><br></pre></td></tr></table></figure>
+<p>访问 <a href="http://192.168.199.93:5601/">http://192.168.199.93:5601/</a> 即可<br />
+<img data-src="http://zims.zhidianlife.com/attachment/MD/2021/06/28/kibana-1.png" alt="" /></p>
+<h2 id="安装cerebro监控工具"><a class="markdownIt-Anchor" href="#安装cerebro监控工具"></a> 安装cerebro监控工具</h2>
+<ul>
+<li>下载cerebro监控工具，<a href="https://github.com/lmenezes/cerebro/releases" title="Download Kibana">cerebro下载页</a>，下面以最新版本v0.9.4</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ wget https://github.com/lmenezes/cerebro/releases/download/v0.9.4/cerebro-0.9.4.tgz</span><br></pre></td></tr></table></figure>
+<ul>
+<li>解压并启动搞起</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ tar xf cerebro-0.9.4.tgz</span><br><span class="line">$ <span class="built_in">cd</span> cerebro-0.9.4</span><br><span class="line">$ vim conf/application.conf     <span class="comment">#配置host</span></span><br><span class="line">$ ./bin/cerebro</span><br></pre></td></tr></table></figure>
+<p>访问 <a href="http://192.168.199.93:9000/">http://192.168.199.93:9000/</a> 即可<br />
+<img data-src="http://zims.zhidianlife.com/attachment/MD/2021/06/29/c-1.png" alt="" /></p>
+<h2 id="安装其他常用插件"><a class="markdownIt-Anchor" href="#安装其他常用插件"></a> 安装其他常用插件</h2>
+<p>插件是用来增强 Elasticsearch 功能的方法，分为 核心插件（官方） &amp; 社区插件。<br />
+参考文章<a href="https://blog.csdn.net/weixin_30314813/article/details/101858621" title="《Elasticsearch6.x和7.x版本常用插件汇总》">《Elasticsearch6.x和7.x版本常用插件汇总》</a></p>
+<p>安装 analysis-icu ICU 分析插件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ./bin/elasticsearch-plugin install analysis-icu</span><br></pre></td></tr></table></figure>
+<p>安装 elasticsearch-analysis-ik 分词插件,具体请参考https://github.com/medcl/elasticsearch-analysis-ik</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ./bin/elasticsearch-plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v7.13.2/elasticsearch-analysis-ik-7.13.2.zip</span><br></pre></td></tr></table></figure>
+<p>查看已安装的插件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ./bin/elasticsearch-plugin list</span><br><span class="line"><span class="comment">#或者浏览器访问：http://192.168.199.93:9200/_cat/plugins</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>备忘录</category>
+      </categories>
+      <tags>
+        <tag>CentOS</tag>
+        <tag>软件</tag>
+        <tag>Elasticsearch</tag>
+        <tag>es</tag>
       </tags>
   </entry>
 </search>

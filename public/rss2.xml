@@ -15,8 +15,61 @@
     <atom:link href="http://tech.jasonsoso.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>欢迎来到我的技术流水账~</description>
-    <pubDate>Wed, 28 Sep 2022 09:17:27 GMT</pubDate>
+    <pubDate>Thu, 29 Sep 2022 08:22:59 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>玩转Elasticsearch</title>
+      <link>http://tech.jasonsoso.com/2022/09/centos-install-es/</link>
+      <guid>http://tech.jasonsoso.com/2022/09/centos-install-es/</guid>
+      <pubDate>Wed, 28 Sep 2022 11:46:25 GMT</pubDate>
+      
+      <description>&lt;h2 id=&quot;安装elasticsearch服务端&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#安装elasticsearch服务端&quot;&gt;&lt;/a&gt; 安装ElasticSearch服务端&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;安装ElasticSearch服务端，&lt;a href=&quot;https://www.elastic.co/cn/downloads/elasticsearch&quot; title=&quot;ElasticSearch下载页&quot;&gt;ElasticSearch下载页&lt;/a&gt;&lt;/p&gt;
+  &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;cd&lt;/span&gt; /usr/local/&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;mkdir&lt;/span&gt; es&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;cd&lt;/span&gt; es/&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.17.6-linux-x86_64.tar.gz&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;解压并启动搞起&lt;/p&gt;
+  &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;tar -zxvf elasticsearch-7.17.6-linux-x86_64.tar.gz&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;cd&lt;/span&gt; elasticsearch-7.17.6/&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;./bin/elasticsearch                &lt;span class=&quot;comment&quot;&gt;#启动成功&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;./bin/elasticsearch -d             &lt;span class=&quot;comment&quot;&gt;#后台启动&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;不能用root身份进行启动&lt;/p&gt;
+  &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;useradd es                         &lt;span class=&quot;comment&quot;&gt;#创建es用户，并设置密码&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;passwd es  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;chown&lt;/span&gt; -R es:es /usr/local/es/*     &lt;span class=&quot;comment&quot;&gt;#授权&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;su es                              &lt;span class=&quot;comment&quot;&gt;#切换成es用户&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;./bin/elasticsearch                &lt;span class=&quot;comment&quot;&gt;#启动成功&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;./bin/elasticsearch -d             &lt;span class=&quot;comment&quot;&gt;#后台启动&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;img data-src=&quot;http://tech.jasonsoso.com/images/202210/es-2.png&quot; alt=&quot;不能用root身份进行启动&quot; title=&quot;不能用root身份进行启动&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&quot;http://tech.jasonsoso.com/images/202210/es-4.png&quot; alt=&quot;此截图代表启动成功&quot; title=&quot;此截图代表启动成功&quot;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;问题&lt;br&gt;
+&lt;img data-src=&quot;http://tech.jasonsoso.com/images/202210/es-5.png&quot; alt=&quot;此截图代表启动时候遇到的错误&quot; title=&quot;此截图代表启动时候遇到的错误&quot;&gt;&lt;/p&gt;
+  &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#针对上面问题可参考以下配置&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;vi config/elasticsearch.yml&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+ &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;cluster.name: my-application&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;node.name: node-1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;network.host: 10.0.12.4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;http.port: 9200&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;transport.profiles.default.port: 9300&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;cluster.initial_master_nodes: [&lt;span class=&quot;string&quot;&gt;&amp;quot;node-1&amp;quot;&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;终于启动成功：&lt;br&gt;
+&lt;img data-src=&quot;http://tech.jasonsoso.com/images/202210/es-6.png&quot; alt=&quot;内网查看启动结果&quot; title=&quot;内网查看启动结果&quot;&gt;&lt;br&gt;
+&lt;img data-src=&quot;http://tech.jasonsoso.com/images/202210/es-7.png&quot; alt=&quot;外网查看启动结果&quot; title=&quot;外网查看启动结果&quot;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;安装elasticsearch-head客户端&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#安装elasticsearch-head客户端&quot;&gt;&lt;/a&gt; 安装elasticsearch-head客户端&lt;/h2&gt;</description>
+      
+      
+      
+      
+      <category domain="http://tech.jasonsoso.com/categories/%E5%A4%87%E5%BF%98%E5%BD%95/">备忘录</category>
+      
+      
+      <category domain="http://tech.jasonsoso.com/tags/CentOS/">CentOS</category>
+      
+      <category domain="http://tech.jasonsoso.com/tags/%E8%BD%AF%E4%BB%B6/">软件</category>
+      
+      <category domain="http://tech.jasonsoso.com/tags/Elasticsearch/">Elasticsearch</category>
+      
+      <category domain="http://tech.jasonsoso.com/tags/es/">es</category>
+      
+      
+      <comments>http://tech.jasonsoso.com/2022/09/centos-install-es/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>玩转Mysql8</title>

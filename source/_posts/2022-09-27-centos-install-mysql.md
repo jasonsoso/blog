@@ -131,12 +131,12 @@ json相关函数在mysql8.0有部分方法名有差异。如JSON_MERGE替换为J
 ### Mysql8.0安装 (YUM方式)
 
 1. 安装Mysql8.0 的yum资源库：
-    ``` bash
+   ``` bash
    cd /usr/local/
-    mkdir mysql
-    cd mysql
-    wget https://repo.mysql.com/mysql80-community-release-el7.rpm
-    ```
+   mkdir mysql
+   cd mysql
+   wget https://repo.mysql.com/mysql80-community-release-el7.rpm
+   ```
 
 2. yum repo文件并更新 yum 缓存
     ``` bash
