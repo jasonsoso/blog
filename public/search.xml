@@ -1485,12 +1485,21 @@ Element:
 <h2 id="安装其他常用插件"><a class="markdownIt-Anchor" href="#安装其他常用插件"></a> 安装其他常用插件</h2>
 <p>插件是用来增强 Elasticsearch 功能的方法，分为 核心插件（官方） &amp; 社区插件。<br />
 参考文章<a href="https://blog.csdn.net/weixin_30314813/article/details/101858621" title="《Elasticsearch6.x和7.x版本常用插件汇总》">《Elasticsearch6.x和7.x版本常用插件汇总》</a></p>
-<p>安装 analysis-icu ICU 分析插件</p>
+<ul>
+<li>安装 analysis-icu ICU 分析插件</li>
+</ul>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./bin/elasticsearch-plugin install analysis-icu</span><br></pre></td></tr></table></figure>
-<p>安装 elasticsearch-analysis-ik 分词插件,具体请参考https://github.com/medcl/elasticsearch-analysis-ik</p>
+<ul>
+<li>安装 elasticsearch-analysis-ik 分词插件,具体请参考https://github.com/medcl/elasticsearch-analysis-ik</li>
+</ul>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./bin/elasticsearch-plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v7.17.6/elasticsearch-analysis-ik-7.17.6.zip</span><br></pre></td></tr></table></figure>
-<p>查看已安装的插件</p>
+<ul>
+<li>查看已安装的插件</li>
+</ul>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./bin/elasticsearch-plugin list</span><br><span class="line"><span class="comment">#或者浏览器访问：http://你的ip:9200/_cat/plugins</span></span><br></pre></td></tr></table></figure>
+<h2 id="常用的dsl语句"><a class="markdownIt-Anchor" href="#常用的dsl语句"></a> 常用的DSL语句</h2>
+<p>REST APIs：<a href="https://www.elastic.co/guide/en/elasticsearch/reference/7.17/rest-apis.html">https://www.elastic.co/guide/en/elasticsearch/reference/7.17/rest-apis.html</a><br />
+Java High Level REST Client：<a href="https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high.html">https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high.html</a></p>
 ]]></content>
       <categories>
         <category>备忘录</category>

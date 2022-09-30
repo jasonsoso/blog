@@ -196,19 +196,19 @@ vim conf/application.conf     #配置host和name
 插件是用来增强 Elasticsearch 功能的方法，分为 核心插件（官方） & 社区插件。
 参考文章[《Elasticsearch6.x和7.x版本常用插件汇总》](https://blog.csdn.net/weixin_30314813/article/details/101858621 "《Elasticsearch6.x和7.x版本常用插件汇总》")
 
-安装 analysis-icu ICU 分析插件
+- 安装 analysis-icu ICU 分析插件
 
 ```bash
 ./bin/elasticsearch-plugin install analysis-icu
 ```
 
-安装 elasticsearch-analysis-ik 分词插件,具体请参考https://github.com/medcl/elasticsearch-analysis-ik
+- 安装 elasticsearch-analysis-ik 分词插件,具体请参考https://github.com/medcl/elasticsearch-analysis-ik
 
 ```bash
 ./bin/elasticsearch-plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v7.17.6/elasticsearch-analysis-ik-7.17.6.zip
 ```
 
-查看已安装的插件
+- 查看已安装的插件
 ```bash
 ./bin/elasticsearch-plugin list
 #或者浏览器访问：http://你的ip:9200/_cat/plugins
@@ -216,6 +216,9 @@ vim conf/application.conf     #配置host和name
 
 
 
+## 常用的DSL语句
+REST APIs：https://www.elastic.co/guide/en/elasticsearch/reference/7.17/rest-apis.html
+Java High Level REST Client：https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high.html
 
 
 
