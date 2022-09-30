@@ -5,7 +5,7 @@ tags:
     - CentOS
     - 软件
     - ElasticSearch
-    - es
+    - ES
 categories: 备忘录
 ---
 
