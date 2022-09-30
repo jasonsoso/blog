@@ -39,9 +39,10 @@
 <meta property="og:image" content="http://tech.jasonsoso.com/images/202210/es-8.png">
 <meta property="og:image" content="http://tech.jasonsoso.com/images/202210/es-9.png">
 <meta property="og:image" content="http://tech.jasonsoso.com/images/202210/es-10.png">
-<meta property="og:image" content="http://zims.zhidianlife.com/attachment/MD/2021/06/29/c-1.png">
+<meta property="og:image" content="http://tech.jasonsoso.com/images/202210/es-11.png">
+<meta property="og:image" content="http://tech.jasonsoso.com/images/202210/es-12.png">
 <meta property="article:published_time" content="2022-09-28T11:46:25.000Z">
-<meta property="article:modified_time" content="2022-09-29T10:25:42.818Z">
+<meta property="article:modified_time" content="2022-09-30T01:44:20.741Z">
 <meta property="article:author" content="Jason">
 <meta property="article:tag" content="ElasticSearch">
 <meta property="article:tag" content="CentOS">
@@ -301,7 +302,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-09-29 18:25:42" itemprop="dateModified" datetime="2022-09-29T18:25:42+08:00">2022-09-29</time>
+      <time title="修改时间：2022-09-30 09:44:20" itemprop="dateModified" datetime="2022-09-30T09:44:20+08:00">2022-09-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -388,45 +389,46 @@
 <li>配置head插件<br />
 修改Gruntfile.js配置，增加hostname: '*'配置</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ vi Gruntfile.js</span><br><span class="line"></span><br><span class="line">                connect: &#123;</span><br><span class="line">                        server: &#123;</span><br><span class="line">                                options: &#123;</span><br><span class="line">                                        port: 9100,</span><br><span class="line">                                        base: <span class="string">&#x27;.&#x27;</span>,</span><br><span class="line">                                        keepalive: <span class="literal">true</span>,</span><br><span class="line">                                        hostname: <span class="string">&#x27;*&#x27;</span></span><br><span class="line">                                &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">vi Gruntfile.js</span><br><span class="line"></span><br><span class="line">                connect: &#123;</span><br><span class="line">                        server: &#123;</span><br><span class="line">                                options: &#123;</span><br><span class="line">                                        port: 9100,</span><br><span class="line">                                        base: <span class="string">&#x27;.&#x27;</span>,</span><br><span class="line">                                        keepalive: <span class="literal">true</span>,</span><br><span class="line">                                        hostname: <span class="string">&#x27;*&#x27;</span></span><br><span class="line">                                &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                &#125;</span><br></pre></td></tr></table></figure>
 <p>修改head/_site/app.js文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ vi app.js</span><br><span class="line">this.base_uri = this.config.base_uri || this.prefs.get(<span class="string">&quot;app-base_uri&quot;</span>) || <span class="string">&quot;http://你的ip:9200&quot;</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vi app.js</span><br><span class="line">this.base_uri = this.config.base_uri || this.prefs.get(<span class="string">&quot;app-base_uri&quot;</span>) || <span class="string">&quot;http://你的ip:9200&quot;</span>;</span><br></pre></td></tr></table></figure>
 <p>ES 配置 修改elasticsearch.yml ,增加跨域的配置（需要重启es才能生效）</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ vi config/elasticsearch.yml</span><br><span class="line">http.cors.enabled: <span class="literal">true</span></span><br><span class="line">http.cors.allow-origin: <span class="string">&quot;*&quot;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vi config/elasticsearch.yml</span><br><span class="line">http.cors.enabled: <span class="literal">true</span></span><br><span class="line">http.cors.allow-origin: <span class="string">&quot;*&quot;</span></span><br></pre></td></tr></table></figure>
 <p><img data-src="http://tech.jasonsoso.com/images/202210/es-8.png" alt="安装head插件成功" title="安装head插件成功" /><br />
 以上代表head插件已经成功安装</p>
 <h2 id="安装kibana客户端"><a class="markdownIt-Anchor" href="#安装kibana客户端"></a> 安装kibana客户端</h2>
 <ul>
 <li>下载kibana客户端，<a target="_blank" rel="noopener" href="https://www.elastic.co/cn/downloads/kibana" title="Download Kibana">kibana下载页</a>，对应版本kibana-7.17.6为例子</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ wget https://artifacts.elastic.co/downloads/kibana/kibana-7.17.6-linux-x86_64.tar.gz</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://artifacts.elastic.co/downloads/kibana/kibana-7.17.6-linux-x86_64.tar.gz</span><br></pre></td></tr></table></figure>
 <ul>
 <li>解压并启动搞起</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ tar -zxvf kibana-7.17.6-linux-x86_64.tar.gz</span><br><span class="line">$ <span class="built_in">cd</span> kibana-7.17.6-linux-x86_64</span><br><span class="line">$ <span class="built_in">cd</span> config</span><br><span class="line">$ vim kibana.yml                                               <span class="comment">#配置elasticsearch.hosts: [&quot;http://你的ip:9200&quot;] 和 server.host: &quot;你的ip&quot;</span></span><br><span class="line">$ ./bin/kibana                                                 <span class="comment">#切换成es用户则启动成功</span></span><br><span class="line">$ <span class="built_in">nohup</span> /usr/local/es/kibana-7.17.6-linux-x86_64/bin/kibana &amp;  <span class="comment">#后台运行</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf kibana-7.17.6-linux-x86_64.tar.gz</span><br><span class="line"><span class="built_in">cd</span> kibana-7.17.6-linux-x86_64</span><br><span class="line"><span class="built_in">cd</span> config</span><br><span class="line">vim kibana.yml                                               <span class="comment">#配置elasticsearch.hosts: [&quot;http://你的ip:9200&quot;] 和 server.host: &quot;你的ip&quot;</span></span><br><span class="line">./bin/kibana                                                 <span class="comment">#切换成es用户则启动成功</span></span><br><span class="line"><span class="built_in">nohup</span> /usr/local/es/kibana-7.17.6-linux-x86_64/bin/kibana &amp;  <span class="comment">#后台运行</span></span><br></pre></td></tr></table></figure>
 <p>访问 <a target="_blank" rel="noopener" href="http://xn--ip-0p3cm89l:5601/">http://你的ip:5601/</a> 即可<br />
 <img data-src="http://tech.jasonsoso.com/images/202210/es-9.png" alt="安装kibana成功" title="安装kibana成功" /><br />
 <img data-src="http://tech.jasonsoso.com/images/202210/es-10.png" alt="kibana首页" title="kibana首页" /></p>
 <h2 id="安装cerebro监控工具"><a class="markdownIt-Anchor" href="#安装cerebro监控工具"></a> 安装cerebro监控工具</h2>
 <ul>
-<li>下载cerebro监控工具，<a target="_blank" rel="noopener" href="https://github.com/lmenezes/cerebro/releases" title="Download Kibana">cerebro下载页</a>，下面以最新版本v0.9.4</li>
+<li>下载cerebro监控工具，<a target="_blank" rel="noopener" href="https://github.com/lmenezes/cerebro/releases" title="Download cerebro">cerebro下载页</a>，下面以最新版本v0.9.4</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ wget https://github.com/lmenezes/cerebro/releases/download/v0.9.4/cerebro-0.9.4.tgz</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/lmenezes/cerebro/releases/download/v0.9.4/cerebro-0.9.4.tgz</span><br></pre></td></tr></table></figure>
 <ul>
 <li>解压并启动搞起</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ tar xf cerebro-0.9.4.tgz</span><br><span class="line">$ <span class="built_in">cd</span> cerebro-0.9.4</span><br><span class="line">$ vim conf/application.conf     <span class="comment">#配置host</span></span><br><span class="line">$ ./bin/cerebro</span><br></pre></td></tr></table></figure>
-<p>访问 <a target="_blank" rel="noopener" href="http://192.168.199.93:9000/">http://192.168.199.93:9000/</a> 即可<br />
-<img data-src="http://zims.zhidianlife.com/attachment/MD/2021/06/29/c-1.png" alt="" /></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tar xf cerebro-0.9.4.tgz</span><br><span class="line"><span class="built_in">cd</span> cerebro-0.9.4</span><br><span class="line">vim conf/application.conf     <span class="comment">#配置host和name</span></span><br><span class="line">./bin/cerebro                 <span class="comment">#启动</span></span><br></pre></td></tr></table></figure>
+<p>访问 <a target="_blank" rel="noopener" href="http://xn--ip-0p3cm89l:9000/">http://你的ip:9000/</a> 即可<br />
+<img data-src="http://tech.jasonsoso.com/images/202210/es-11.png" alt="cerebro监控工具" title="cerebro监控工具" /><br />
+<img data-src="http://tech.jasonsoso.com/images/202210/es-12.png" alt="cerebro监控工具" title="cerebro监控工具" /></p>
 <h2 id="安装其他常用插件"><a class="markdownIt-Anchor" href="#安装其他常用插件"></a> 安装其他常用插件</h2>
 <p>插件是用来增强 Elasticsearch 功能的方法，分为 核心插件（官方） &amp; 社区插件。<br />
 参考文章<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_30314813/article/details/101858621" title="《Elasticsearch6.x和7.x版本常用插件汇总》">《Elasticsearch6.x和7.x版本常用插件汇总》</a></p>
 <p>安装 analysis-icu ICU 分析插件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ./bin/elasticsearch-plugin install analysis-icu</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./bin/elasticsearch-plugin install analysis-icu</span><br></pre></td></tr></table></figure>
 <p>安装 elasticsearch-analysis-ik 分词插件,具体请参考https://github.com/medcl/elasticsearch-analysis-ik</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ./bin/elasticsearch-plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v7.13.2/elasticsearch-analysis-ik-7.13.2.zip</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./bin/elasticsearch-plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v7.17.6/elasticsearch-analysis-ik-7.17.6.zip</span><br></pre></td></tr></table></figure>
 <p>查看已安装的插件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ./bin/elasticsearch-plugin list</span><br><span class="line"><span class="comment">#或者浏览器访问：http://192.168.199.93:9200/_cat/plugins</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./bin/elasticsearch-plugin list</span><br><span class="line"><span class="comment">#或者浏览器访问：http://你的ip:9200/_cat/plugins</span></span><br></pre></td></tr></table></figure>
 
     </div>
 

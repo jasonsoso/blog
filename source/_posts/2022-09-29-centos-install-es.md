@@ -10,9 +10,13 @@ categories: 备忘录
 ---
 
 
+
+
+
 ## 玩转ElasticSearch的背景
 早几年前玩过[Elasticsearch2.x](http://tech.jasonsoso.com/2015/12/elasticsearch/)，
 针对新版本的ES了解甚少，程序员本应不断追求新技术，所以来玩玩ES7.x，当然ES8.x今年也新出了，但是生态还是7.x好。
+
 
 
 
@@ -72,8 +76,11 @@ categories: 备忘录
   ![外网查看启动结果](http://tech.jasonsoso.com/images/202210/es-7.png "外网查看启动结果")
 
 
-## 安装elasticsearch-head客户端
 
+
+
+
+## 安装elasticsearch-head客户端
 
 - 安装NodeJs环境
 
@@ -95,7 +102,7 @@ open http://localhost:9100/
 - 配置head插件
   修改Gruntfile.js配置，增加hostname: '*'配置
 ```bash
-$ vi Gruntfile.js
+vi Gruntfile.js
 
                 connect: {
                         server: {
@@ -111,13 +118,13 @@ $ vi Gruntfile.js
 
 修改head/_site/app.js文件
 ```bash
-$ vi app.js
+vi app.js
 this.base_uri = this.config.base_uri || this.prefs.get("app-base_uri") || "http://你的ip:9200";
 ```
 
 ES 配置 修改elasticsearch.yml ,增加跨域的配置（需要重启es才能生效）
 ```bash
-$ vi config/elasticsearch.yml
+vi config/elasticsearch.yml
 http.cors.enabled: true
 http.cors.allow-origin: "*"
 ```
@@ -128,23 +135,26 @@ http.cors.allow-origin: "*"
 
 
 
+
+
+
 ## 安装kibana客户端
 
 - 下载kibana客户端，[kibana下载页](https://www.elastic.co/cn/downloads/kibana "Download Kibana")，对应版本kibana-7.17.6为例子
 
 ```bash
-$ wget https://artifacts.elastic.co/downloads/kibana/kibana-7.17.6-linux-x86_64.tar.gz
+wget https://artifacts.elastic.co/downloads/kibana/kibana-7.17.6-linux-x86_64.tar.gz
 ```
 
 - 解压并启动搞起
 
 ```bash
-$ tar -zxvf kibana-7.17.6-linux-x86_64.tar.gz
-$ cd kibana-7.17.6-linux-x86_64
-$ cd config
-$ vim kibana.yml                                               #配置elasticsearch.hosts: ["http://你的ip:9200"] 和 server.host: "你的ip"
-$ ./bin/kibana                                                 #切换成es用户则启动成功
-$ nohup /usr/local/es/kibana-7.17.6-linux-x86_64/bin/kibana &  #后台运行
+tar -zxvf kibana-7.17.6-linux-x86_64.tar.gz
+cd kibana-7.17.6-linux-x86_64
+cd config
+vim kibana.yml                                               #配置elasticsearch.hosts: ["http://你的ip:9200"] 和 server.host: "你的ip"
+./bin/kibana                                                 #切换成es用户则启动成功
+nohup /usr/local/es/kibana-7.17.6-linux-x86_64/bin/kibana &  #后台运行
 ```
 访问 http://你的ip:5601/ 即可
 ![安装kibana成功](http://tech.jasonsoso.com/images/202210/es-9.png "安装kibana成功")
@@ -152,25 +162,31 @@ $ nohup /usr/local/es/kibana-7.17.6-linux-x86_64/bin/kibana &  #后台运行
 
 
 
+
+
+
 ## 安装cerebro监控工具
 
 
-- 下载cerebro监控工具，[cerebro下载页](https://github.com/lmenezes/cerebro/releases "Download Kibana")，下面以最新版本v0.9.4
+- 下载cerebro监控工具，[cerebro下载页](https://github.com/lmenezes/cerebro/releases "Download cerebro")，下面以最新版本v0.9.4
 
 ```bash
-$ wget https://github.com/lmenezes/cerebro/releases/download/v0.9.4/cerebro-0.9.4.tgz
+wget https://github.com/lmenezes/cerebro/releases/download/v0.9.4/cerebro-0.9.4.tgz
 ```
 
 - 解压并启动搞起
 
 ```bash
-$ tar xf cerebro-0.9.4.tgz
-$ cd cerebro-0.9.4
-$ vim conf/application.conf     #配置host
-$ ./bin/cerebro
+tar xf cerebro-0.9.4.tgz
+cd cerebro-0.9.4
+vim conf/application.conf     #配置host和name
+./bin/cerebro                 #启动
 ```
-访问 http://192.168.199.93:9000/ 即可
-![](http://zims.zhidianlife.com/attachment/MD/2021/06/29/c-1.png)
+访问 http://你的ip:9000/ 即可
+![cerebro监控工具](http://tech.jasonsoso.com/images/202210/es-11.png "cerebro监控工具")
+![cerebro监控工具](http://tech.jasonsoso.com/images/202210/es-12.png "cerebro监控工具")
+
+
 
 
 
@@ -183,19 +199,19 @@ $ ./bin/cerebro
 安装 analysis-icu ICU 分析插件
 
 ```bash
-$ ./bin/elasticsearch-plugin install analysis-icu
+./bin/elasticsearch-plugin install analysis-icu
 ```
 
 安装 elasticsearch-analysis-ik 分词插件,具体请参考https://github.com/medcl/elasticsearch-analysis-ik
 
 ```bash
-$ ./bin/elasticsearch-plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v7.13.2/elasticsearch-analysis-ik-7.13.2.zip
+./bin/elasticsearch-plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v7.17.6/elasticsearch-analysis-ik-7.17.6.zip
 ```
 
 查看已安装的插件
 ```bash
-$ ./bin/elasticsearch-plugin list
-#或者浏览器访问：http://192.168.199.93:9200/_cat/plugins
+./bin/elasticsearch-plugin list
+#或者浏览器访问：http://你的ip:9200/_cat/plugins
 ```
 
 
