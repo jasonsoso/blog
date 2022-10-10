@@ -51,7 +51,7 @@ wget https://github.com/alibaba/canal/releases/download/canal-1.1.5/canal.deploy
 ```
 
 
-- 将canal.deployer 复制到固定目录并解压
+- 解压
 
 ```bash
 tar -zxvf canal.deployer-1.1.5.tar.gz
@@ -121,8 +121,8 @@ tar -zxvf canal.adapter-1.1.5.tar.gz
 
 ```bash
 vim conf/application.yml
-
-
+```
+```yaml
   srcDataSources: #数据源
     defaultDS:
       url: jdbc:mysql://10.0.12.4:3306/test?useUnicode=true
@@ -146,7 +146,7 @@ vim conf/application.yml
 - 适配器表映射文件
   修改es7下面的mytest_user.yml
 
-```bash
+```yaml
 dataSourceKey: defaultDS   # 源数据源的key, 对应上面配置的srcDataSources中的值
 outerAdapterKey: exampleKey # 对应application.yml中es配置的key
 destination: example       # cannal的instance或者MQ的topic
@@ -161,7 +161,6 @@ esMapping:
 #    _labels: array:;   # array或者json对象
   etlCondition: "where a.created_time>={}" # etl 的条件参数
   commitBatch: 3000
-
 ```
 
 
@@ -178,7 +177,7 @@ tail -f logs/adapter/adapter.log
 
 
 - 问题一
-```java
+```
 canal com.alibaba.druid.pool.DruidDataSource cannot be cast to com.alibaba.druid.pool.DruidDataSource
 ```
 解决方案：https://juejin.cn/post/6970249370688028679
@@ -249,7 +248,7 @@ INSERT INTO `user` (`name`, `role_id`, `created_time`) VALUES ('Tom', '1', '2021
 新增适配器表映射文件
 es7下面的mytest_user_detail.yml
 
-```bash
+```yaml
 dataSourceKey: defaultDS
 outerAdapterKey: exampleKey     # 对应application.yml中es配置的key
 destination: example
@@ -352,10 +351,12 @@ CREATE TABLE `user_role` (
   可以完成全量同步/部分数据同步
 
 采用rest模式进行同步到es，则修改conf/application.yml的mode为rest
-```bash
+
+```
 vim conf/application.yml
+```
 
-
+```yaml
   srcDataSources: #数据源
     defaultDS:
       url: jdbc:mysql://10.0.12.4:3306/test?useUnicode=true
