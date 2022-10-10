@@ -153,7 +153,7 @@ tar -zxvf kibana-7.17.6-linux-x86_64.tar.gz
 cd kibana-7.17.6-linux-x86_64
 cd config
 vim kibana.yml                                               #配置elasticsearch.hosts: ["http://你的ip:9200"] 和 server.host: "你的ip"
-./bin/kibana                                                 #切换成es用户则启动成功
+./bin/kibana                                                 #切换成es用户则启动成功（注意：也是不允许用root启动）
 nohup /usr/local/es/kibana-7.17.6-linux-x86_64/bin/kibana &  #后台运行
 ```
 访问 http://你的ip:5601/ 即可

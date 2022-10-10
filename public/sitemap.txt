@@ -1,3 +1,4 @@
+http://tech.jasonsoso.com/2022/09/canal-mysql-to-es/
 http://tech.jasonsoso.com/2022/09/centos-install-es/
 http://tech.jasonsoso.com/2022/09/centos-install-mysql/
 http://tech.jasonsoso.com/2022/04/centos-install-develop-software/
@@ -41,6 +42,7 @@ http://tech.jasonsoso.com/tags/Ruby/
 http://tech.jasonsoso.com/tags/JDK/
 http://tech.jasonsoso.com/tags/Mysql/
 http://tech.jasonsoso.com/tags/%E7%89%A9%E6%A8%A1%E5%9E%8B/
-http://tech.jasonsoso.com/tags/es/
+http://tech.jasonsoso.com/tags/ES/
+http://tech.jasonsoso.com/tags/canal/
 http://tech.jasonsoso.com/categories/%E5%A4%87%E5%BF%98%E5%BD%95/
 http://tech.jasonsoso.com/categories/%E6%8A%80%E6%9C%AF/

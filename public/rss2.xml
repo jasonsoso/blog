@@ -15,8 +15,37 @@
     <atom:link href="http://tech.jasonsoso.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>欢迎来到我的技术流水账~</description>
-    <pubDate>Fri, 30 Sep 2022 07:52:53 GMT</pubDate>
+    <pubDate>Mon, 10 Oct 2022 11:12:12 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Canal：mysql数据同步到ElasticSearch</title>
+      <link>http://tech.jasonsoso.com/2022/09/canal-mysql-to-es/</link>
+      <guid>http://tech.jasonsoso.com/2022/09/canal-mysql-to-es/</guid>
+      <pubDate>Fri, 30 Sep 2022 11:46:25 GMT</pubDate>
+      
+      <description>&lt;h2 id=&quot;mysql配置&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#mysql配置&quot;&gt;&lt;/a&gt; mysql配置&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;对于自建 MySQL , 需要先开启 Binlog 写入功能，配置 binlog-format 为 ROW 模式，my.cnf 中配置如下&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;[mysqld]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;log-bin=mysql-bin   &lt;span class=&quot;comment&quot;&gt;# 开启 binlog&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;binlog-format=ROW   &lt;span class=&quot;comment&quot;&gt;# 选择 ROW 模式&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;server_id=1         &lt;span class=&quot;comment&quot;&gt;# 配置 MySQL replaction 需要定义，不要和 canal 的 slaveId 重复&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</description>
+      
+      
+      
+      
+      <category domain="http://tech.jasonsoso.com/categories/%E5%A4%87%E5%BF%98%E5%BD%95/">备忘录</category>
+      
+      
+      <category domain="http://tech.jasonsoso.com/tags/ElasticSearch/">ElasticSearch</category>
+      
+      <category domain="http://tech.jasonsoso.com/tags/ES/">ES</category>
+      
+      <category domain="http://tech.jasonsoso.com/tags/canal/">canal</category>
+      
+      
+      <comments>http://tech.jasonsoso.com/2022/09/canal-mysql-to-es/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>玩转ElasticSearch</title>
@@ -41,7 +70,7 @@
       
       <category domain="http://tech.jasonsoso.com/tags/%E8%BD%AF%E4%BB%B6/">软件</category>
       
-      <category domain="http://tech.jasonsoso.com/tags/es/">es</category>
+      <category domain="http://tech.jasonsoso.com/tags/ES/">ES</category>
       
       
       <comments>http://tech.jasonsoso.com/2022/09/centos-install-es/#disqus_thread</comments>

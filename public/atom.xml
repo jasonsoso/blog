@@ -6,7 +6,7 @@
   <link href="http://tech.jasonsoso.com/atom.xml" rel="self"/>
   
   <link href="http://tech.jasonsoso.com/"/>
-  <updated>2022-09-30T07:52:53.971Z</updated>
+  <updated>2022-10-10T11:12:12.542Z</updated>
   <id>http://tech.jasonsoso.com/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Canal：mysql数据同步到ElasticSearch</title>
+    <link href="http://tech.jasonsoso.com/2022/09/canal-mysql-to-es/"/>
+    <id>http://tech.jasonsoso.com/2022/09/canal-mysql-to-es/</id>
+    <published>2022-09-30T11:46:25.000Z</published>
+    <updated>2022-10-10T11:12:12.542Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;mysql配置&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#mysql配置&quot;&gt;&lt;/a&gt; mysql配置&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;对于自建 MySQL , 需要先开启 Binlog 写入功能，配置 binlog-format 为 ROW 模式，my.cnf 中配置如下&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;[mysqld]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;log-bin=mysql-bin   &lt;span class=&quot;comment&quot;&gt;# 开启 binlog&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;binlog-format=ROW   &lt;span class=&quot;comment&quot;&gt;# 选择 ROW 模式&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;server_id=1         &lt;span class=&quot;comment&quot;&gt;# 配置 MySQL replaction 需要定义，不要和 canal 的 slaveId 重复&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="备忘录" scheme="http://tech.jasonsoso.com/categories/%E5%A4%87%E5%BF%98%E5%BD%95/"/>
+    
+    
+    <category term="ElasticSearch" scheme="http://tech.jasonsoso.com/tags/ElasticSearch/"/>
+    
+    <category term="ES" scheme="http://tech.jasonsoso.com/tags/ES/"/>
+    
+    <category term="canal" scheme="http://tech.jasonsoso.com/tags/canal/"/>
+    
+  </entry>
+  
+  <entry>
     <title>玩转ElasticSearch</title>
     <link href="http://tech.jasonsoso.com/2022/09/centos-install-es/"/>
     <id>http://tech.jasonsoso.com/2022/09/centos-install-es/</id>
     <published>2022-09-28T11:46:25.000Z</published>
-    <updated>2022-09-30T07:52:53.971Z</updated>
+    <updated>2022-10-08T08:33:36.456Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;玩转elasticsearch的背景&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#玩转elasticsearch的背景&quot;&gt;&lt;/a&gt; 玩转ElasticSearch的背景&lt;/h2&gt;
@@ -40,7 +67,7 @@
     
     <category term="软件" scheme="http://tech.jasonsoso.com/tags/%E8%BD%AF%E4%BB%B6/"/>
     
-    <category term="es" scheme="http://tech.jasonsoso.com/tags/es/"/>
+    <category term="ES" scheme="http://tech.jasonsoso.com/tags/ES/"/>
     
   </entry>
   

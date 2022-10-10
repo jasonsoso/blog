@@ -42,19 +42,19 @@ show global variables like "binlog%"; #查看MySQL的binlog模式
 ## 安装canal服务端
 
 
-- 下载canal服务端，[release页面](https://github.com/alibaba/canal/releases "release页面")，下面以v1.1.6为例子
+- 下载canal服务端，[release页面](https://github.com/alibaba/canal/releases "release页面")，下面以canal-1.1.5为例子
 
 ```bash
-mkdir -p /usr/local/canal
-cd /usr/local/canal
-wget https://github.com/alibaba/canal/releases/download/canal-1.1.6/canal.deployer-1.1.6.tar.gz
+mkdir -p /usr/local/canal/canal-deployer
+cd /usr/local/canal/canal-deployer
+wget https://github.com/alibaba/canal/releases/download/canal-1.1.5/canal.deployer-1.1.5.tar.gz
 ```
 
 
 - 将canal.deployer 复制到固定目录并解压
 
 ```bash
-tar -zxvf canal.deployer-1.1.6.tar.gz
+tar -zxvf canal.deployer-1.1.5.tar.gz
 ```
 
 
@@ -75,31 +75,16 @@ canal.instance.connectionCharset = UTF-8
 canal.instance.enableDruid=false
 ```
 
-- 启动
+- 启动并查看日志
 
 ```bash
+# 启动
 ./bin/startup.sh
-```
-![](http://zims.zhidianlife.com/attachment/MD/2021/06/21/QQ截图20210621174929.png)
-
-
-- 查看日志
-
-```bash
+#查看日志
 cat logs/canal/canal.log
 ```
-![](http://zims.zhidianlife.com/attachment/MD/2021/06/21/QQ截图20210621175024.png)
-
-```bash
-cat logs/canal/canal_stdout.log
-```
-![](http://zims.zhidianlife.com/attachment/MD/2021/06/21/QQ截图20210621175048.png)
-
-```bash
-cat logs/example/example.log
-```
-![](http://zims.zhidianlife.com/attachment/MD/2021/06/21/QQ截图20210621175108.png)
-
+![](http://tech.jasonsoso.com/images/202210/canal-1.png)
+![](http://tech.jasonsoso.com/images/202210/canal-2.png)
 
 - 关闭
 
@@ -110,7 +95,7 @@ cat logs/example/example.log
 
 
 ## 安装ElasticSearch服务端
-具体请移步到 [ElasticSearch部署实践](http://zims.zhidianlife.com/ps/forum/view.html?id=33 "ElasticSearch部署实践")
+具体请移步到 [ElasticSearch部署实践](/2022/09/centos-install-es/ "ElasticSearch部署实践")
 
 
 
@@ -120,16 +105,16 @@ cat logs/example/example.log
 - 下载ClientAdapter服务端，[release页面](https://github.com/alibaba/canal/releases "release页面")
 
 ```bash
-wget https://github.com/alibaba/canal/releases/download/canal-1.1.6/canal.adapter-1.1.6.tar.gz
+mkdir -p /usr/local/canal/canal-adapter
+cd /usr/local/canal/canal-adapter
+wget https://github.com/alibaba/canal/releases/download/canal-1.1.5/canal.adapter-1.1.5.tar.gz
 ```
 
 
-- 将canal.adapter 复制到固定目录并解压
+- 将canal.adapter进行解压
 
 ```bash
-mkdir -p /usr/local/canal-adapter
-cp canal.deployer-1.1.6.tar.gz /usr/local/canal-adapter
-tar -zxvf  canal.adapter-1.1.6.tar.gz
+tar -zxvf canal.adapter-1.1.5.tar.gz
 ```
 
 - 修改启动器配置application.yml
@@ -140,7 +125,7 @@ vim conf/application.yml
 
   srcDataSources: #数据源
     defaultDS:
-      url: jdbc:mysql://10.0.12.4:3306/canal?useUnicode=true
+      url: jdbc:mysql://10.0.12.4:3306/test?useUnicode=true
       username: canal
       password: 123456
   canalAdapters: #适配器
@@ -152,10 +137,9 @@ vim conf/application.yml
       - 
         key: exampleKey
         name: es7  # or es6，adapter将会自动加载conf/es7下的所有.yml结尾的配置文件
-        hosts: 192.168.199.93:9300 # 127.0.0.1:9200 for rest mode
+        hosts: http://10.0.12.4:9200 # 127.0.0.1:9200 for rest mode
         properties:
-          mode: transport # or rest
-          # security.auth: test:123456 #  only used for rest mode
+          mode: rest # transport or rest
           cluster.name: my-application # es cluster name
 ```
 
@@ -164,7 +148,7 @@ vim conf/application.yml
 
 ```bash
 dataSourceKey: defaultDS   # 源数据源的key, 对应上面配置的srcDataSources中的值
-outerAdapterKey: exampleKey# 对应application.yml中es配置的key
+outerAdapterKey: exampleKey # 对应application.yml中es配置的key
 destination: example       # cannal的instance或者MQ的topic
 groupId: g1                # 对应MQ模式下的groupId, 只会同步对应groupId的数据
 esMapping:
@@ -180,11 +164,28 @@ esMapping:
 
 ```
 
+
+- 启动并查看日志
+
+```bash
+# 启动
+./bin/startup.sh
+#查看日志
+tail -f logs/adapter/adapter.log
+```
+
+![](http://tech.jasonsoso.com/images/202210/canal-3.png)
+
+
 - 问题一
 ```java
 canal com.alibaba.druid.pool.DruidDataSource cannot be cast to com.alibaba.druid.pool.DruidDataSource
 ```
 解决方案：https://juejin.cn/post/6970249370688028679
+
+常见报错解决方案：https://juejin.cn/post/7092319578465763365
+
+
 
 
 - 单表映射索引示例sql:
@@ -226,11 +227,17 @@ INSERT INTO `user` (`name`, `role_id`, `created_time`) VALUES ('Tom', '1', '2021
   }
 }
 ```
-![](http://zims.zhidianlife.com/attachment/MD/2021/06/23/head-2.png)
 
-![](http://zims.zhidianlife.com/attachment/MD/2021/06/23/head-3.png)
+![](http://tech.jasonsoso.com/images/202210/canal-4.png)
 
-![](http://zims.zhidianlife.com/attachment/MD/2021/06/23/head-5.png)
+![](http://tech.jasonsoso.com/images/202210/canal-5.png)
+
+![](http://tech.jasonsoso.com/images/202210/canal-6.png)
+
+![](http://tech.jasonsoso.com/images/202210/canal-7.png)
+
+![](http://tech.jasonsoso.com/images/202210/canal-8.png)
+
 以上展示，已经同步成功，无论新增，修改，删除，都同步到es
 
 
@@ -263,6 +270,7 @@ esMapping:
   commitBatch: 3000
 
 ```
+
 ```sql
 CREATE TABLE `user` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
@@ -330,8 +338,9 @@ CREATE TABLE `user_role` (
 }
 ```
 
-![](http://zims.zhidianlife.com/attachment/MD/2021/06/24/head-21.png)
-![](http://zims.zhidianlife.com/attachment/MD/2021/06/24/head-22.png)
+
+![](http://tech.jasonsoso.com/images/202210/canal-9.png)
+![](http://tech.jasonsoso.com/images/202210/canal-10.png)
 
 以上展示，多表关联已经同步成功，无论新增，修改，删除，都同步到es
 
@@ -349,9 +358,9 @@ vim conf/application.yml
 
   srcDataSources: #数据源
     defaultDS:
-      url: jdbc:mysql://10.0.12.4:3306/canal?useUnicode=true
-      username: zhidianlife
-      password: zdsh123456
+      url: jdbc:mysql://10.0.12.4:3306/test?useUnicode=true
+      username: canal
+      password: 123456
   canalAdapters: #适配器
   - instance: example # canal instance Name or mq topic name
     groups:
@@ -361,7 +370,7 @@ vim conf/application.yml
       - 
         key: exampleKey
         name: es7  # or es6，adapter将会自动加载conf/es7下的所有.yml结尾的配置文件
-        hosts: http://192.168.199.93:9200 # 127.0.0.1:9200 for rest mode
+        hosts: http://10.0.12.4:9200 # 127.0.0.1:9200 for rest mode
         properties:
           mode: rest #transport or rest
           # security.auth: test:123456 #  only used for rest mode
@@ -372,9 +381,11 @@ vim conf/application.yml
 ```bash
 #查看相关库总数据
 curl http://127.0.0.1:8081/count/es7/exampleKey/mytest_user.yml
+curl http://127.0.0.1:8081/count/es7/exampleKey/mytest_user_detail.yml
 
 #手动ETL进行全量同步
 curl http://127.0.0.1:8081/etl/es7/exampleKey/mytest_user.yml -X POST
+curl http://127.0.0.1:8081/etl/es7/exampleKey/mytest_user_detail.yml -X POST
 
 ```
-![](http://zims.zhidianlife.com/attachment/MD/2021/06/24/head-23.png)
+![](http://tech.jasonsoso.com/images/202210/canal-11.png)
