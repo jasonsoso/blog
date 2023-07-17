@@ -1,55 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://tech.jasonsoso.com/2022/09/canal-mysql-to-es/</loc>
-    <lastmod>2022-10-10</lastmod>
+    <loc>http://tech.jasonsoso.com/2023/07/redis-getting-started-guide/</loc>
+    <lastmod>2023-07-17</lastmod>
   </url>
   <url>
     <loc>http://tech.jasonsoso.com/2022/09/centos-install-es/</loc>
-    <lastmod>2022-10-08</lastmod>
+    <lastmod>2022-11-07</lastmod>
   </url>
   <url>
-    <loc>http://tech.jasonsoso.com/2022/09/centos-install-mysql/</loc>
-    <lastmod>2022-09-29</lastmod>
+    <loc>http://tech.jasonsoso.com/2022/09/canal-mysql-to-es/</loc>
+    <lastmod>2022-11-07</lastmod>
   </url>
   <url>
     <loc>http://tech.jasonsoso.com/2022/04/centos-install-develop-software/</loc>
-    <lastmod>2022-09-27</lastmod>
+    <lastmod>2022-11-07</lastmod>
+  </url>
+  <url>
+    <loc>http://tech.jasonsoso.com/2022/09/centos-install-mysql/</loc>
+    <lastmod>2022-11-07</lastmod>
   </url>
   <url>
     <loc>http://tech.jasonsoso.com/2020/09/iot-first-contact/</loc>
-    <lastmod>2022-08-08</lastmod>
+    <lastmod>2022-09-15</lastmod>
   </url>
   <url>
     <loc>http://tech.jasonsoso.com/2022/04/centos-install-something/</loc>
-    <lastmod>2022-04-11</lastmod>
+    <lastmod>2022-05-12</lastmod>
   </url>
   <url>
     <loc>http://tech.jasonsoso.com/2020/08/iot-model/</loc>
-    <lastmod>2022-04-11</lastmod>
+    <lastmod>2022-05-12</lastmod>
   </url>
   <url>
     <loc>http://tech.jasonsoso.com/2016/04/sso/</loc>
-    <lastmod>2022-04-08</lastmod>
+    <lastmod>2022-04-10</lastmod>
   </url>
   <url>
     <loc>http://tech.jasonsoso.com/2015/12/elasticsearch/</loc>
-    <lastmod>2022-04-08</lastmod>
+    <lastmod>2022-04-10</lastmod>
   </url>
   <url>
     <loc>http://tech.jasonsoso.com/2015/05/install-hadoop/</loc>
-    <lastmod>2022-04-08</lastmod>
+    <lastmod>2022-04-10</lastmod>
   </url>
   <url>
     <loc>http://tech.jasonsoso.com/2015/02/design-1/</loc>
-    <lastmod>2022-04-08</lastmod>
-  </url>
-  <url>
-    <loc>http://tech.jasonsoso.com/2015/01/B-tree-indexes-and-bitmap-indexes/</loc>
-    <lastmod>2022-04-08</lastmod>
+    <lastmod>2022-04-10</lastmod>
   </url>
   <url>
     <loc>http://tech.jasonsoso.com/2015/02/gitbook-1/</loc>
-    <lastmod>2022-03-21</lastmod>
+    <lastmod>2022-04-10</lastmod>
+  </url>
+  <url>
+    <loc>http://tech.jasonsoso.com/2015/01/B-tree-indexes-and-bitmap-indexes/</loc>
+    <lastmod>2022-04-10</lastmod>
   </url>
 </urlset> 

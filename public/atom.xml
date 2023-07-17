@@ -6,7 +6,7 @@
   <link href="http://tech.jasonsoso.com/atom.xml" rel="self"/>
   
   <link href="http://tech.jasonsoso.com/"/>
-  <updated>2022-10-10T11:36:29.777Z</updated>
+  <updated>2023-07-17T15:21:33.991Z</updated>
   <id>http://tech.jasonsoso.com/</id>
   
   <author>
@@ -17,11 +17,53 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Redis入门指南：安装、使用和关键点复习</title>
+    <link href="http://tech.jasonsoso.com/2023/07/redis-getting-started-guide/"/>
+    <id>http://tech.jasonsoso.com/2023/07/redis-getting-started-guide/</id>
+    <published>2023-07-17T14:00:00.000Z</published>
+    <updated>2023-07-17T15:21:33.991Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;redis介绍&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#redis介绍&quot;&gt;&lt;/a&gt; Redis介绍&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Redis概述&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;是一个开源的键值对存储系统，以内存为主要存储介质，也可以通过持久化将数据保存到磁盘上。它被设计为一个高性能、低延迟的数据存储解决方案，广泛应用于缓存、会话管理、实时分析、消息传递和排行榜等场景。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Redis支持多种数据结构，包括字符串、哈希（Hash）、列表（List）、集合（Set）和有序集合（Sorted Set）。这些数据结构赋予了Redis更灵活的功能，例如存储各种类型的数据、处理计数器、实现发布订阅模式以及进行地理位置查询等。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;由于Redis将数据存储在内存中，使得其读写速度非常快，通常可以达到每秒几十万次的操作。此外，Redis还提供了持久化选项，可以将内存中的数据定期快照保存到磁盘上，或者使用AOF（Append-Only File）日志记录每个写操作，从而确保数据的可靠性和持久性。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;总之，Redis作为一个高性能、多功能的键值存储系统，在各种场景下都展现出了卓越的表现，并受到广泛使用和青睐。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="备忘录" scheme="http://tech.jasonsoso.com/categories/%E5%A4%87%E5%BF%98%E5%BD%95/"/>
+    
+    
+    <category term="CentOS" scheme="http://tech.jasonsoso.com/tags/CentOS/"/>
+    
+    <category term="软件" scheme="http://tech.jasonsoso.com/tags/%E8%BD%AF%E4%BB%B6/"/>
+    
+    <category term="Redis" scheme="http://tech.jasonsoso.com/tags/Redis/"/>
+    
+    <category term="缓存数据库" scheme="http://tech.jasonsoso.com/tags/%E7%BC%93%E5%AD%98%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Canal：mysql数据同步到ElasticSearch</title>
     <link href="http://tech.jasonsoso.com/2022/09/canal-mysql-to-es/"/>
     <id>http://tech.jasonsoso.com/2022/09/canal-mysql-to-es/</id>
     <published>2022-09-30T11:46:25.000Z</published>
-    <updated>2022-10-10T11:36:29.777Z</updated>
+    <updated>2022-11-07T14:00:18.625Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;mysql配置&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#mysql配置&quot;&gt;&lt;/a&gt; mysql配置&lt;/h2&gt;
@@ -48,7 +90,7 @@
     <link href="http://tech.jasonsoso.com/2022/09/centos-install-es/"/>
     <id>http://tech.jasonsoso.com/2022/09/centos-install-es/</id>
     <published>2022-09-28T11:46:25.000Z</published>
-    <updated>2022-10-08T08:33:36.456Z</updated>
+    <updated>2022-11-07T14:00:18.625Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;玩转elasticsearch的背景&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#玩转elasticsearch的背景&quot;&gt;&lt;/a&gt; 玩转ElasticSearch的背景&lt;/h2&gt;
@@ -76,7 +118,7 @@
     <link href="http://tech.jasonsoso.com/2022/09/centos-install-mysql/"/>
     <id>http://tech.jasonsoso.com/2022/09/centos-install-mysql/</id>
     <published>2022-09-27T11:46:25.000Z</published>
-    <updated>2022-09-29T08:12:03.020Z</updated>
+    <updated>2022-11-07T14:00:18.624Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;mysql57和mysql80区别&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#mysql57和mysql80区别&quot;&gt;&lt;/a&gt; mysql5.7和mysql8.0区别&lt;/h2&gt;
@@ -108,7 +150,7 @@
     <link href="http://tech.jasonsoso.com/2022/04/centos-install-develop-software/"/>
     <id>http://tech.jasonsoso.com/2022/04/centos-install-develop-software/</id>
     <published>2022-04-11T11:46:25.000Z</published>
-    <updated>2022-09-27T14:37:04.601Z</updated>
+    <updated>2022-11-07T14:00:18.624Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;centos7安装jdk8&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#centos7安装jdk8&quot;&gt;&lt;/a&gt; CentOS7安装JDK8&lt;/h2&gt;
@@ -143,7 +185,7 @@
     <link href="http://tech.jasonsoso.com/2022/04/centos-install-something/"/>
     <id>http://tech.jasonsoso.com/2022/04/centos-install-something/</id>
     <published>2022-04-10T11:46:25.000Z</published>
-    <updated>2022-04-11T10:18:09.231Z</updated>
+    <updated>2022-05-12T15:20:00.033Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;centos7安装nginx&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#centos7安装nginx&quot;&gt;&lt;/a&gt; CentOS7安装Nginx&lt;/h2&gt;
@@ -190,7 +232,7 @@ nginx 不仅支持 http 协议，还支持 https（即在ssl协议上传输http�
     <link href="http://tech.jasonsoso.com/2020/09/iot-first-contact/"/>
     <id>http://tech.jasonsoso.com/2020/09/iot-first-contact/</id>
     <published>2020-09-03T12:46:25.000Z</published>
-    <updated>2022-08-08T00:14:56.480Z</updated>
+    <updated>2022-09-15T14:27:04.129Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;iot物联网概念&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#iot物联网概念&quot;&gt;&lt;/a&gt; IOT物联网概念&lt;/h2&gt;
@@ -211,7 +253,7 @@ nginx 不仅支持 http 协议，还支持 https（即在ssl协议上传输http�
     <link href="http://tech.jasonsoso.com/2020/08/iot-model/"/>
     <id>http://tech.jasonsoso.com/2020/08/iot-model/</id>
     <published>2020-08-24T12:46:25.000Z</published>
-    <updated>2022-04-11T03:46:55.512Z</updated>
+    <updated>2022-05-12T15:20:00.032Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;物模型简单说明&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#物模型简单说明&quot;&gt;&lt;/a&gt; 物模型简单说明&lt;/h2&gt;
@@ -234,7 +276,7 @@ nginx 不仅支持 http 协议，还支持 https（即在ssl协议上传输http�
     <link href="http://tech.jasonsoso.com/2016/04/sso/"/>
     <id>http://tech.jasonsoso.com/2016/04/sso/</id>
     <published>2016-04-14T16:00:00.000Z</published>
-    <updated>2022-04-08T01:44:15.485Z</updated>
+    <updated>2022-04-10T15:01:03.533Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;第一章-单点登录sso&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#第一章-单点登录sso&quot;&gt;&lt;/a&gt; 第一章	： 单点登录(SSO)&lt;/h3&gt;
@@ -264,7 +306,7 @@ nginx 不仅支持 http 协议，还支持 https（即在ssl协议上传输http�
     <link href="http://tech.jasonsoso.com/2015/12/elasticsearch/"/>
     <id>http://tech.jasonsoso.com/2015/12/elasticsearch/</id>
     <published>2015-12-15T16:00:00.000Z</published>
-    <updated>2022-04-08T01:44:12.039Z</updated>
+    <updated>2022-04-10T15:01:03.532Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;第一章-搜索引擎&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#第一章-搜索引擎&quot;&gt;&lt;/a&gt; 第一章 搜索引擎&lt;/h3&gt;
@@ -289,7 +331,7 @@ nginx 不仅支持 http 协议，还支持 https（即在ssl协议上传输http�
     <link href="http://tech.jasonsoso.com/2015/05/install-hadoop/"/>
     <id>http://tech.jasonsoso.com/2015/05/install-hadoop/</id>
     <published>2015-05-02T16:00:00.000Z</published>
-    <updated>2022-04-08T01:44:08.037Z</updated>
+    <updated>2022-04-10T15:01:03.530Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;环境&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#环境&quot;&gt;&lt;/a&gt; 环境&lt;/h3&gt;
@@ -316,7 +358,7 @@ nginx 不仅支持 http 协议，还支持 https（即在ssl协议上传输http�
     <link href="http://tech.jasonsoso.com/2015/02/design-1/"/>
     <id>http://tech.jasonsoso.com/2015/02/design-1/</id>
     <published>2015-02-05T16:00:00.000Z</published>
-    <updated>2022-04-08T01:44:03.829Z</updated>
+    <updated>2022-04-10T15:01:03.529Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;web&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#web&quot;&gt;&lt;/a&gt; Web&lt;/h3&gt;
@@ -342,7 +384,7 @@ nginx 不仅支持 http 协议，还支持 https（即在ssl协议上传输http�
     <link href="http://tech.jasonsoso.com/2015/02/gitbook-1/"/>
     <id>http://tech.jasonsoso.com/2015/02/gitbook-1/</id>
     <published>2015-02-01T16:00:00.000Z</published>
-    <updated>2022-03-21T05:40:44.487Z</updated>
+    <updated>2022-04-10T15:01:03.528Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;简说&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#简说&quot;&gt;&lt;/a&gt; 简说&lt;/h3&gt;
@@ -367,7 +409,7 @@ nginx 不仅支持 http 协议，还支持 https（即在ssl协议上传输http�
     <link href="http://tech.jasonsoso.com/2015/01/B-tree-indexes-and-bitmap-indexes/"/>
     <id>http://tech.jasonsoso.com/2015/01/B-tree-indexes-and-bitmap-indexes/</id>
     <published>2015-01-17T16:00:00.000Z</published>
-    <updated>2022-04-08T01:43:51.328Z</updated>
+    <updated>2022-04-10T15:01:03.527Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;简说&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#简说&quot;&gt;&lt;/a&gt; 简说&lt;/h3&gt;
