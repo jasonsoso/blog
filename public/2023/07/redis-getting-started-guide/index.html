@@ -24,24 +24,25 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"tech.jasonsoso.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"buttons","active":"gitalk","storage":true,"lazyload":true,"nav":{"gitalk":{"order":-2}}},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Redis介绍  Redis概述    是一个开源的键值对存储系统，以内存为主要存储介质，也可以通过持久化将数据保存到磁盘上。它被设计为一个高性能、低延迟的数据存储解决方案，广泛应用于缓存、会话管理、实时分析、消息传递和排行榜等场景。   Redis支持多种数据结构，包括字符串、哈希（Hash）、列表（List）、集合（Set）和有序集合（Sorted Set）。这些数据结构赋予了Redis更灵">
+    <meta name="description" content="Redis介绍  Redis概述">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Redis入门指南：安装、使用和关键点复习">
 <meta property="og:url" content="http://tech.jasonsoso.com/2023/07/redis-getting-started-guide/index.html">
 <meta property="og:site_name" content="Jason">
-<meta property="og:description" content="Redis介绍  Redis概述    是一个开源的键值对存储系统，以内存为主要存储介质，也可以通过持久化将数据保存到磁盘上。它被设计为一个高性能、低延迟的数据存储解决方案，广泛应用于缓存、会话管理、实时分析、消息传递和排行榜等场景。   Redis支持多种数据结构，包括字符串、哈希（Hash）、列表（List）、集合（Set）和有序集合（Sorted Set）。这些数据结构赋予了Redis更灵">
+<meta property="og:description" content="Redis介绍  Redis概述">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://tech.jasonsoso.com/images/2023/redis.png">
 <meta property="og:image" content="http://tech.jasonsoso.com/images/2023/redis-server.png">
 <meta property="og:image" content="http://tech.jasonsoso.com/images/2023/redis-cli.png">
 <meta property="article:published_time" content="2023-07-17T14:00:00.000Z">
-<meta property="article:modified_time" content="2023-07-17T15:21:33.991Z">
+<meta property="article:modified_time" content="2023-07-18T15:50:46.550Z">
 <meta property="article:author" content="Jason">
 <meta property="article:tag" content="CentOS">
 <meta property="article:tag" content="软件">
 <meta property="article:tag" content="Redis">
 <meta property="article:tag" content="缓存数据库">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://tech.jasonsoso.com/images/2023/redis-server.png">
+<meta name="twitter:image" content="http://tech.jasonsoso.com/images/2023/redis.png">
 
 
 <link rel="canonical" href="http://tech.jasonsoso.com/2023/07/redis-getting-started-guide/">
@@ -160,7 +161,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#redis%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text"> Redis介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text"> 安装和配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#redis%E5%9F%BA%E7%A1%80"><span class="nav-number">3.</span> <span class="nav-text"> Redis基础</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#redis%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7"><span class="nav-number">4.</span> <span class="nav-text"> Redis高级特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#redis%E9%9B%86%E7%BE%A4%E5%92%8C%E9%AB%98%E5%8F%AF%E7%94%A8%E6%80%A7"><span class="nav-number">5.</span> <span class="nav-text"> Redis集群和高可用性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8redis%E5%AE%9E%E6%88%98%E7%A4%BA%E4%BE%8B"><span class="nav-number">6.</span> <span class="nav-text"> 使用Redis实战示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E7%82%B9%E5%A4%8D%E4%B9%A0%E9%A2%98%E7%9B%AE"><span class="nav-number">7.</span> <span class="nav-text"> 关键点复习题目</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#redis%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text"> Redis介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text"> 安装和配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#redis%E5%9F%BA%E7%A1%80"><span class="nav-number">3.</span> <span class="nav-text"> Redis基础</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#redis%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7"><span class="nav-number">4.</span> <span class="nav-text"> Redis高级特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#redis%E9%AB%98%E5%8F%AF%E7%94%A8%E6%80%A7%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">5.</span> <span class="nav-text"> Redis高可用性解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8redis%E5%AE%9E%E6%88%98%E7%A4%BA%E4%BE%8B"><span class="nav-number">6.</span> <span class="nav-text"> 使用Redis实战示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E7%82%B9%E5%A4%8D%E4%B9%A0%E9%A2%98%E7%9B%AE"><span class="nav-number">7.</span> <span class="nav-text"> 关键点复习题目</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -286,9 +287,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2023-07-17 22:00:00 / 修改时间：23:21:33" itemprop="dateCreated datePublished" datetime="2023-07-17T22:00:00+08:00">2023-07-17</time>
+      <time title="创建时间：2023-07-17 22:00:00" itemprop="dateCreated datePublished" datetime="2023-07-17T22:00:00+08:00">2023-07-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-07-18 23:50:46" itemprop="dateModified" datetime="2023-07-18T23:50:46+08:00">2023-07-18</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -314,14 +321,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.7k</span>
+      <span>4.5k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
+      <span>4 分钟</span>
     </span>
 </div>
 
@@ -332,19 +339,23 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="redis介绍"><a class="markdownIt-Anchor" href="#redis介绍"></a> Redis介绍</h2>
+        <p><img data-src="http://tech.jasonsoso.com/images/2023/redis.png" alt="" /></p>
+<h2 id="redis介绍"><a class="markdownIt-Anchor" href="#redis介绍"></a> Redis介绍</h2>
 <ol>
 <li>Redis概述</li>
 </ol>
 <ul>
 <li>
-<p>是一个开源的键值对存储系统，以内存为主要存储介质，也可以通过持久化将数据保存到磁盘上。它被设计为一个高性能、低延迟的数据存储解决方案，广泛应用于缓存、会话管理、实时分析、消息传递和排行榜等场景。</p>
+<p>是一个开源的键值对存储系统，以内存为主要存储介质，也可以通过持久化将数据保存到磁盘上。<br />
+它被设计为一个高性能、低延迟的数据存储解决方案，广泛应用于缓存、会话管理、实时分析、消息传递和排行榜等场景。</p>
 </li>
 <li>
-<p>Redis支持多种数据结构，包括字符串、哈希（Hash）、列表（List）、集合（Set）和有序集合（Sorted Set）。这些数据结构赋予了Redis更灵活的功能，例如存储各种类型的数据、处理计数器、实现发布订阅模式以及进行地理位置查询等。</p>
+<p>Redis支持多种数据结构，包括字符串、哈希（Hash）、列表（List）、集合（Set）和有序集合（Sorted Set）。<br />
+这些数据结构赋予了Redis更灵活的功能，例如存储各种类型的数据、处理计数器、实现发布订阅模式以及进行地理位置查询等。</p>
 </li>
 <li>
-<p>由于Redis将数据存储在内存中，使得其读写速度非常快，通常可以达到每秒几十万次的操作。此外，Redis还提供了持久化选项，可以将内存中的数据定期快照保存到磁盘上，或者使用AOF（Append-Only File）日志记录每个写操作，从而确保数据的可靠性和持久性。</p>
+<p>由于Redis将数据存储在内存中，使得其读写速度非常快，通常可以达到每秒几十万次的操作。<br />
+此外，Redis还提供了持久化选项，可以将内存中的数据定期快照保存到磁盘上，或者使用AOF（Append-Only File）日志记录每个写操作，从而确保数据的可靠性和持久性。</p>
 </li>
 <li>
 <p>总之，Redis作为一个高性能、多功能的键值存储系统，在各种场景下都展现出了卓越的表现，并受到广泛使用和青睐。</p>
@@ -355,25 +366,37 @@
 </ol>
 <ul>
 <li>
-<p>缓存：作为内存数据库，Redis被广泛用作缓存层，将经常访问的数据存储在内存中，以提高读取速度和减轻后端数据库负载。其高性能和低延迟的特点使得它成为理想的缓存解决方案。</p>
+<p><strong>缓存</strong>：作为内存数据库，Redis被广泛用作缓存层，将经常访问的数据存储在内存中，以提高读取速度和减轻后端数据库负载。<br />
+其高性能和低延迟的特点使得它成为理想的缓存解决方案。</p>
 </li>
 <li>
-<p>实时数据处理：Redis支持发布与订阅模式，使得实时消息传递和事件通知变得简单。通过发布/订阅功能，可以轻松地构建实时聊天应用、实时推送系统和消息队列等。</p>
+<p><strong>实时数据处理</strong>：Redis支持发布与订阅模式，使得实时消息传递和事件通知变得简单。<br />
+通过发布/订阅功能，可以轻松地构建实时聊天应用、实时推送系统和消息队列等。</p>
 </li>
 <li>
-<p>排行榜和计数器：Redis的有序集合和自增功能使之成为构建排行榜和计数器的理想工具。开发人员可以使用有序集合来存储和更新用户的得分信息，并根据分数进行排名和查询。</p>
+<p><strong>排行榜和计数器</strong>：Redis的有序集合和自增功能使之成为构建排行榜和计数器的理想工具。<br />
+开发人员可以使用有序集合来存储和更新用户的得分信息，并根据分数进行排名和查询。</p>
 </li>
 <li>
-<p>分布式锁：Redis的原子操作和过期时间设置使得它能够实现分布式环境下的锁机制。通过Redis的命令和特性，可以实现互斥访问控制和并发控制，确保共享资源的安全性。</p>
+<p><strong>分布式锁</strong>：Redis的原子操作和过期时间设置使得它能够实现分布式环境下的锁机制。<br />
+通过Redis的命令和特性，可以实现互斥访问控制和并发控制，确保共享资源的安全性。</p>
 </li>
 <li>
-<p>地理位置查询：Redis提供了地理位置索引的功能，可以方便地进行附近位置搜索、地理围栏判断和地理数据存储。这使得Redis在位置服务和地理信息系统等领域具备优势。</p>
+<p><strong>地理位置查询</strong>：Redis提供了地理位置索引的功能，可以方便地进行附近位置搜索、地理围栏判断和地理数据存储。<br />
+这使得Redis在位置服务和地理信息系统等领域具备优势。</p>
 </li>
 <li>
-<p>高性能和可扩展性：Redis被设计为一个高性能的存储引擎，能够处理大量的读写操作和高并发访问。它的简单架构和水平扩展能力使得它能够应对大规模数据和流量的挑战。</p>
+<p><strong>高性能和可扩展性</strong>：Redis被设计为一个高性能的存储引擎，能够处理大量的读写操作和高并发访问。<br />
+它的简单架构和水平扩展能力使得它能够应对大规模数据和流量的挑战。</p>
 </li>
 <li>
-<p>多种数据结构支持：Redis提供了多种数据结构，如字符串、哈希、列表、集合和有序集合等，使得开发人员可以灵活地应对不同的数据存储需求。</p>
+<p><strong>多种数据结构支持</strong>：Redis提供了多种数据结构，如字符串、哈希、列表、集合和有序集合等，使得开发人员可以灵活地应对不同的数据存储需求。</p>
+</li>
+<li>
+<p><strong>共享Session</strong></p>
+</li>
+<li>
+<p><strong>消息队列系统</strong></p>
 </li>
 </ul>
 <ol start="3">
@@ -389,30 +412,48 @@
 <ol>
 <li>下载，安装并编译Redis</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/local/</span><br><span class="line"><span class="built_in">mkdir</span> redis</span><br><span class="line"><span class="built_in">cd</span> redis/</span><br><span class="line">wget https://download.redis.io/redis-stable.tar.gz</span><br><span class="line">tar -xzvf redis-stable.tar.gz</span><br><span class="line">ll</span><br><span class="line"><span class="built_in">cd</span> redis-stable/</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/local/</span><br><span class="line"><span class="built_in">mkdir</span> redis</span><br><span class="line"><span class="built_in">cd</span> redis/</span><br><span class="line"><span class="comment"># 下载</span></span><br><span class="line">wget https://download.redis.io/redis-stable.tar.gz</span><br><span class="line"><span class="comment"># 解压</span></span><br><span class="line">tar -xzvf redis-stable.tar.gz</span><br><span class="line">ll</span><br><span class="line"><span class="built_in">cd</span> redis-stable/</span><br><span class="line"><span class="comment">#安装</span></span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
 <ol start="2">
-<li>
-<p>配置Redis</p>
-</li>
-<li>
-<p>启动和停止Redis</p>
-</li>
+<li>配置Redis</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">进行服务启动</span><br><span class="line">redis-server</span><br><span class="line"></span><br><span class="line">客户端连接</span><br><span class="line">redis-cli</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#拷贝默认redis.conf当做配置</span></span><br><span class="line"><span class="built_in">cp</span> redis.conf /etc/redis/redis.conf</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#配置文件redis.conf的常见配置</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#确保守护进程开启,也就是在后台可以运行.</span></span><br><span class="line">daemonize <span class="built_in">yes</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#设置密码</span></span><br><span class="line">requirepass 123456 <span class="comment">#AUTH 12345</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#绑定的主机地址</span></span><br><span class="line"><span class="built_in">bind</span> 127.0.0.1 -::1</span><br><span class="line"><span class="comment">##监听端口</span></span><br><span class="line">port 6379</span><br><span class="line"></span><br><span class="line"><span class="comment">#pid 文件和log文件的保存地址</span></span><br><span class="line">pidfile /var/run/redis_6379.pid</span><br><span class="line">logfile <span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#指定本地持久化文件的文件名，默认是dump.rdb</span></span><br><span class="line">dbfilename dump.rdb</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>启动和停止Redis</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#进行服务启动</span></span><br><span class="line">redis-server</span><br><span class="line"><span class="comment">#或者</span></span><br><span class="line">redis-server /etc/redis/redis.conf</span><br><span class="line"></span><br><span class="line"><span class="comment">#客户端连接</span></span><br><span class="line">redis-cli</span><br><span class="line"><span class="comment">#或者</span></span><br><span class="line">redis-cli -h 127.0.0.1 -p 6379</span><br></pre></td></tr></table></figure>
 <p><img data-src="http://tech.jasonsoso.com/images/2023/redis-server.png" alt="" /><br />
 <img data-src="http://tech.jasonsoso.com/images/2023/redis-cli.png" alt="" /></p>
 <h2 id="redis基础"><a class="markdownIt-Anchor" href="#redis基础"></a> Redis基础</h2>
 <ol>
-<li>
-<p>数据结构简介（字符串、哈希、列表、集合、有序集合）</p>
-</li>
-<li>
-<p>Redis命令和操作</p>
-</li>
-<li>
-<p>Redis数据持久化（快照和AOF日志）</p>
-</li>
+<li>数据结构</li>
 </ol>
+<ul>
+<li>
+<p>字符串（String）：最基本的数据结构，可以存储字符串、整数或浮点数。它们可以执行诸如获取、设置、增加和减少值等操作。</p>
+</li>
+<li>
+<p>列表（List）：按照插入顺序存储一组有序的元素。可以在列表的两端进行插入和删除操作，还提供了根据索引访问和修剪列表的功能。</p>
+</li>
+<li>
+<p>哈希（Hash）：存储键值对的无序散列表。适合存储对象或记录，并且可以直接访问和修改特定字段的值。</p>
+</li>
+<li>
+<p>集合（Set）：无序且唯一的元素集合。可以进行添加、删除、求交集、并集和差集等操作。</p>
+</li>
+<li>
+<p>有序集合（Sorted Set）：类似于集合，但每个元素都关联有一个分数（score），用于排序元素。可以按照分数范围或成员值范围进行检索。</p>
+</li>
+<li>
+<p>地理空间（Geospatial）：用于存储地理空间信息的数据结构。支持存储坐标点，并提供距离计算和位置查询功能。</p>
+</li>
+</ul>
+<ol start="2">
+<li>Redis命令和操作</li>
+</ol>
+<ul>
+<li>Redis 命令参考：<a target="_blank" rel="noopener" href="http://redisdoc.com/">http://redisdoc.com/</a></li>
+</ul>
 <h2 id="redis高级特性"><a class="markdownIt-Anchor" href="#redis高级特性"></a> Redis高级特性</h2>
 <ol>
 <li>
@@ -431,23 +472,41 @@
 <p>分布式锁和并发控制</p>
 </li>
 </ol>
-<h2 id="redis集群和高可用性"><a class="markdownIt-Anchor" href="#redis集群和高可用性"></a> Redis集群和高可用性</h2>
-<ol>
+<h2 id="redis高可用性解决方案"><a class="markdownIt-Anchor" href="#redis高可用性解决方案"></a> Redis高可用性解决方案</h2>
+<p>Redis的高可用性解决方案主要包括以下几种：</p>
+<ul>
 <li>
-<p>Redis主从复制</p>
+<p>主从复制（Master-Slave Replication）：<br />
+通过配置Redis实例为主节点（master）和从节点（slave），<br />
+将主节点的数据复制到从节点。当主节点发生故障时，可以将其中一个从节点提升为新的主节点，继续提供服务。<br />
+主从复制提供了基本的故障恢复和容错能力。</p>
 </li>
 <li>
-<p>Sentinel哨兵模式</p>
+<p>哨兵模式（Sentinel）：<br />
+哨兵是Redis的监控和自动故障转移解决方案，用于监控Redis实例的状态并自动进行主节点切换。<br />
+哨兵集群由多个哨兵节点组成，它们会相互通信以监测Redis实例，并在主节点失效时选举新的主节点。<br />
+哨兵模式提供了更高级的故障检测和自动切换功能。</p>
 </li>
 <li>
-<p>Redis Cluster集群模式</p>
+<p>集群模式（Cluster）：<br />
+Redis集群模式将数据分片存储在多个节点上，每个节点负责管理其中的一部分数据。<br />
+集群模式通过分布式方式提供了横向扩展和负载均衡能力，使得整个集群能够处理更大规模的数据和请求量。<br />
+集群模式还具备自动故障转移和重新平衡的功能。</p>
 </li>
-</ol>
+<li>
+<p>Redis Sentinel与Redis Cluster结合：<br />
+为了进一步提高Redis的高可用性，可以将哨兵模式与集群模式结合使用。<br />
+在这种配置下，哨兵用于监控和自动故障转移，而Redis集群用于实现数据分片和负载均衡。<br />
+这种组合方案结合了两种解决方案的优点，提供了更高级别的高可用性和扩展性。</p>
+</li>
+</ul>
+<p>需要注意的是，无论采用哪种高可用性解决方案，都需要进行适当的配置和管理，以确保系统的可靠性和稳定性。此外，还应考虑数据备份、监控和容灾等其他方面的措施来增强整个系统的可用性。</p>
 <h2 id="使用redis实战示例"><a class="markdownIt-Anchor" href="#使用redis实战示例"></a> 使用Redis实战示例</h2>
 <ol>
-<li>
-<p>缓存数据</p>
-</li>
+<li>缓存</li>
+</ol>
+<p>热点数据缓存（例如报表、明星出轨），对象缓存、全页缓存、可以提升热点数据的访问数据。</p>
+<ol start="2">
 <li>
 <p>计数器和排行榜</p>
 </li>
@@ -460,22 +519,78 @@
 </ol>
 <h2 id="关键点复习题目"><a class="markdownIt-Anchor" href="#关键点复习题目"></a> 关键点复习题目</h2>
 <ol>
-<li>
-<p>Redis的主要数据结构及其用途</p>
-</li>
-<li>
-<p>如何安装和启动Redis服务器</p>
-</li>
-<li>
-<p>Redis的持久化机制是什么？</p>
-</li>
-<li>
-<p>Redis的高可用性解决方案有哪些？</p>
-</li>
-<li>
-<p>如何使用Redis进行缓存？</p>
-</li>
+<li>Redis为什么那么快？</li>
 </ol>
+<ul>
+<li>纯内存操作</li>
+<li>单线程模型，避免频繁的上下文切换</li>
+<li>合理、简单、高效的数据结构</li>
+<li>非阻塞I/O：Redis使用异步I/O模型，通过事件驱动机制来处理网络请求。</li>
+</ul>
+<ol start="2">
+<li>Redis的数据过期策略？</li>
+</ol>
+<p>Redis中的数据过期采用了惰性删除和定期删除两种策略。</p>
+<ul>
+<li>
+<p>惰性删除（Lazy Expiration）：<br />
+当客户端访问一个键时，Redis会检查该键是否已过期。<br />
+如果过期，Redis会立即删除它，并返回空值。这种策略保证了过期键不会返回给客户端，但也意味着过期键可能会在一段时间内仍然存在于内存中。<br />
+惰性删除是实现过期键删除的主要方式。</p>
+</li>
+<li>
+<p>定期删除（Eviction）：<br />
+为了清理那些被错过的或未及时访问的过期键，Redis使用了定期删除策略。<br />
+Redis会以一定的频率（默认每秒钟10次）随机抽样一部分键，并检查它们是否过期。如果发现过期键，则立即删除。<br />
+定期删除操作是后台线程执行的，可以通过<code>hz</code>配置项来调整执行频率。</p>
+</li>
+</ul>
+<p>需要注意的是，即使启用了定期删除，Redis并不保证对每个过期键都会立即进行删除操作。<br />
+删除过期键是在访问键时进行的，或者通过定期删除操作进行的。<br />
+因此，在某些情况下，过期键可能会在过期后仍然存在一段时间，直到被访问或执行定期删除操作。</p>
+<p>除了上述两种策略外，Redis还提供了持久化机制（如RDB快照和AOF日志）来确保过期键在Redis重启后仍然有效。<br />
+这些持久化机制可以将过期时间一同保存下来，以便在系统重启后重新加载并正确处理过期键。</p>
+<p>综上所述，Redis的数据过期策略包括惰性删除和定期删除，通过这两种方式配合使用来实现数据的自动过期和清理。</p>
+<ol start="3">
+<li>Redis的持久化机制是什么？</li>
+</ol>
+<p>Redis有两种主要的持久化策略：RDB（Redis Database）和AOF（Append-Only File）。</p>
+<ul>
+<li>
+<p>RDB全量快照：<br />
+RDB是Redis默认的持久化方式。<br />
+它通过定时或手动触发生成一个快照(snapshot)来保存数据到磁盘上的二进制文件。<br />
+RDB是一个压缩、紧凑的文件，适合用于备份和恢复数据。<br />
+然而，使用RDB持久化意味着你将会失去最后一次快照之后的所有数据修改。</p>
+</li>
+<li>
+<p>AOF增量日志：<br />
+AOF持久化将每个写操作追加到一个只进行追加操作的日志文件中，记录了重建当前数据集所需的所有写命令。<br />
+当Redis重新启动时，它会重新执行这些命令来还原数据集。<br />
+相对于RDB，AOF提供了更好的数据可靠性，但文件大小会比RDB大，并且在恢复过程中可能需要较长的时间。</p>
+</li>
+<li>
+<p>Redis 还可以同时使用 AOF 持久化和 RDB 持久化。<br />
+在这种情况下， 当 Redis 重启时， 它会优先使用 AOF 文件来还原数据集， 因为 AOF 文件保存的数据集通常比 RDB 文件所保存的数据集更完整。</p>
+</li>
+</ul>
+<ol start="4">
+<li>Redis与Mysql双写一致性方案？</li>
+</ol>
+<ul>
+<li>先更新数据库，再删除缓存。<br />
+数据库的读操作的速度远快于写操作的，所以脏数据很难出现。<br />
+可以对异步延时删除策略，保证读请求完成以后，再进行删除操作。</li>
+</ul>
+<ol start="4">
+<li>Redis到底是单线程还是多线程？</li>
+</ol>
+<ul>
+<li>其实，redis是单线程的。通常说的单线程，主要指redis对外提供的键值存储服务的主要流程是单线程，也就是网络I/O和数据读写是由单线程来完成的。<br />
+除此之外，redis的其他功能，比如持久化、异步删除、集群数据同步等是额外的线程来执行的。</li>
+<li>redis在6.0版本中支持多线程并不是指指令操作的多线程，而是针对网络I/O的多线程支持，也就是redis的命令操作仍然是线程安全的。<br />
+在Redis6.0里面，针对网络I/O的处理方式改成了多线程，通过多线程并行的方式提供了网络I/O的处理效率。但是对于客户端指令，还是使用单线程方式来执行的。</li>
+</ul>
 
     </div>
 
@@ -556,13 +671,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">62k</span>
+    <span title="站点总字数">65k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">56 分钟</span>
+    <span title="站点阅读时长">59 分钟</span>
   </span>
 </div>
 <div class="busuanzi-count">

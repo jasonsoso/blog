@@ -15,7 +15,7 @@
     <atom:link href="http://tech.jasonsoso.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>欢迎来到我的技术流水账~</description>
-    <pubDate>Mon, 17 Jul 2023 15:21:33 GMT</pubDate>
+    <pubDate>Tue, 18 Jul 2023 15:50:46 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -24,24 +24,11 @@
       <guid>http://tech.jasonsoso.com/2023/07/redis-getting-started-guide/</guid>
       <pubDate>Mon, 17 Jul 2023 14:00:00 GMT</pubDate>
       
-      <description>&lt;h2 id=&quot;redis介绍&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#redis介绍&quot;&gt;&lt;/a&gt; Redis介绍&lt;/h2&gt;
+      <description>&lt;p&gt;&lt;img data-src=&quot;http://tech.jasonsoso.com/images/2023/redis.png&quot; alt&gt;&lt;/p&gt;
+&lt;h2 id=&quot;redis介绍&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#redis介绍&quot;&gt;&lt;/a&gt; Redis介绍&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;Redis概述&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;是一个开源的键值对存储系统，以内存为主要存储介质，也可以通过持久化将数据保存到磁盘上。它被设计为一个高性能、低延迟的数据存储解决方案，广泛应用于缓存、会话管理、实时分析、消息传递和排行榜等场景。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Redis支持多种数据结构，包括字符串、哈希（Hash）、列表（List）、集合（Set）和有序集合（Sorted Set）。这些数据结构赋予了Redis更灵活的功能，例如存储各种类型的数据、处理计数器、实现发布订阅模式以及进行地理位置查询等。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;由于Redis将数据存储在内存中，使得其读写速度非常快，通常可以达到每秒几十万次的操作。此外，Redis还提供了持久化选项，可以将内存中的数据定期快照保存到磁盘上，或者使用AOF（Append-Only File）日志记录每个写操作，从而确保数据的可靠性和持久性。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;总之，Redis作为一个高性能、多功能的键值存储系统，在各种场景下都展现出了卓越的表现，并受到广泛使用和青睐。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;</description>
+&lt;/ol&gt;</description>
       
       
       
