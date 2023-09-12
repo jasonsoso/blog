@@ -1236,13 +1236,16 @@ json相关函数在mysql8.0有部分方法名有差异。如JSON_MERGE替换为J
 <p><img data-src="http://tech.jasonsoso.com/images/202210/mysql-1.png" alt="mysql8的安装" title="mysql8的安装" /></p>
 </li>
 <li>
-<p>开启mysql 服务<br />
-在开启前最最重要的一步，防止数据库运行后，产生数据库大小写敏感无法更改的问题！</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#(使用repo安装的mysql，生成的文件为my.cnfreoNew,修改为my.cnf即可)</span></span><br><span class="line">vi /etc/my.cnf</span><br></pre></td></tr></table></figure>
-<p>在[mysqlId]下增加配置</p>
+<p>调整mysql相关配置</p>
+   <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#(使用repo安装的mysql，生成的文件为my.cnfreoNew,修改为my.cnf即可)</span></span><br><span class="line">vi /etc/my.cnf</span><br></pre></td></tr></table></figure>
+<p>在[mysqlId]下增加配置（数据库大小写敏感）</p>
  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">lower_case_table_names=1</span><br></pre></td></tr></table></figure>
+<p>开启慢查询</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">slow_query_log = ON <span class="comment">#慢查询开启状态</span></span><br><span class="line">slow_query_log_file = /usr/local/mysql/data/slow.log <span class="comment">#慢查询日志存放的位置（这个目录需要MySQL的运行帐号的可写权限，一般设置为MySQL的数据存放目录）</span></span><br><span class="line">long_query_time = 1 <span class="comment">#查询超过多少秒才记录</span></span><br></pre></td></tr></table></figure>
 <p>然后ESC退出，:wq退出并保存，然后在启动服务</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl start mysqld.service</span><br></pre></td></tr></table></figure>
+<p>或者</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">service mysqld start #启动服务</span><br><span class="line">service mysqld stop #停止服务</span><br><span class="line">service mysqld restart #重启服务</span><br></pre></td></tr></table></figure>
 </li>
 <li>
 <p>获取初始密码登录mysql<br />
@@ -1626,7 +1629,7 @@ es7下面的mytest_user_detail.yml</p>
       </tags>
   </entry>
   <entry>
-    <title>Redis入门指南：安装、使用和关键点复习</title>
+    <title>Redis指南：安装、使用和关键点复习</title>
     <url>/2023/07/redis-getting-started-guide/</url>
     <content><![CDATA[<p><img data-src="http://tech.jasonsoso.com/images/2023/redis.png" alt="" /></p>
 <h2 id="redis介绍"><a class="markdownIt-Anchor" href="#redis介绍"></a> Redis介绍</h2>

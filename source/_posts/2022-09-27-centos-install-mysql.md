@@ -174,20 +174,36 @@ json相关函数在mysql8.0有部分方法名有差异。如JSON_MERGE替换为J
    ![mysql8的安装](http://tech.jasonsoso.com/images/202210/mysql-1.png "mysql8的安装")
 
 
-5. 开启mysql 服务
-   在开启前最最重要的一步，防止数据库运行后，产生数据库大小写敏感无法更改的问题！
-   ``` bash
+5. 调整mysql相关配置
+
+      ``` bash
     #(使用repo安装的mysql，生成的文件为my.cnfreoNew,修改为my.cnf即可)
     vi /etc/my.cnf
     ```
-   在[mysqlId]下增加配置
+   
+   在[mysqlId]下增加配置（数据库大小写敏感）
     ``` bash
     lower_case_table_names=1
     ```
+
+   开启慢查询
+    ``` bash
+    slow_query_log = ON #慢查询开启状态
+    slow_query_log_file = /usr/local/mysql/data/slow.log #慢查询日志存放的位置（这个目录需要MySQL的运行帐号的可写权限，一般设置为MySQL的数据存放目录）
+    long_query_time = 1 #查询超过多少秒才记录
+    ```
+
    然后ESC退出，:wq退出并保存，然后在启动服务
    ``` bash
     systemctl start mysqld.service
     ```
+   
+   或者
+   ``` mysql
+   service mysqld start #启动服务
+   service mysqld stop #停止服务
+   service mysqld restart #重启服务
+    ``` 
 
 6. 获取初始密码登录mysql
    mysql在安装后会创建一个root@locahost账户，并且把初始的密码放到了/var/log/mysqld.log文件中；

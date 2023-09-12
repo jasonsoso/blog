@@ -1,5 +1,5 @@
 ---
-title: Redis入门指南：安装、使用和关键点复习
+title: Redis指南：安装、使用和关键点复习
 date: 2023/7/17 22:00:00
 tags:
     - CentOS
